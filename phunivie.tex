@@ -1,0 +1,244 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{german}
+\usepackage{phunivie}
+\usepackage{amsmath}
+
+\setlength{\parindent}{0cm}
+
+\begin{document}
+\title{Eine Einführung in das \LaTeXe-Packet phunivie}
+\author{Hans Freitag (und einige andere)}
+\maketitle 
+
+Der Packetname {\bf phunivie} steht für Fakultät für Physik der Uni Wien. 
+Das Packet ist eine Sammlung von \LaTeXe-Makros von Studierenden der Fakultät, 
+die sich im Laufe des Studiums als Hilfreich erwiesen haben. 
+
+\tableofcontents
+
+\section{Installation}
+
+Das Packet ist in der Datei {\bf phunivie.sty} implementiert, um das Packet zu 
+verwenden muss es entweder in dem Verzeichnis liegen wo das \TeX-Dokument 
+übersetzt wird, oder in eines der Suchpfade für Packete kopiert werden.\\
+
+\subsection{Linux}
+
+Unter Linux kann man das Packet unter  {\bf
+\$HOME/texmf/tex/latex/phunivie/phunivie.sty} ablegen, dann wird es von allen 
+Dokumenten gefunden. \\
+
+\subsection{Windows}
+\begin{enumerate}
+	\item Erstellen eines Ordners mit dem Namen der \textbf{\textbf{*.sty}} 
+		Datei (hier phunivie) unter dem Installationsordner:\\
+
+		\textbf{\emph{MiKTeX\textbackslash tex\textbackslash latex}}\\
+		Normalerweise unter: \textbf{\emph{C:\textbackslash Program 
+		Files (x86)\textbackslash MiKTeX 2.9\textbackslash 
+		tex\textbackslash latex}}
+
+	\item Einbinden in Miktex:\\
+			Gehe auf $\boldsymbol{Start \rightarrow MiKTeX \rightarrow 
+			Maintenance \rightarrow Settings \rightarrow Refresh~FNDB}$
+
+	\item Fertig!
+\end{enumerate}
+
+
+\section{Benutzung}
+
+In der Preambel:
+
+\begin{verbatim}
+	\usepackage{phunivie}
+\end{verbatim}
+
+oder
+
+\begin{verbatim}
+	\usepackage[option]{phunivie}
+\end{verbatim}
+
+Optionen können sein: 
+
+\begin{description}
+	\item[basti] Sebastians Layout Parameter (margin$=$2.5cm)
+	\item[motz] Motz's Layout Parameter
+\end{description}
+	
+
+\section{Titelseite}
+
+Für das Anfängerpraktikum ist eine Besondere Titelseite nötig, die 
+kann natürlich ganz einfach gesetzt werden:
+
+\begin{verbatim}
+\semester{SoSe 2011}
+%\fakulty{Fakultät für Sonstwas}
+%\title{Physikalisches Praktikum\\für Lehramtskandidaten}
+\experiment{1. Fnord}
+%\date{abgabedatum}
+\author{Hans Freitag}
+\group{3}
+\supervisor{someone}
+
+\makeanfpratitle
+\end{verbatim}
+
+Die auskommentierten Parameter sind optional. Und so siehts 
+aus\footnote{$\backslash$date und $\backslash$author gehen zur Zeit nur wenn der Block am 
+Anfang eines Dokumentes steht}:
+
+\semester{SoSe 2011}
+%\fakulty{Fakultät für Sonstwas}
+%\title{Physikalisches Praktikum\\für Lehramtskandidaten}
+\experiment{1. Fnord}
+%\date{\today}
+%\author{Hans Freitag}
+\group{3}
+\supervisor{someone}
+\makeanfpratitle
+
+
+\section{Mathe Komandos}
+
+\subsection{$23\E{10}$}
+
+\begin{verbatim}
+$$23\E{10}$$
+\end{verbatim}
+
+\subsection{\ddt}
+
+\begin{verbatim}
+$$
+	\ddt
+$$
+\end{verbatim}
+
+\subsection{$\dnach{x}$}
+
+\begin{verbatim}
+$$
+	\dnach{x}
+$$
+\end{verbatim}
+
+\subsection{$\ddnach{x}{y}$}
+
+\begin{verbatim}
+$$
+	\ddnach{x}{y}
+$$
+\end{verbatim}
+
+
+\subsection{$\dddnach{x}{y}{z}$}
+
+\begin{verbatim}
+$$
+	\dddnach{x}{y}{z}
+$$
+\end{verbatim}
+
+\subsection{$\dznach{x}{y}$}
+
+\begin{verbatim}
+$$
+	\dznach{x}{y}
+$$
+\end{verbatim}
+
+\subsection{$\vnabla$}
+
+\begin{verbatim}
+$$
+	\vnabla
+$$
+\end{verbatim}
+
+\subsection{$\evec{x}$}
+
+\begin{verbatim}
+$$
+	\evec{x}
+$$
+\end{verbatim}
+
+\subsection{$\bra{x}$}
+
+\begin{verbatim}
+$$
+	\bra{x}
+$$
+\end{verbatim}
+
+\subsection{$\ket{x}$}
+
+\begin{verbatim}
+$$
+	\ket{x}
+$$
+\end{verbatim}
+
+\subsection{$\bracket{x}{y}$}
+
+\begin{verbatim}
+$$
+	\bracket{x}{y}
+$$
+\end{verbatim}
+
+\subsection{$\up$}
+
+\begin{verbatim}
+$$
+	\up
+$$
+\end{verbatim}
+
+\subsection{$\down$}
+
+\begin{verbatim}
+$$
+	\down
+$$
+\end{verbatim}
+
+\subsection{$\upup$}
+
+\begin{verbatim}
+$$
+	\upup
+$$
+\end{verbatim}
+
+\subsection{$\downdown$}
+
+\begin{verbatim}
+$$
+	\downdown
+$$
+\end{verbatim}
+
+\subsection{$\sandwich{x}{y}$}
+
+\begin{verbatim}
+$$
+	\sandwich{x}{y}
+$$
+\end{verbatim}
+
+\subsection{$\fsqrt{x}{y}$}
+
+\begin{verbatim}
+$$
+	\fsqrt{x}{y}
+$$
+\end{verbatim}
+
+\end{document}
+
+

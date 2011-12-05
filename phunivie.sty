@@ -1,0 +1,129 @@
+\ProvidesPackage{phunivie}
+\RequirePackage{german}
+\RequirePackage{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package Options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOption{basti}{
+	\geometry{margin=2.5cm}
+} 
+\DeclareOption{motz}{ 
+	%gerade Seite   ungerade Seite
+	\lhead[ \ ]{ \ }
+	\chead[ \ ]{ \ }
+	\rhead[ \ ]{ \ }
+	
+	\lfoot[ \ ]{ \ }
+	\cfoot[ \ ]{ \ }
+	\rfoot[ \ ]{ \ }
+}
+\ProcessOptions
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Macros für Titelseite
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\@semester}{SOMMERSEMESTER \year}
+\newcommand{\semester}[1]{\renewcommand{\@semester}{#1}}
+\newcommand{\@fakulty}{Fakult"at für Physik}
+\newcommand{\fakulty}[1]{\renewcommand{\@fakulty}{#1}}
+\title{Physikalisches Praktikum\\f"ur Bachelor}
+\newcommand{\@experiment}{}
+\newcommand{\experiment}[1]{\renewcommand{\@experiment}{#1}}
+\date{\today}
+\newcommand{\@group}{}
+\newcommand{\group}[1]{\renewcommand{\@group}{#1}}
+\newcommand{\@supervisor}{}
+\newcommand{\supervisor}[1]{\renewcommand{\@supervisor}{#1}}
+
+\newcommand{\makeanfpratitle}{
+	\begin{titlepage}
+	\thispagestyle{empty}
+	
+	\begin{center}
+		\Large{\@fakulty}\\
+	\end{center}
+	
+	\vskip 1cm
+
+	%Eintrag des Wintersemesters
+	\begin{center}
+		\textbf{\LARGE \@semester}
+	\end{center}
+
+	\vskip 1cm
+	
+	\begin{center}
+		\textbf{\LARGE{\@title}}
+	\end{center}
+
+	\vskip 2cm
+
+	\begin{center}
+		\textbf{\LARGE{PROTOKOLL}}
+	\end{center}
+	
+	\vskip 2cm			
+
+	\begin{flushleft}
+		\textbf{\Large{Experiment (Nr., Titel):}}\\
+		%Experiment Nr. und Titel statt den Punkten eintragen
+		\LARGE{\@experiment}	
+	\end{flushleft}
+
+	\vskip 0.5cm
+
+	%Eintragen des Abgabedatums, oder des Erstelldatums des Protokolls	
+	\begin{flushleft}
+		\textbf{\Large{Datum:}} \Large{\@date}
+	\end{flushleft}
+			
+	\vskip 0.5cm
+
+	%Namen der Protokollschreiber
+	\begin{flushleft}
+		\textbf{\Large{Namen:}} \Large{\@author}
+	\end{flushleft}
+
+	\vskip 1cm
+	
+	%Kurstag und Gruppennummer, zb. Fr/5
+	\begin{flushleft}
+		\textbf{\Large{Kurstag/Gruppe:}} \Large{\@group}
+	\end{flushleft}
+
+	\vfill
+	
+	%Name des Betreuers, das Praktikum betreute.
+	\begin{flushleft}
+		\LARGE{\textbf{Betreuer:}}\\	\Large{\@supervisor}	
+	\end{flushleft}
+	\end{titlepage}
+}
+
+
+% Math environment commands
+\newcommand{\E}[1]{\ensuremath{ \times 10^{#1}}}
+
+% vom Motz
+\newcommand{\ddt}{\ensuremath{ \frac{\partial}{\partial t}}}
+\newcommand{\dnach}[1]{\ensuremath{ \frac{\partial}{\partial #1}}}
+\newcommand{\ddnach}[2]{\ensuremath{ \frac{\partial #1}{\partial #2}}}
+\newcommand{\dddnach}[3]{\ensuremath{ \frac{\partial^2 #1}{\partial #2 \partial #3}}}
+\newcommand{\dznach}[2]{\ensuremath{ \frac{\partial^2 #1}{\partial #2^2}}}
+\newcommand{\vnabla}{\ensuremath{ \vec{\nabla}}}
+\newcommand{\evec}[1]{\ensuremath{ \mathbf{\hat{#1}}}}
+\newcommand{\bra}[1]{\ensuremath{ \langle#1|}}
+\newcommand{\ket}[1]{\ensuremath{ |#1\rangle}}
+\newcommand{\bracket}[2]{\ensuremath{ \langle#1| #2\rangle}}
+\newcommand{\up}{\ensuremath{ \uparrow}}
+\newcommand{\down}{\ensuremath{ \downarrow}}
+\newcommand{\updown}{\ensuremath{ \uparrow \downarrow}}
+\newcommand{\downup}{\ensuremath{ \downarrow \uparrow}}
+\newcommand{\upup}{\ensuremath{ \uparrow \uparrow}}
+\newcommand{\downdown}{\ensuremath{ \downarrow \downarrow}}
+\newcommand{\sandwich}[2]{\ensuremath{ \bra{#1} #2 \ket{#1}}}
+\newcommand{\fsqrt}[2]{\ensuremath{ \sqrt{\frac{#1}{#2}}}}
+
