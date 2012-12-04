@@ -68,7 +68,7 @@ sub calculate {
 sub insert_pyvar {
 	my $var=shift; 
 	print "Insertin Variable $var\n"; 
-	my @ret=calculate($var); 
+	my @ret=calculate("uround($var)"); 
 	$ret[0]=~s/^\s+//g; 
 	$ret[0]=~s/\s+$//g; 
 	my ($val, $uncert)=split(/\+\/\-/, $ret[0]); 
