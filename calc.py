@@ -16,7 +16,7 @@ def uround(a, digits=2):
 		while x<10**(digits-1):
 			n=n+1
 			x=std_dev(a)*10**n
-		if x<round(x):
+		if x>round(x):
 			x=round(x)+1
 		else:
 			x=round(x)
