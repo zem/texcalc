@@ -128,8 +128,8 @@ if (!$pdflatex) {
 	close READ; 
 	close WRITE; 
 
-	system("$pdflatex $texfile"); 
-	system("$pdflatex $texfile"); 
+	system("$pdflatex $texfile") or print "calling pdflatex failed\n"; 
+	system("$pdflatex $texfile") or print "calling pdflatex failed\n"; 
 	
 	if ( ! $leavetexfile) {
 		unlink($texfile) or die "TMP"; 
