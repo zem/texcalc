@@ -73,7 +73,7 @@ sub insert_pyvar {
 	$ret[0]=~s/\s+$//g; 
 	my ($val, $uncert)=split(/\+\/\-/, $ret[0]); 
 	if ($uncert) {
-		return "($val \\pm $uncer)"; 
+		return "($val \\pm $uncert)"; 
 	} else {
 		return $val;
 	}
@@ -115,8 +115,8 @@ if (!$pdflatex) {
 	link(".$texfile.tmp", $texfile) or die "TMP"; 
 	unlink(".$texfile.tmp") or die "TMP"; 
 } else {
-	open(READ, "> .$texfile.tmp") or die "Write open fail"; 
-	open(WRITE, "< $texfile") or die "READ Opemn fail"; 
+	open(READ, "< .$texfile.tmp") or die "Write open fail"; 
+	open(WRITE, "> $texfile") or die "READ Opemn fail"; 
 	READ->autoflush(1); 
 	WRITE->autoflush(1); 
 
