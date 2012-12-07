@@ -26,12 +26,14 @@ while (my $arg=shift(@ARGV)) {
 
 open(READ, "< $texfile") or die "READ Opemn fail"; 
 open(WRITE, "> .$texfile.tmp") or die "Write open fail"; 
+open(WRITE2, "> .$texfile.tmp2") or die "Write open fail"; 
 
 my $pid = open3(\*CALC_IN, \*CALC_OUT, \*CALC_ERR, 'calc.py -t')
     or die "open3() failed $!";
 
 READ->autoflush(1); 
 WRITE->autoflush(1); 
+WRITE2->autoflush(1); 
 CALC_IN->autoflush(1); 
 CALC_OUT->autoflush(1); 
 CALC_ERR->autoflush(1); 
@@ -71,9 +73,8 @@ sub insert_pyvar {
 	my @ret=calculate("uround($var)"); 
 	$ret[0]=~s/^\s+//g; 
 	$ret[0]=~s/\s+$//g; 
+	$ret[0]=~s/\./,/g;
 	my ($val, $uncert)=split(/\+\/\-/, $ret[0]); 
-	$val=~s/\./,/g;
-	$uncert=~s/\./,/g;
 	if ($uncert) {
 		# This part ist 
 		my $cnt=$uncert; 
@@ -107,40 +108,38 @@ while ($ready==0){
 while(<READ>) {
 	if (/^%calc/) {
 		print WRITE; 
+		print WRITE2; 
 		s/^%calc\ *//g;
 		chomp;
 		my $n="\n";
 		if (/\r$/) { chop; $n="\r\n"; print "Dos Format detected\n";}
+		s/%.+?$//g; # strip comments 
 		#$_=$_."\n";
 		# calc that 
 		foreach my $result (calculate($_)) {
 			print WRITE "%res ".$result.$n; 
+			print WRITE2 "%res ".$result.$n; 
 		}
 	} elsif (/^%res/) {
 		# do nothing with result lines 
-	} else { print WRITE; }
+	} else { 
+		print WRITE; 
+		s/\@((\w|\d)+)\@/insert_pyvar($1)/gex; 
+		print WRITE2; 
+	}
 }
 
 close READ; 
 close WRITE; 
+close WRITE2; 
 
 unlink($texfile) or die "TMP"; 
 if (!$pdflatex) {
 	link(".$texfile.tmp", $texfile) or die "TMP"; 
 	unlink(".$texfile.tmp") or die "TMP"; 
+	unlink(".$texfile.tmp2") or die "TMP"; 
 } else {
-	open(READ, "< .$texfile.tmp") or die "Write open fail"; 
-	open(WRITE, "> $texfile") or die "READ Opemn fail"; 
-	READ->autoflush(1); 
-	WRITE->autoflush(1); 
-
-	while(<READ>){
-		s/\@((\w|\d)+)\@/insert_pyvar($1)/gex; 
-		print WRITE; 
-	}
-
-	close READ; 
-	close WRITE; 
+	link(".$texfile.tmp2", $texfile) or die "TMP"; 
 
 	system("$pdflatex $texfile") or print "calling pdflatex failed\n"; 
 	system("$pdflatex $texfile") or print "calling pdflatex failed\n"; 
@@ -150,5 +149,6 @@ if (!$pdflatex) {
 		link(".$texfile.tmp", $texfile) or die "TMP"; 
 	}
 	unlink(".$texfile.tmp") or die "TMP"; 
+	unlink(".$texfile.tmp2") or die "TMP"; 
 }
 
