@@ -106,21 +106,34 @@ while ($ready==0){
 }
 
 while(<READ>) {
-	if (/^%calc/) {
+	if ((/^%calc/)or(/^%c\ /)or(/^%C\ /)) {
 		print WRITE; 
 		print WRITE2; 
+		my $with_result;
+		if (/^%C\ /){ $with_result=1; }
 		s/^%calc\ *//g;
+		s/^%c\ +//g;
+		s/^%C\ +//g;
 		chomp;
 		my $n="\n";
 		if (/\r$/) { chop; $n="\r\n"; print "Dos Format detected\n";}
 		s/%.+?$//g; # strip comments 
+		s/\(((\d|\.)+)\|((\d|\.)+)\)/"f((".$1.",".$3."))"/gex; # (23.2|0.01) 
 		#$_=$_."\n";
 		# calc that 
 		foreach my $result (calculate($_)) {
-			print WRITE "%res ".$result.$n; 
-			print WRITE2 "%res ".$result.$n; 
+			print WRITE "%r ".$result.$n; 
+			print WRITE2 "%r ".$result.$n; 
 		}
-	} elsif (/^%res/) {
+		if ($with_result) {
+			#we will do the last thing again but trying to fetch the Variable 
+			s/=.*$//g;
+			foreach my $result (calculate($_)) {
+				print WRITE "%r ".$result.$n; 
+				print WRITE2 "%r ".$result.$n; 
+			}
+		}
+	} elsif ((/^%res/)or(/^%r\ /)) {
 		# do nothing with result lines 
 	} else { 
 		print WRITE; 
