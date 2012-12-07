@@ -33,4 +33,5 @@ if len(sys.argv)>1 and sys.argv[1]=="-t":
 	sys.ps1="ready\n"
 	sys.ps2="ready\n"
 
+WERT=f((1.0, 0.1))
 
