@@ -72,7 +72,21 @@ sub insert_pyvar {
 	$ret[0]=~s/^\s+//g; 
 	$ret[0]=~s/\s+$//g; 
 	my ($val, $uncert)=split(/\+\/\-/, $ret[0]); 
+	$val=~s/\./,/g;
+	$uncert=~s/\./,/g;
 	if ($uncert) {
+		# This part ist 
+		my $cnt=$uncert; 
+		$cnt=~s/^(0|,)+//g;
+		$cnt=length($cnt);
+		if ( $cnt < 2 ) {
+			# we need to add one significant zero
+			# because it is a standard! 
+			$uncert=$uncert."0";
+		}
+		while (length($val)< length($uncert)) {
+			$val=$val."0";
+		} 
 		return "($val \\pm $uncert)"; 
 	} else {
 		return $val;
