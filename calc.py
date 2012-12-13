@@ -5,6 +5,7 @@ from math import *
 import uncertainties
 from uncertainties import *
 from uncertainties.umath import *
+from numpy  import *
 
 def f(a):
 	return ufloat(a)
@@ -34,4 +35,11 @@ if len(sys.argv)>1 and sys.argv[1]=="-t":
 	sys.ps2="ready\n"
 
 WERT=f((1.0, 0.1))
+
+def meanval(a):
+	a=array(a)
+	mw=a.mean()
+	sa=sqrt(((a-mw)**2).mean())
+	return f((mw, sa))
+	#return [mw, sa]
 
