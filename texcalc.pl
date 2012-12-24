@@ -7,14 +7,30 @@ use IO::Select;
 my $leavetexfile; 
 my $pdflatex; 
 my $texfile; 
+my $texcmd="pdflatex";
 while (my $arg=shift(@ARGV)) {
 	if ($arg eq "-c") {
 		# -compile
-		$pdflatex="pdflatex"; 
+		$pdflatex=$texcmd; 
+	} elsif (($arg eq "-?")or($arg eq "-h")) {
+		print "
+	usage: $0  [-tex latexcommand] [-C -y] [-c] [-?|-h] filename
+		-tex	configures the latex command to produce pdf files default ist pdflatex
+		-C	-y	exchanges the \@VARIABLE\@ Tags in the .tex file with the calculated values
+		-c		calculates the the file and produces tex
+		-?
+		-h 	prints this help
+				
+"; 
+		exit ; 
+	} elsif ($arg eq "-tex") {
+		$texcmd=shift(@ARGV); 
+		# in the case anyone already issued -c or -C 
+		if ( $pdflatex ) { $pdflatex=$texcmd; }
 	} elsif ($arg eq "-C") {
 		if (shift(@ARGV) eq "-y") {
 			# -compile
-			$pdflatex="pdflatex"; 
+			$pdflatex=$texcmd; 
 			$leavetexfile=1;
 		} else { 
 			die "-C must be followed by -y\n"; 
