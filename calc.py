@@ -2,10 +2,10 @@
 
 import sys
 from math import *
+from numpy  import *
 import uncertainties
 from uncertainties import *
 from uncertainties.umath import *
-from numpy  import *
 
 def f(a):
 	return ufloat(a)
