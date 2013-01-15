@@ -84,9 +84,10 @@ sub calculate {
 }
 
 sub insert_pyvar {
-	my $var=shift; 
+	my ($var, $digits)=split(/\,/, shift);
 	print "Insertin Variable $var\n"; 
-	my @ret=calculate("uround($var)"); 
+	if ( ! $digits ) { $digits=2; }
+	my @ret=calculate("uround($var, $digits)"); 
 	$ret[0]=~s/^\s+//g; 
 	$ret[0]=~s/\s+$//g; 
 	$ret[0]=~s/\./,/g;
@@ -96,7 +97,7 @@ sub insert_pyvar {
 		my $cnt=$uncert; 
 		$cnt=~s/^(0|,)+//g;
 		$cnt=length($cnt);
-		if ( $cnt < 2 ) {
+		if ( $cnt < $digits ) {
 			# we need to add one significant zero
 			# because it is a standard! 
 			$uncert=$uncert."0";
@@ -153,7 +154,7 @@ while(<READ>) {
 		# do nothing with result lines 
 	} else { 
 		print WRITE; 
-		s/\@((\w|\d)+)\@/insert_pyvar($1)/gex; 
+		s/\@((\w|\d|\,)+)\@/insert_pyvar($1)/gex; 
 		print WRITE2; 
 	}
 }
