@@ -92,6 +92,8 @@ sub insert_pyvar {
 	$ret[0]=~s/\s+$//g; 
 	$ret[0]=~s/\./,/g;
 	my ($val, $uncert)=split(/\+\/\-/, $ret[0]); 
+	$val=~s/,0$//g;
+	$uncert=~s/,0$//g;
 	if ($uncert) {
 		# This part ist 
 		my $cnt=$uncert; 
