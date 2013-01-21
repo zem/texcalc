@@ -83,6 +83,11 @@ sub calculate {
 	return @ret; 
 }
 
+sub length_after_delim  {
+	my ($val, $dezimal)=split(/,/, shift);
+ 	return length ($dezimal)	
+}
+
 sub insert_pyvar {
 	my ($var, $digits)=split(/\,/, shift);
 	print "Insertin Variable $var\n"; 
@@ -96,15 +101,18 @@ sub insert_pyvar {
 	$uncert=~s/,0$//g;
 	if ($uncert) {
 		# This part ist 
+		if ( $uncert !~ /,/ ) { $uncert=$uncert."," }
 		my $cnt=$uncert; 
 		$cnt=~s/^(0|,)+//g;
-		$cnt=length($cnt);
-		if ( $cnt < $digits ) {
+		my $cnt_num=length($cnt);
+		while ( $cnt_num < $digits ) {
 			# we need to add one significant zero
 			# because it is a standard! 
 			$uncert=$uncert."0";
+			$cnt=$cnt."0"; $cnt_num=length($cnt);
 		}
-		while (length($val)< length($uncert)) {
+		if ((length_after_delim($val)< length_after_delim($uncert)) and ( $val !~ /,/ )) { $val=$val."," }
+		while (length_after_delim($val)< length_after_delim($uncert)) {
 			$val=$val."0";
 		} 
 		return "($val \\pm $uncert)"; 
