@@ -111,6 +111,7 @@ sub insert_pyvar {
 			$uncert=$uncert."0";
 			$cnt=$cnt."0"; $cnt_num=length($cnt);
 		}
+		$uncert=~s/,$//g; # remove , if there is no trailing number
 		if ((length_after_delim($val)< length_after_delim($uncert)) and ( $val !~ /,/ )) { $val=$val."," }
 		while (length_after_delim($val)< length_after_delim($uncert)) {
 			$val=$val."0";
