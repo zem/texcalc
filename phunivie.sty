@@ -1,6 +1,7 @@
 \ProvidesPackage{phunivie}
 \RequirePackage{german}
 \RequirePackage{geometry}
+\RequirePackage{comment} % for calc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Package Options
@@ -127,3 +128,14 @@
 \newcommand{\sandwich}[2]{\ensuremath{ \bra{#1} #2 \ket{#1}}}
 \newcommand{\fsqrt}[2]{\ensuremath{ \sqrt{\frac{#1}{#2}}}}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TeXCalc \py{}
+\newcommand{\val}[1]{\ensuremath{(#1)}} % do nothing  
+
+% TeXCalc Environment
+\newenvironment{calc}{
+	\begin{comment}
+}{
+	\end{comment}
+}
