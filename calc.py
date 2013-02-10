@@ -7,7 +7,8 @@ import uncertainties
 from uncertainties import *
 from uncertainties.umath import *
 
-print sys.argv
+# this variable can be used in files when the value is still not known
+VALUE=f((1.0, 0.1)) 
 
 def f(a, b='na'):
 	if (b!='na'):
@@ -31,20 +32,24 @@ def uround(a, digits=2):
 	else:
 		return round(a, digits)
 
-if len(sys.argv)>1 and sys.argv[1]=="-q":
-	sys.ps1=""
-	sys.ps2=""
-
-if len(sys.argv)>1 and sys.argv[1]=="-t":
-	sys.ps1="ready\n"
-	sys.ps2="ready\n"
-
-WERT=f((1.0, 0.1))
-
+# creates meanval and stderr of an array or a list and returns it as ufloat number
 def meanval(a):
 	a=array(a)
 	mw=a.mean()
 	sa=sqrt(((a-mw)**2).mean())
 	return f((mw, sa))
 	#return [mw, sa]
+
+################################################################################################
+# Main Program
+
+arguments=sys.argv[1:]
+while (arg=arguments.pop(0)):
+	if (arg=="-q"):
+		sys.ps1=""
+		sys.ps2=""
+	if (arg=="-t"):
+		sys.ps1="ready\n"
+		sys.ps2="ready\n"
+
 
