@@ -7,8 +7,13 @@ import uncertainties
 from uncertainties import *
 from uncertainties.umath import *
 
-def f(a):
-	return ufloat(a)
+print sys.argv
+
+def f(a, b='na'):
+	if (b!='na'):
+		return ufloat((a, b))
+	else:
+		return ufloat(a)
 
 def uround(a, digits=2):
 	if isinstance(a, UFloat):
