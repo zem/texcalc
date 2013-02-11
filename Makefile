@@ -1,11 +1,21 @@
-TARGET=/usr/local/bin
-TEXMFTARGET=${HOME}/texmf/tex/latex/phunivie
+# For installation in Home directory use 
+# PREFIX=$HOME SHARE=$HOME
+#
+# For Packaging use PREFIX=/whatever/usr
+#
 
-install: $(TARGET)/texcalc.pl
+PREFIX=/usr/local
+SHARE=${PREFIX}/share
 
-$(TEXMFTARGET)/phunivie.sty: phunivie.sty
-	mkdir -p $(TEXMFTARGET)
+TARGET=${PREFIX}/bin
+TEXMF=${SHARE}/texmf/tex/latex/phunivie
+
+install: $(TEXMF)/phunivie.sty $(TARGET)/texcalc.py
+
+$(TEXMF)/phunivie.sty: phunivie.sty
+	mkdir -p $(TEXMF)
 	cp $< $@
+	mktexlsr
 
-$(TARGET)/texcalc.py: texcalc.pl
+$(TARGET)/texcalc.py: texcalc.py
 	cp $< $@
