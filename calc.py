@@ -2,6 +2,8 @@
 
 import os
 import sys
+import re
+import subprocess
 from math import *
 from numpy  import *
 import uncertainties
@@ -47,7 +49,84 @@ def meanval(a):
 	#return [mw, sa]
 
 
+#################################################################################################
+# File Parsing methods 
+
+
+# global variables for the evaluate context
+evaluate_kontext=globals()
+evaluate_line_collect=''
+def evaluate_line(line):
+	#global evaluate_kontext
+	global evaluate_line_collect
+	line=re.sub('\(((\d|\.)+)\|((\d|\.)+)\)', 'f((\\1,\\3))', line)
+	if re.match('def\s.*:$', line) or ((evaluate_line_collect!='') and (line!='')):
+		#print "funktionsdefinition starting collect "+ line
+		evaluate_line_collect=evaluate_line_collect+line+"\n"
+		return ''
+	elif ((line=='') and (evaluate_line_collect!='')):
+		exec(evaluate_line_collect+"\n") in evaluate_kontext
+		evaluate_line_collect=''
+		return ''
+	else:
+		exec(line) in evaluate_kontext
+		expr_list=re.split('=', line)
+		return eval(expr_list[0], evaluate_kontext)
+
+def insert_values(line):
+	return line
+
+
+# this method parses a texfile, puts in the results and 
+# inserts the \val{}
 def calculate_texfile(filename, texmode='none'):
+	#exec('from main import *') in evaluate_kontext
+	novalname=filename+".noval.tmp"
+	valname=filename+".val.tmp"
+	commentchr='%'
+	
+	i_file = open(filename, "r")
+	noval_file = open(novalname, "w")
+	val_file = open(valname, "w")
+	
+	result=''
+	for line in i_file:
+		line=line.rstrip()
+		if re.match(commentchr+'(r)\s', line) :
+			print "ignore %r line" + line
+			# write this line nowhere 
+		# the classic calc c C lines 
+		elif (commentchr=="%") and (line=="\\begin{calc}"):
+			noval_file.write(line+"\n")
+			val_file.write(line+"\n")
+			commentchr="#"
+		elif (commentchr=="#") and (line=="\\end{calc}"):
+			noval_file.write(line+"\n")
+			val_file.write(line+"\n")
+			commentchr="%"
+		elif (commentchr=="#") and (line!="\\end{calc}"):
+			noval_file.write(line+"\n")
+			val_file.write(line+"\n")
+			result=evaluate_line(line)
+		elif re.match('\%(calc|c|C)\s', line):
+			noval_file.write(line+"\n")
+			val_file.write(line+"\n")
+			line=re.sub('\%(calc|c|C)\s', '', line)
+			line=re.split('\%', line)[0] # yea mod is not working then I know
+			result=evaluate_line(line)
+		else:
+			noval_file.write(line+"\n")
+			val_file.write(insert_values(line)+"\n")
+		if ( result != '' ): 
+			noval_file.write(commentchr+"r "+str(result)+"\n")
+			val_file.write(commentchr+"r "+str(result)+"\n")
+			result=''
+			
+	
+	val_file.close()
+	noval_file.close()
+	i_file.close()
+
 	return
 	
 
@@ -74,7 +153,7 @@ while len(arguments)>=1:
 			os._exit(1)
 		texmode='replace'
 	elif (arg=="-?") or (arg=="-h"):
-		print '	usage: calc.py [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename]'
+		print '	usage: '+sys.argv[0]+' [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename]'
 		print '		-tex	configures the latex command to produce pdf files default ist pdflatex'
 		print '		-C	-y	exchanges the \\val{xyz} Tags in the .tex file with the calculated values'
 		print '		-c		calculates the the file and produces tex'
@@ -89,7 +168,7 @@ while len(arguments)>=1:
 
 #look for file
 if (filename != ''): 
-	calulate_texfile(filename, texmode); 
+	calculate_texfile(filename, texmode); 
 	os._exit(0)
 
 
