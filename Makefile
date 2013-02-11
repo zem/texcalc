@@ -1,9 +1,11 @@
 TARGET=/usr/local/bin
+TEXMFTARGET=${HOME}/texmf/tex/latex/phunivie
 
-install: $(TARGET)/calc.py $(TARGET)/texcalc.pl
+install: $(TARGET)/texcalc.pl
 
-$(TARGET)/calc.py: calc.py
+$(TEXMFTARGET)/phunivie.sty: phunivie.sty
+	mkdir -p $(TEXMFTARGET)
 	cp $< $@
 
-$(TARGET)/texcalc.pl: texcalc.pl
+$(TARGET)/texcalc.py: texcalc.pl
 	cp $< $@
