@@ -97,8 +97,8 @@ def insert_values_attag(matchobj):
 # this funktion will parse the line searching for \val tags 
 # and at tags calling the replacement functions
 def insert_values(line):
-	line=re.sub('\@((\w|\d|\,)+)\@', insert_values_attag, line)
-	line=re.sub('\\val{((\w|\d|\,)+)}', insert_values_textag, line)
+#	line=re.sub('\@((\w|\d|\,)+)\@', insert_values_attag, line)
+#	line=re.sub('\\val{((\w|\d|\,)+)}', insert_values_textag, line)
 	return line
 
 
