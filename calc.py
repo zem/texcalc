@@ -48,14 +48,64 @@ def meanval(a):
 	return f((mw, sa))
 	#return [mw, sa]
 
+# rounds up all the stringified 
+# values to eliminate the exponent
+def KillExp(num):
+	while num[2] != 0: 
+		if num[2] > 0: 
+			num[2]=num[2]-1
+			if len(num[1]) > 0:
+				num[0]=num[0]+num[1][1]
+				if len(num[1]) > 1: 
+					num[1]=num[1][2:]
+				else:
+					num[1]=''
+			else:
+				num[0]=num[0]+'0'
+		else:  # num[2] < 0 
+			num[2]=num[2]+1
+			if len(num[0]) > 0:
+				num[1]=num[0][-1]+num[1]
+				if len(num[0]) > 1: 
+					num[0]=num[0][:-1]
+				else:
+					num[0]=''
+			else:
+				num[1]='0'+num[1]
+	return num
+	
+
+# makes the third element (exponent) of the list 
+# numerical integer 
+def ExpToNnum(num):
+	if (num[2]==''): 
+		num[2]=0
+	else:
+		num[2]=int(num[2])
+	return num
 
 # this funktion converts a number (num) to an iso stringified list
 def unum2ISOstring(num, digits=2):
 	num=uround(num, digits)
 	if isinstance(num, UFloat):
-		return [str(num)]
+		# ok we want to round to all the the 
+		# significant digits
+		#
+		# ok, this part splits up the numbers to a stringified list, 
+		# makes the exponent numerical and eliminates it 
+		val=KillExp(ExpToNum(re.split('\\.|e', str(nominal_value(num)))))
+		unc=KillExp(ExpToNum(re.split('\\.|e', str(std_dev(num)))))
+		#
+		# Ok, we can now count the significant digits 
+		while ( len(re.sub('^0+', '', unc[0]+unc[1])) < digits ):
+			unc[1]=unc[1]+'0'
+		while ( len(val[1]) < len(unc[1]) ):
+			val[1]=val[1]+'0'
+		if unc[0]='': unc[0]='0'
+		if val[0]='': val[0]='0'
+		return '('+val[0]+','+val[1]+' \\pm '+unc[0]+','+unc[1]+')'
 	else: 
-		return [str(num)]
+		return str(num)
 
 
 #################################################################################################
@@ -91,14 +141,18 @@ def insert_values_valtag(matchobj):
 
 # @foo@ tag 
 def insert_values_attag(matchobj):
-	tag=matchobj.group(1)
-	return tag 
+	tag=re.split(',', matchobj.group(1))
+	if len(tag)<2:
+		ISOString=unum2ISOString(evaluate_line(tag[0]))
+	else: 
+		ISOString=unum2ISOString(evaluate_line(tag[0]),int(tag[1]))
+	return ISOString
 
 # this funktion will parse the line searching for \val tags 
 # and at tags calling the replacement functions
 def insert_values(line):
 	line=re.sub('\@((\w|\d|\,)+)\@', insert_values_attag, line)
-	line=re.sub('\\\\val{((\w|\d|\,)+)}', insert_values_valtag, line)
+	line=re.sub('\\\\val{((\w|\d|\,)+)}', insert_values_attag, line)
 	return line
 
 
