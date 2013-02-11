@@ -77,15 +77,15 @@ def KillExp(num):
 
 # makes the third element (exponent) of the list 
 # numerical integer 
-def ExpToNnum(num):
-	if (num[2]==''): 
-		num[2]=0
+def ExpToNum(num):
+	if (len(num)<3): 
+		num.append(0)
 	else:
 		num[2]=int(num[2])
 	return num
 
 # this funktion converts a number (num) to an iso stringified list
-def unum2ISOstring(num, digits=2):
+def unum2TEXstring(num, digits=2):
 	num=uround(num, digits)
 	if isinstance(num, UFloat):
 		# ok we want to round to all the the 
@@ -101,8 +101,8 @@ def unum2ISOstring(num, digits=2):
 			unc[1]=unc[1]+'0'
 		while ( len(val[1]) < len(unc[1]) ):
 			val[1]=val[1]+'0'
-		if unc[0]='': unc[0]='0'
-		if val[0]='': val[0]='0'
+		if unc[0]=='': unc[0]='0'
+		if val[0]=='': val[0]='0'
 		return '('+val[0]+','+val[1]+' \\pm '+unc[0]+','+unc[1]+')'
 	else: 
 		return str(num)
@@ -120,39 +120,50 @@ def evaluate_line(line):
 	global evaluate_line_collect
 	line=re.sub('\(((\d|\.)+)\|((\d|\.)+)\)', 'f((\\1,\\3))', line)
 	if re.match('def\s.*:$', line) or ((evaluate_line_collect!='') and (line!='')):
-		#print "funktionsdefinition starting collect "+ line
+		print "funktionsdefinition starting collect "+ line
 		evaluate_line_collect=evaluate_line_collect+line+"\n"
 		return ''
 	elif ((line=='') and (evaluate_line_collect!='')):
+		print "evaluating block:"
+		print evaluate_line_collect
 		exec(evaluate_line_collect+"\n") in evaluate_kontext
 		evaluate_line_collect=''
 		return ''
 	else:
+		print "evaluating line: "+line
 		exec(line) in evaluate_kontext
 		expr_list=re.split('=', line)
-		return eval(expr_list[0], evaluate_kontext)
+		ret=eval(expr_list[0], evaluate_kontext)
+		print "return value: ", ret
+		return ret
 
 
 # This funktions will be match funktions for the latex tags 
 # \val tag
 def insert_values_valtag(matchobj):
-	tag=matchobj.group(1)
-	return tag
+	TEXstring=unum2TEXstring(evaluate_line(matchobj.group(1)))
+	return TEXstring
+
+def insert_values_valtaglen(matchobj):
+	TEXstring=unum2TEXstring(evaluate_line(matchobj.group(2)), int(matchobj.group(1)))
+	return TEXstring
 
 # @foo@ tag 
 def insert_values_attag(matchobj):
 	tag=re.split(',', matchobj.group(1))
+	print "processing tag: ", tag
 	if len(tag)<2:
-		ISOString=unum2ISOString(evaluate_line(tag[0]))
+		TEXstring=unum2TEXstring(evaluate_line(tag[0]))
 	else: 
-		ISOString=unum2ISOString(evaluate_line(tag[0]),int(tag[1]))
-	return ISOString
+		TEXstring=unum2TEXstring(evaluate_line(tag[0]),int(tag[1]))
+	return TEXstring
 
 # this funktion will parse the line searching for \val tags 
 # and at tags calling the replacement functions
 def insert_values(line):
 	line=re.sub('\@((\w|\d|\,)+)\@', insert_values_attag, line)
-	line=re.sub('\\\\val{((\w|\d|\,)+)}', insert_values_attag, line)
+	line=re.sub('\\\\val{(.+?)}', insert_values_valtag, line)
+	line=re.sub('\\\\val\\[(\d+)\\]{(.+?)}', insert_values_valtaglen, line)
 	return line
 
 
@@ -167,12 +178,12 @@ def calculate_texfile(filename, texmode='none'):
 	i_file = open(filename, "r")
 	noval_file = open(novalname, "w")
 	val_file = open(valname, "w")
-	
 	result=''
 	for line in i_file:
 		line=line.rstrip()
 		if re.match(commentchr+'(r)\s', line) :
-			print "ignore %r line" + line
+			#print "ignore %r line" + line
+			pass
 			# write this line nowhere 
 		# the classic calc c C lines 
 		elif (commentchr=="%") and (line=="\\begin{calc}"):
@@ -187,7 +198,7 @@ def calculate_texfile(filename, texmode='none'):
 			noval_file.write(line+"\n")
 			val_file.write(line+"\n")
 			result=evaluate_line(line)
-		elif re.match('\%(calc|c|C)\s', line):
+		elif re.match('\%(calc|c|C)\s', line) or re.match('\%(calc)', line):
 			noval_file.write(line+"\n")
 			val_file.write(line+"\n")
 			line=re.sub('\%(calc|c|C)\s', '', line)
@@ -200,12 +211,22 @@ def calculate_texfile(filename, texmode='none'):
 			noval_file.write(commentchr+"r "+str(result)+"\n")
 			val_file.write(commentchr+"r "+str(result)+"\n")
 			result=''
-			
-	
 	val_file.close()
 	noval_file.close()
 	i_file.close()
-
+	os.unlink(filename)
+	if (texmode!='none'):
+		os.link(valname, filename)
+		latexcmd=re.split('\s+', latex)
+		latexcmd.append(filename)
+		if subprocess.call(latexcmd) != 0: os._exit(1)
+		if subprocess.call(latexcmd) != 0: os._exit(1)
+		if (texmode!='replace'):
+			os.unlink(filename)
+	if (texmode!='replace'):
+		os.link(novalname, filename)
+	os.unlink(valname)
+	os.unlink(novalname)
 	return
 	
 
