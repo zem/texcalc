@@ -49,6 +49,15 @@ def meanval(a):
 	#return [mw, sa]
 
 
+# this funktion converts a number (num) to an iso stringified list
+def unum2ISOstring(num, digits=2):
+	num=uround(num, digits)
+	if isinstance(num, UFloat):
+		return [str(num)]
+	else: 
+		return [str(num)]
+
+
 #################################################################################################
 # File Parsing methods 
 
@@ -73,7 +82,23 @@ def evaluate_line(line):
 		expr_list=re.split('=', line)
 		return eval(expr_list[0], evaluate_kontext)
 
+
+# This funktions will be match funktions for the latex tags 
+# \val tag
+def insert_values_valtag(matchobj):
+	tag=matchobj.group(1)
+	return tag
+
+# @foo@ tag 
+def insert_values_attag(matchobj):
+	tag=matchobj.group(1)
+	return tag 
+
+# this funktion will parse the line searching for \val tags 
+# and at tags calling the replacement functions
 def insert_values(line):
+	line=re.sub('\@((\w|\d|\,)+)\@', insert_values_attag, line)
+	line=re.sub('\\val{((\w|\d|\,)+)}', insert_values_textag, line)
 	return line
 
 
