@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{phunivie}
-\usepackage{float} 
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{ngerman}
 \usepackage{hyperref}
@@ -20,146 +20,148 @@
 %c 	min=min+0.0
 %c 	gen=gen+0.0
 %c 	return f((g+(min/60.0), gen/60.0))
-%calc 
+%calc
 
 %c def grad2rad(grad):
 %c 	return grad*(2*pi/360.0)
-%calc 
+%calc
 
 %C phirot=360-grad(321, 19)
-%r 38.68333333333334+/-0.016666666666666666
+%r 38.6833333333+/-0.0166666666667
 %C phigelb=360-grad(321, 10)
-%r 38.833333333333314+/-0.016666666666666666
+%r 38.8333333333+/-0.0166666666667
 %C phigruen=360-grad(321, 0)
-%r 39.0+/-0.016666666666666666
+%r 39.0+/-0.0166666666667
 %C phiblau=360-grad(320, 21)
-%r 39.64999999999998+/-0.016666666666666666
+%r 39.65+/-0.0166666666667
 %C philila=360-grad(320, 0)
-%r 40.0+/-0.016666666666666666
+%r 40.0+/-0.0166666666667
 
 
 
 
-% Fit 1 
+% Fit 1
 %C B=(0.078821756433056|0.00019311935401873)
-%r 0.078821756433056+/-0.00019311935401873
+%r 0.0788217564331+/-0.000193119354019
 %C A=-(0.0058425962025917|0.00053680687862343)
-%r -0.0058425962025917+/-0.00053680687862343
+%r -0.00584259620259+/-0.000536806878623
 %C x=B
-%r 0.078821756433056+/-0.00019311935401873
-%c Iks=B % Kurzschlussstrom 
+%r 0.0788217564331+/-0.000193119354019
+%c Iks=B % Kurzschlussstrom
+%r 0.0788217564331+/-0.000193119354019
 \subsubsection{Kurzschlussstrom}
 
-Für den Kurzschlussstrom wurde ermittelt: 
+Für den Kurzschlussstrom wurde ermittelt:
 
-$$I=AU+B=@A@\cdot U + @B@$$
-$$\Rightarrow I_{KS}=B=@B@A$$
+$$I=AU+B=(-0,00584 \pm 0,00054)\cdot U + (0,07882 \pm 0,00020)$$
+$$\Rightarrow I_{KS}=B=(0,07882 \pm 0,00020)A$$
 
-% Fit 2 
+% Fit 2
 %C B=(0.64389113975977|0.038107608387390)
-%r 0.64389113975977+/-0.03810760838739
+%r 0.64389113976+/-0.0381076083874
 %C A=-(0.69745000936350|0.042148923128185)
-%r -0.6974500093635+/-0.042148923128185
+%r -0.697450009363+/-0.0421489231282
 %C x=(-B)/A
-%r 0.9232075863722357+/-0.07809047769442526
+%r 0.923207586372+/-0.0780904776944
 %c Ull=x
+%r 0.923207586372+/-0.0780904776944
 
 \subsubsection{Leerlaufspannung}
 
-Für die Leerlaufspannung wurde ermittelt: 
+Für die Leerlaufspannung wurde ermittelt:
 
-$$I=AU+B=@A@\cdot U + @B@$$
-$$\Rightarrow U_{LL}=\frac{-B}{A}=@x@V$$
- 
+$$I=AU+B=(-0,697 \pm 0,043)\cdot U + (0,644 \pm 0,039)$$
+$$\Rightarrow U_{LL}=\frac{-B}{A}=(0,923 \pm 0,079)V$$
+
 \subsubsection{Maximalleistung}
 
-%C Pmax=(0.05023|0.00001) % W Abgelesen genau 
+%C Pmax=(0.05023|0.00001) % W Abgelesen genau
 %r 0.05023+/-1e-05
 %C Pmax=(0.0502|0.0001) % W Abgelesen
 %r 0.0502+/-0.0001
 %C Rl=(11.3602|0.0001) % Ohm
 %r 11.3602+/-0.0001
 
-$$P_{max}=@Pmax,1@Watt$$
+$$P_{max}=(0,0502 \pm 0,0001)Watt$$
 
-Der dazugehörige Lastwiderstand: $$R_{L}=@Rl,1@ \Omega$$
+Der dazugehörige Lastwiderstand: $$R_{L}=(11,3602 \pm 0,0001) \Omega$$
 
 
 \subsubsection{Kurvenfüllfaktor}
 %C CFF=Pmax/(Iks*Ull)
-%r 0.6898556796903881+/-0.05839280920411855
+%r 0.68985567969+/-0.0583928092041
 
-Der Kurvenfüllfaktor ergibt sich wie folgt: 
+Der Kurvenfüllfaktor ergibt sich wie folgt:
 
-$$CFF=\frac{P_{max}}{I_{ks}\cdot U_{LL}}=\frac{@Pmax,1@ W}{@Iks@ A \cdot @Ull@ V}=@CFF@$$
+$$CFF=\frac{P_{max}}{I_{ks}\cdot U_{LL}}=\frac{(0,0502 \pm 0,0001) W}{(0,07882 \pm 0,00020) A \cdot (0,923 \pm 0,079) V}=(0,690 \pm 0,059)$$
 
 
 \subsubsection{Widerstand G}
 
 %C gen=0.01
 %r 0.01
-%C R=f((100, 100*gen)) %Ohm 
+%C R=f((100, 100*gen)) %Ohm
 %r 100.0+/-1.0
 
-Wie in der Anleitung beschrieben wurde zunächst $R_0=@R,1@\Omega$ eingestellt und dann der Widerstand gemessen. 
+Wie in der Anleitung beschrieben wurde zunächst $R_0=(100,0 \pm 1,0)\Omega$ eingestellt und dann der Widerstand gemessen.
 
 %C D=(76|1) %mm
 %r 76.0+/-1.0
 %C Dr=1000-D % mm
 %r 924.0+/-1.0
 %C Rx=R*(Dr/D)
-%r 1215.7894736842104+/-21.15549679990502
+%r 1215.78947368+/-21.1554967999
 
-$$R_G=R_0\frac{D_r}{D_l}=@R,1@ \Omega \cdot \frac{@Dr,0@ mm}{@D,0@ mm} = @Rx@ \Omega$$
+$$R_G=R_0\frac{D_r}{D_l}=(100,0 \pm 1,0) \Omega \cdot \frac{(924,0 \pm 1,0) mm}{(76,0 \pm 1,0) mm} = (1216,0 \pm 22,0) \Omega$$
 
 %Widerstand G:\\
 %
 %-> bei 100 Ohm\\
 %   $76mm \pm 1mm$\\
 
-Die Messung wurde daraufhin mit $R_0=@R,1@\Omega$ nocheinmal durchgeführt: 
-%C R=f((1200, 1200*gen)) %Ohm 
+Die Messung wurde daraufhin mit $R_0=(100,0 \pm 1,0)\Omega$ nocheinmal durchgeführt:
+%C R=f((1200, 1200*gen)) %Ohm
 %r 1200.0+/-12.0
 %C D=(467|1) %mm
 %r 467.0+/-1.0
 %C Dr=1000-D % mm
 %r 533.0+/-1.0
 %C Rx=R*(Dr/D)
-%r 1369.593147751606+/-14.759887979871142
-$$R_G=R_0\frac{D_r}{D_l}=@R,1@ \Omega \cdot \frac{@Dr,0@ mm}{@D,0@ mm} = @Rx@ \Omega$$
+%r 1369.59314775+/-14.7598879799
+$$R_G=R_0\frac{D_r}{D_l}=(1200,0 \pm 12,0) \Omega \cdot \frac{(533,0 \pm 1,0) mm}{(467,0 \pm 1,0) mm} = (1370,0 \pm 15,0) \Omega$$
 
 
 %-> in der Mitte ($467mm \pm 1mm$)\\
 %   1,2 KiloOhm ($= R_0$)\\
 \subsubsection{Widerstand M}
 
-%C R=f((6700, 6700*gen)) %Ohm 
+%C R=f((6700, 6700*gen)) %Ohm
 %r 6700.0+/-67.0
 %C D=(491|1) %mm
 %r 491.0+/-1.0
 %C Dr=1000-D % mm
 %r 509.0+/-1.0
 %C Rx=R*(Dr/D)
-%r 6945.621181262729+/-74.80997413119528
-Der Widerstand wurde mit einem Fluke 183 vermessen um einen 
-Anhaltspunkt für $R_0=@R@\Omega$ zu erhalten.
+%r 6945.62118126+/-74.8099741312
+Der Widerstand wurde mit einem Fluke 183 vermessen um einen
+Anhaltspunkt für $R_0=(6700,0 \pm 67,0)\Omega$ zu erhalten.
 
-$$R_M=R_0\frac{D_r}{D_l}=@R,1@ \Omega \cdot \frac{@Dr,0@ mm}{@D,0@ mm} = @Rx@ \Omega$$
+$$R_M=R_0\frac{D_r}{D_l}=(6700,0 \pm 67,0) \Omega \cdot \frac{(509,0 \pm 1,0) mm}{(491,0 \pm 1,0) mm} = (6946,0 \pm 75,0) \Omega$$
 
 \subsubsection{Widerstand F}
 
-%C R=f((327000, 327000*gen))/1000 %KOhm 
+%C R=f((327000, 327000*gen))/1000 %KOhm
 %r 327.0+/-3.27
 %C D=(501|1) %mm
 %r 501.0+/-1.0
 %C Dr=1000-D % mm
 %r 499.0+/-1.0
 %C Rx=R*(Dr/D)
-%r 325.6946107784431+/-3.507840247045031
-Der Widerstand wurde mit einem Fluke 183 vermessen um einen 
-Anhaltspunkt für $R_0=@R@K\Omega$ zu erhalten.
+%r 325.694610778+/-3.50784024705
+Der Widerstand wurde mit einem Fluke 183 vermessen um einen
+Anhaltspunkt für $R_0=(327,0 \pm 3,3)K\Omega$ zu erhalten.
 
-$$R_F=R_0\frac{D_r}{D_l}=@R@ K\Omega \cdot \frac{@Dr,0@ mm}{@D,0@ mm} = @Rx@ K\Omega$$
+$$R_F=R_0\frac{D_r}{D_l}=(327,0 \pm 3,3) K\Omega \cdot \frac{(499,0 \pm 1,0) mm}{(501,0 \pm 1,0) mm} = (325,7 \pm 3,6) K\Omega$$
 
 
 \subsection{Diskussion}
@@ -168,12 +170,12 @@ $$R_F=R_0\frac{D_r}{D_l}=@R@ K\Omega \cdot \frac{@Dr,0@ mm}{@D,0@ mm} = @Rx@ K\O
 %C U0=(1.544|0.001) %V
 %r 1.544+/-0.001
 Abbildung \ref{IUBatt} zeigt das Verhältnis des gemessenen Stromes zur
-Differenz der gemessenen Spannung zur Leerlaufspannung\footnote{Die Leerlaufspannung 
-wurde im Unbelasteten Zustand der Batterie vor dem Versuch gemessen} 
-$U_0=@U0@V$. Messwerte mit einem Strom von unter $(0,0280\pm 0.0001) A$ wurden für den 
+Differenz der gemessenen Spannung zur Leerlaufspannung\footnote{Die Leerlaufspannung
+wurde im Unbelasteten Zustand der Batterie vor dem Versuch gemessen}
+$U_0=(1,5440 \pm 0,0010)V$. Messwerte mit einem Strom von unter $(0,0280\pm 0.0001) A$ wurden für den
 Fit ignoriert da diese nicht linear verlaufen. \\
 
-Daraus ergibt sich die Steigung der Kurve und damit ein Innenwiderstand von: 
+Daraus ergibt sich die Steigung der Kurve und damit ein Innenwiderstand von:
 
 %Nichtlinearer Fit von Datensatz: Tabelle1_Ur, unter Verwendung der Funktion: A*x+B
 %Gewichtungsmethode: Keine Gewichtung (alle w_i = 1)
@@ -182,60 +184,60 @@ Daraus ergibt sich die Steigung der Kurve und damit ein Innenwiderstand von:
 %A = 4,5988636959973e-01 +/- 1,0123171017128e-02
 %B = 1,2223725911172e-02 +/- 7,9436072948808e-04
 %C B=(0.012223725911172|0.00079436072948808)
-%r 0.012223725911172+/-0.00079436072948808
-%C A=(0.45988636959973|0.010123171017128) %Ohm 
-%r 0.45988636959973+/-0.010123171017128
-%%C Imin=(0.00766|0.00001) %A Alle messwerte 
+%r 0.0122237259112+/-0.000794360729488
+%C A=(0.45988636959973|0.010123171017128) %Ohm
+%r 0.4598863696+/-0.0101231710171
+%%C Imin=(0.00766|0.00001) %A Alle messwerte
 %C Imin=(0.0280|0.0001) %A
 %r 0.028+/-0.0001
 %C Imax=(0.1354|0.0001) %A
 %r 0.1354+/-0.0001
-%C Bmin=B/Imax 
-%r 0.09027862563642541+/-0.005867149397288685
+%C Bmin=B/Imax
+%r 0.0902786256364+/-0.00586714939729
 %C Bmax=B/Imin
-%r 0.4365616396847143+/-0.028412837291722805
-%C BI=meanval([nominal_value(Bmin), nominal_value(Bmax)]) 
-%r 0.26342013266056985+/-0.17314150702414444
-$$R_i=@A@ \Omega$$
+%r 0.436561639685+/-0.0284128372917
+%C BI=meanval([nominal_value(Bmin), nominal_value(Bmax)])
+%r 0.263420132661+/-0.173141507024
+$$R_i=(0,460 \pm 0,011) \Omega$$
 
 \subsection{Diskussion}
 
-Die Ergebnisse entsprechen grundsätzlich den Erwartungen, allerdings wurde beim linearen 
-Fit die B-Komponente ignoriert, es gilt ja: 
+Die Ergebnisse entsprechen grundsätzlich den Erwartungen, allerdings wurde beim linearen
+Fit die B-Komponente ignoriert, es gilt ja:
 
 $$U_i=AI+B$$
 $$\Rightarrow \frac{U_i}{I}=A+\frac{B}{I}$$
 
-Das $\frac{B}{I}$ kann abgeschätzt werden, indem für Minmale und Maximale 
-Wert gebildet wird, basierend auf den Messwerten die in den Fit eingeflossen sind: 
+Das $\frac{B}{I}$ kann abgeschätzt werden, indem für Minmale und Maximale
+Wert gebildet wird, basierend auf den Messwerten die in den Fit eingeflossen sind:
 
-$$B_{min}=\frac{B}{I_{max}}=\frac{@B@}{@Imax@}=@Bmin@$$
-$$B_{max}=\frac{B}{I_{min}}=\frac{@B@}{@Imin@}=@Bmax@$$
+$$B_{min}=\frac{B}{I_{max}}=\frac{(0,01222 \pm 0,00080)}{(0,13540 \pm 0,00010)}=(0,0903 \pm 0,0059)$$
+$$B_{max}=\frac{B}{I_{min}}=\frac{(0,01222 \pm 0,00080)}{(0,02800 \pm 0,00010)}=(0,437 \pm 0,029)$$
 
-Durch Bildung des Mittelwertes und der Standarsabweichung erhalten wir: 
+Durch Bildung des Mittelwertes und der Standarsabweichung erhalten wir:
 
-$$\frac{B}{I}=@BI@ \Omega$$
+$$\frac{B}{I}=(0,26 \pm 0,18) \Omega$$
 
-Ein besserer, wenn auch ungenauerer, Wert für den Innenwiderstand wäre demnach: 
+Ein besserer, wenn auch ungenauerer, Wert für den Innenwiderstand wäre demnach:
 %C Rimod=A+BI
-%r 0.7233065022602998+/-0.17343719337568247
-$$R_i=A+\frac{B}{I}=@A@\Omega+@BI@\Omega=@Rimod@\Omega$$
+%r 0.72330650226+/-0.173437193376
+$$R_i=A+\frac{B}{I}=(0,460 \pm 0,011)\Omega+(0,26 \pm 0,18)\Omega=(0,72 \pm 0,18)\Omega$$
 
 
-%C R=10000 
+%C R=10000
 %r 10000
-%C rlA=(0.12132483338041|0.00014904639696054) %Ohm 
-%r 0.12132483338041+/-0.00014904639696054
+%C rlA=(0.12132483338041|0.00014904639696054) %Ohm
+%r 0.12132483338+/-0.000149046396961
 %C RlA=rlA*R
-%r 1213.2483338041+/-1.4904639696054
-%C rlB=(0.33066631086411|0.00024559500833232) %Ohm 
-%r 0.33066631086411+/-0.00024559500833232
+%r 1213.2483338+/-1.49046396961
+%C rlB=(0.33066631086411|0.00024559500833232) %Ohm
+%r 0.330666310864+/-0.000245595008332
 %C RlB=rlB*R
-%r 3306.6631086411003+/-2.4559500833232
-%C rlC=(0.68215979518141|0.0010497835935090) %Ohm 
-%r 0.68215979518141+/-0.001049783593509
+%r 3306.66310864+/-2.45595008332
+%C rlC=(0.68215979518141|0.0010497835935090) %Ohm
+%r 0.682159795181+/-0.00104978359351
 %C RlC=rlC*R
-%r 6821.5979518141+/-10.49783593509
+%r 6821.59795181+/-10.4978359351
 
 
 \end{document}
@@ -243,7 +245,7 @@ $$R_i=A+\frac{B}{I}=@A@\Omega+@BI@\Omega=@Rimod@\Omega$$
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{phunivie}
-\usepackage{float} 
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{ngerman}
 \usepackage{hyperref}
@@ -261,146 +263,148 @@ $$R_i=A+\frac{B}{I}=@A@\Omega+@BI@\Omega=@Rimod@\Omega$$
 %c 	min=min+0.0
 %c 	gen=gen+0.0
 %c 	return f((g+(min/60.0), gen/60.0))
-%calc 
+%calc
 
 %c def grad2rad(grad):
 %c 	return grad*(2*pi/360.0)
-%calc 
+%calc
 
 %C phirot=360-grad(321, 19)
-%r 38.68333333333334+/-0.016666666666666666
+%r 38.6833333333+/-0.0166666666667
 %C phigelb=360-grad(321, 10)
-%r 38.833333333333314+/-0.016666666666666666
+%r 38.8333333333+/-0.0166666666667
 %C phigruen=360-grad(321, 0)
-%r 39.0+/-0.016666666666666666
+%r 39.0+/-0.0166666666667
 %C phiblau=360-grad(320, 21)
-%r 39.64999999999998+/-0.016666666666666666
+%r 39.65+/-0.0166666666667
 %C philila=360-grad(320, 0)
-%r 40.0+/-0.016666666666666666
+%r 40.0+/-0.0166666666667
 
 
 
 
-% Fit 1 
+% Fit 1
 %C B=(0.078821756433056|0.00019311935401873)
-%r 0.078821756433056+/-0.00019311935401873
+%r 0.0788217564331+/-0.000193119354019
 %C A=-(0.0058425962025917|0.00053680687862343)
-%r -0.0058425962025917+/-0.00053680687862343
+%r -0.00584259620259+/-0.000536806878623
 %C x=B
-%r 0.078821756433056+/-0.00019311935401873
-%c Iks=B % Kurzschlussstrom 
+%r 0.0788217564331+/-0.000193119354019
+%c Iks=B % Kurzschlussstrom
+%r 0.0788217564331+/-0.000193119354019
 \subsubsection{Kurzschlussstrom}
 
-Für den Kurzschlussstrom wurde ermittelt: 
+Für den Kurzschlussstrom wurde ermittelt:
 
-$$I=AU+B=@A@\cdot U + @B@$$
-$$\Rightarrow I_{KS}=B=@B@A$$
+$$I=AU+B=(-0,00584 \pm 0,00054)\cdot U + (0,07882 \pm 0,00020)$$
+$$\Rightarrow I_{KS}=B=(0,07882 \pm 0,00020)A$$
 
-% Fit 2 
+% Fit 2
 %C B=(0.64389113975977|0.038107608387390)
-%r 0.64389113975977+/-0.03810760838739
+%r 0.64389113976+/-0.0381076083874
 %C A=-(0.69745000936350|0.042148923128185)
-%r -0.6974500093635+/-0.042148923128185
+%r -0.697450009363+/-0.0421489231282
 %C x=(-B)/A
-%r 0.9232075863722357+/-0.07809047769442526
+%r 0.923207586372+/-0.0780904776944
 %c Ull=x
+%r 0.923207586372+/-0.0780904776944
 
 \subsubsection{Leerlaufspannung}
 
-Für die Leerlaufspannung wurde ermittelt: 
+Für die Leerlaufspannung wurde ermittelt:
 
-$$I=AU+B=@A@\cdot U + @B@$$
-$$\Rightarrow U_{LL}=\frac{-B}{A}=@x@V$$
- 
+$$I=AU+B=(-0,697 \pm 0,043)\cdot U + (0,644 \pm 0,039)$$
+$$\Rightarrow U_{LL}=\frac{-B}{A}=(0,923 \pm 0,079)V$$
+
 \subsubsection{Maximalleistung}
 
-%C Pmax=(0.05023|0.00001) % W Abgelesen genau 
+%C Pmax=(0.05023|0.00001) % W Abgelesen genau
 %r 0.05023+/-1e-05
 %C Pmax=(0.0502|0.0001) % W Abgelesen
 %r 0.0502+/-0.0001
 %C Rl=(11.3602|0.0001) % Ohm
 %r 11.3602+/-0.0001
 
-$$P_{max}=@Pmax,1@Watt$$
+$$P_{max}=(0,0502 \pm 0,0001)Watt$$
 
-Der dazugehörige Lastwiderstand: $$R_{L}=@Rl,1@ \Omega$$
+Der dazugehörige Lastwiderstand: $$R_{L}=(11,3602 \pm 0,0001) \Omega$$
 
 
 \subsubsection{Kurvenfüllfaktor}
 %C CFF=Pmax/(Iks*Ull)
-%r 0.6898556796903881+/-0.05839280920411855
+%r 0.68985567969+/-0.0583928092041
 
-Der Kurvenfüllfaktor ergibt sich wie folgt: 
+Der Kurvenfüllfaktor ergibt sich wie folgt:
 
-$$CFF=\frac{P_{max}}{I_{ks}\cdot U_{LL}}=\frac{@Pmax,1@ W}{@Iks@ A \cdot @Ull@ V}=@CFF@$$
+$$CFF=\frac{P_{max}}{I_{ks}\cdot U_{LL}}=\frac{(0,0502 \pm 0,0001) W}{(0,07882 \pm 0,00020) A \cdot (0,923 \pm 0,079) V}=(0,690 \pm 0,059)$$
 
 
 \subsubsection{Widerstand G}
 
 %C gen=0.01
 %r 0.01
-%C R=f((100, 100*gen)) %Ohm 
+%C R=f((100, 100*gen)) %Ohm
 %r 100.0+/-1.0
 
-Wie in der Anleitung beschrieben wurde zunächst $R_0=@R,1@\Omega$ eingestellt und dann der Widerstand gemessen. 
+Wie in der Anleitung beschrieben wurde zunächst $R_0=(100,0 \pm 1,0)\Omega$ eingestellt und dann der Widerstand gemessen.
 
 %C D=(76|1) %mm
 %r 76.0+/-1.0
 %C Dr=1000-D % mm
 %r 924.0+/-1.0
 %C Rx=R*(Dr/D)
-%r 1215.7894736842104+/-21.15549679990502
+%r 1215.78947368+/-21.1554967999
 
-$$R_G=R_0\frac{D_r}{D_l}=@R,1@ \Omega \cdot \frac{@Dr,0@ mm}{@D,0@ mm} = @Rx@ \Omega$$
+$$R_G=R_0\frac{D_r}{D_l}=(100,0 \pm 1,0) \Omega \cdot \frac{(924,0 \pm 1,0) mm}{(76,0 \pm 1,0) mm} = (1216,0 \pm 22,0) \Omega$$
 
 %Widerstand G:\\
 %
 %-> bei 100 Ohm\\
 %   $76mm \pm 1mm$\\
 
-Die Messung wurde daraufhin mit $R_0=@R,1@\Omega$ nocheinmal durchgeführt: 
-%C R=f((1200, 1200*gen)) %Ohm 
+Die Messung wurde daraufhin mit $R_0=(100,0 \pm 1,0)\Omega$ nocheinmal durchgeführt:
+%C R=f((1200, 1200*gen)) %Ohm
 %r 1200.0+/-12.0
 %C D=(467|1) %mm
 %r 467.0+/-1.0
 %C Dr=1000-D % mm
 %r 533.0+/-1.0
 %C Rx=R*(Dr/D)
-%r 1369.593147751606+/-14.759887979871142
-$$R_G=R_0\frac{D_r}{D_l}=@R,1@ \Omega \cdot \frac{@Dr,0@ mm}{@D,0@ mm} = @Rx@ \Omega$$
+%r 1369.59314775+/-14.7598879799
+$$R_G=R_0\frac{D_r}{D_l}=(1200,0 \pm 12,0) \Omega \cdot \frac{(533,0 \pm 1,0) mm}{(467,0 \pm 1,0) mm} = (1370,0 \pm 15,0) \Omega$$
 
 
 %-> in der Mitte ($467mm \pm 1mm$)\\
 %   1,2 KiloOhm ($= R_0$)\\
 \subsubsection{Widerstand M}
 
-%C R=f((6700, 6700*gen)) %Ohm 
+%C R=f((6700, 6700*gen)) %Ohm
 %r 6700.0+/-67.0
 %C D=(491|1) %mm
 %r 491.0+/-1.0
 %C Dr=1000-D % mm
 %r 509.0+/-1.0
 %C Rx=R*(Dr/D)
-%r 6945.621181262729+/-74.80997413119528
-Der Widerstand wurde mit einem Fluke 183 vermessen um einen 
-Anhaltspunkt für $R_0=@R@\Omega$ zu erhalten.
+%r 6945.62118126+/-74.8099741312
+Der Widerstand wurde mit einem Fluke 183 vermessen um einen
+Anhaltspunkt für $R_0=(6700,0 \pm 67,0)\Omega$ zu erhalten.
 
-$$R_M=R_0\frac{D_r}{D_l}=@R,1@ \Omega \cdot \frac{@Dr,0@ mm}{@D,0@ mm} = @Rx@ \Omega$$
+$$R_M=R_0\frac{D_r}{D_l}=(6700,0 \pm 67,0) \Omega \cdot \frac{(509,0 \pm 1,0) mm}{(491,0 \pm 1,0) mm} = (6946,0 \pm 75,0) \Omega$$
 
 \subsubsection{Widerstand F}
 
-%C R=f((327000, 327000*gen))/1000 %KOhm 
+%C R=f((327000, 327000*gen))/1000 %KOhm
 %r 327.0+/-3.27
 %C D=(501|1) %mm
 %r 501.0+/-1.0
 %C Dr=1000-D % mm
 %r 499.0+/-1.0
 %C Rx=R*(Dr/D)
-%r 325.6946107784431+/-3.507840247045031
-Der Widerstand wurde mit einem Fluke 183 vermessen um einen 
-Anhaltspunkt für $R_0=@R@K\Omega$ zu erhalten.
+%r 325.694610778+/-3.50784024705
+Der Widerstand wurde mit einem Fluke 183 vermessen um einen
+Anhaltspunkt für $R_0=(327,0 \pm 3,3)K\Omega$ zu erhalten.
 
-$$R_F=R_0\frac{D_r}{D_l}=@R@ K\Omega \cdot \frac{@Dr,0@ mm}{@D,0@ mm} = @Rx@ K\Omega$$
+$$R_F=R_0\frac{D_r}{D_l}=(327,0 \pm 3,3) K\Omega \cdot \frac{(499,0 \pm 1,0) mm}{(501,0 \pm 1,0) mm} = (325,7 \pm 3,6) K\Omega$$
 
 
 \subsection{Diskussion}
@@ -409,12 +413,12 @@ $$R_F=R_0\frac{D_r}{D_l}=@R@ K\Omega \cdot \frac{@Dr,0@ mm}{@D,0@ mm} = @Rx@ K\O
 %C U0=(1.544|0.001) %V
 %r 1.544+/-0.001
 Abbildung \ref{IUBatt} zeigt das Verhältnis des gemessenen Stromes zur
-Differenz der gemessenen Spannung zur Leerlaufspannung\footnote{Die Leerlaufspannung 
-wurde im Unbelasteten Zustand der Batterie vor dem Versuch gemessen} 
-$U_0=@U0@V$. Messwerte mit einem Strom von unter $(0,0280\pm 0.0001) A$ wurden für den 
+Differenz der gemessenen Spannung zur Leerlaufspannung\footnote{Die Leerlaufspannung
+wurde im Unbelasteten Zustand der Batterie vor dem Versuch gemessen}
+$U_0=(1,5440 \pm 0,0010)V$. Messwerte mit einem Strom von unter $(0,0280\pm 0.0001) A$ wurden für den
 Fit ignoriert da diese nicht linear verlaufen. \\
 
-Daraus ergibt sich die Steigung der Kurve und damit ein Innenwiderstand von: 
+Daraus ergibt sich die Steigung der Kurve und damit ein Innenwiderstand von:
 
 %Nichtlinearer Fit von Datensatz: Tabelle1_Ur, unter Verwendung der Funktion: A*x+B
 %Gewichtungsmethode: Keine Gewichtung (alle w_i = 1)
@@ -423,60 +427,60 @@ Daraus ergibt sich die Steigung der Kurve und damit ein Innenwiderstand von:
 %A = 4,5988636959973e-01 +/- 1,0123171017128e-02
 %B = 1,2223725911172e-02 +/- 7,9436072948808e-04
 %C B=(0.012223725911172|0.00079436072948808)
-%r 0.012223725911172+/-0.00079436072948808
-%C A=(0.45988636959973|0.010123171017128) %Ohm 
-%r 0.45988636959973+/-0.010123171017128
-%%C Imin=(0.00766|0.00001) %A Alle messwerte 
+%r 0.0122237259112+/-0.000794360729488
+%C A=(0.45988636959973|0.010123171017128) %Ohm
+%r 0.4598863696+/-0.0101231710171
+%%C Imin=(0.00766|0.00001) %A Alle messwerte
 %C Imin=(0.0280|0.0001) %A
 %r 0.028+/-0.0001
 %C Imax=(0.1354|0.0001) %A
 %r 0.1354+/-0.0001
-%C Bmin=B/Imax 
-%r 0.09027862563642541+/-0.005867149397288685
+%C Bmin=B/Imax
+%r 0.0902786256364+/-0.00586714939729
 %C Bmax=B/Imin
-%r 0.4365616396847143+/-0.028412837291722805
-%C BI=meanval([nominal_value(Bmin), nominal_value(Bmax)]) 
-%r 0.26342013266056985+/-0.17314150702414444
-$$R_i=@A@ \Omega$$
+%r 0.436561639685+/-0.0284128372917
+%C BI=meanval([nominal_value(Bmin), nominal_value(Bmax)])
+%r 0.263420132661+/-0.173141507024
+$$R_i=(0,460 \pm 0,011) \Omega$$
 
 \subsection{Diskussion}
 
-Die Ergebnisse entsprechen grundsätzlich den Erwartungen, allerdings wurde beim linearen 
-Fit die B-Komponente ignoriert, es gilt ja: 
+Die Ergebnisse entsprechen grundsätzlich den Erwartungen, allerdings wurde beim linearen
+Fit die B-Komponente ignoriert, es gilt ja:
 
 $$U_i=AI+B$$
 $$\Rightarrow \frac{U_i}{I}=A+\frac{B}{I}$$
 
-Das $\frac{B}{I}$ kann abgeschätzt werden, indem für Minmale und Maximale 
-Wert gebildet wird, basierend auf den Messwerten die in den Fit eingeflossen sind: 
+Das $\frac{B}{I}$ kann abgeschätzt werden, indem für Minmale und Maximale
+Wert gebildet wird, basierend auf den Messwerten die in den Fit eingeflossen sind:
 
-$$B_{min}=\frac{B}{I_{max}}=\frac{@B@}{@Imax@}=@Bmin@$$
-$$B_{max}=\frac{B}{I_{min}}=\frac{@B@}{@Imin@}=@Bmax@$$
+$$B_{min}=\frac{B}{I_{max}}=\frac{(0,01222 \pm 0,00080)}{(0,13540 \pm 0,00010)}=(0,0903 \pm 0,0059)$$
+$$B_{max}=\frac{B}{I_{min}}=\frac{(0,01222 \pm 0,00080)}{(0,02800 \pm 0,00010)}=(0,437 \pm 0,029)$$
 
-Durch Bildung des Mittelwertes und der Standarsabweichung erhalten wir: 
+Durch Bildung des Mittelwertes und der Standarsabweichung erhalten wir:
 
-$$\frac{B}{I}=@BI@ \Omega$$
+$$\frac{B}{I}=(0,26 \pm 0,18) \Omega$$
 
-Ein besserer, wenn auch ungenauerer, Wert für den Innenwiderstand wäre demnach: 
+Ein besserer, wenn auch ungenauerer, Wert für den Innenwiderstand wäre demnach:
 %C Rimod=A+BI
-%r 0.7233065022602998+/-0.17343719337568247
-$$R_i=A+\frac{B}{I}=@A@\Omega+@BI@\Omega=@Rimod@\Omega$$
+%r 0.72330650226+/-0.173437193376
+$$R_i=A+\frac{B}{I}=(0,460 \pm 0,011)\Omega+(0,26 \pm 0,18)\Omega=(0,72 \pm 0,18)\Omega$$
 
 
-%C R=10000 
+%C R=10000
 %r 10000
-%C rlA=(0.12132483338041|0.00014904639696054) %Ohm 
-%r 0.12132483338041+/-0.00014904639696054
+%C rlA=(0.12132483338041|0.00014904639696054) %Ohm
+%r 0.12132483338+/-0.000149046396961
 %C RlA=rlA*R
-%r 1213.2483338041+/-1.4904639696054
-%C rlB=(0.33066631086411|0.00024559500833232) %Ohm 
-%r 0.33066631086411+/-0.00024559500833232
+%r 1213.2483338+/-1.49046396961
+%C rlB=(0.33066631086411|0.00024559500833232) %Ohm
+%r 0.330666310864+/-0.000245595008332
 %C RlB=rlB*R
-%r 3306.6631086411003+/-2.4559500833232
-%C rlC=(0.68215979518141|0.0010497835935090) %Ohm 
-%r 0.68215979518141+/-0.001049783593509
+%r 3306.66310864+/-2.45595008332
+%C rlC=(0.68215979518141|0.0010497835935090) %Ohm
+%r 0.682159795181+/-0.00104978359351
 %C RlC=rlC*R
-%r 6821.5979518141+/-10.49783593509
+%r 6821.59795181+/-10.4978359351
 
 
 \end{document}
