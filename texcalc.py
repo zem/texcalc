@@ -228,7 +228,17 @@ def calculate_texfile(filename, texmode='none'):
 	os.unlink(valname)
 	os.unlink(novalname)
 	return
-	
+
+def usage():
+	print '	usage: '+sys.argv[0]+' [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename]'
+	print '		-tex	configures the latex command to produce pdf files default ist pdflatex'
+	print '		-C	-y	exchanges the \\val{xyz} Tags in the .tex file with the calculated values'
+	print '		-c		calculates the the file and produces tex'
+	print '		-?'
+	print '		-h 	prints this help'
+	print '			'
+	print '	when calles without parameters calc.py will act as a command line calculator '
+
 
 ################################################################################################
 # Main Program
@@ -253,14 +263,7 @@ while len(arguments)>=1:
 			os._exit(1)
 		texmode='replace'
 	elif (arg=="-?") or (arg=="-h"):
-		print '	usage: '+sys.argv[0]+' [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename]'
-		print '		-tex	configures the latex command to produce pdf files default ist pdflatex'
-		print '		-C	-y	exchanges the \\val{xyz} Tags in the .tex file with the calculated values'
-		print '		-c		calculates the the file and produces tex'
-		print '		-?'
-		print '		-h 	prints this help'
-		print '			'
-		print '	when calles without parameters calc.py will act as a command line calculator '
+		usage()
 		os._exit(0)
 	else:
 		# it is obviously a filename
@@ -271,4 +274,19 @@ if (filename != ''):
 	calculate_texfile(filename, texmode); 
 	os._exit(0)
 
-
+print "                 ++++++++++++++++++++++++"
+print "                 +  Welcome to TeXcalc! +"
+print "                 ++++++++++++++++++++++++"
+print 
+print "TeXcalc is a full proof command line calculator written in python, which can "
+print "calculate everythig, you think about especially if you think about"
+print "  _uncertainties_!"
+print 
+print "for example, try: "
+print "              sin(f(23.005 , 0.023)+f(42.005 , 0.23))*23.0"
+print 
+print "since this is a python prompt, it can do everything python can do. "
+print "you can also parse calculations in a latex file enclosed by a calc environment"
+print "and you can automatically insert the results with \\val{x} tags into your pdf"
+print "look at the help, (texcalc.py -h) for more information about the usage. good luck!"
+print 
