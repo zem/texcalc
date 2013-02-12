@@ -1,111 +1,6 @@
 \ProvidesPackage{phunivie}
 \RequirePackage{german}
 \RequirePackage{geometry}
-\RequirePackage{comment} % for calc
-\RequirePackage{environ} % for calc 
-\RequirePackage{fancyvrb} % for calc
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Package Options
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareOption{basti}{
-	\geometry{margin=2.5cm}
-} 
-\DeclareOption{motz}{ 
-	%gerade Seite   ungerade Seite
-	\lhead[ \ ]{ \ }
-	\chead[ \ ]{ \ }
-	\rhead[ \ ]{ \ }
-	
-	\lfoot[ \ ]{ \ }
-	\cfoot[ \ ]{ \ }
-	\rfoot[ \ ]{ \ }
-}
-\ProcessOptions
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Macros für Titelseite
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\@semester}{SOMMERSEMESTER \year}
-\newcommand{\semester}[1]{\renewcommand{\@semester}{#1}}
-\newcommand{\@fakulty}{Fakult"at für Physik}
-\newcommand{\fakulty}[1]{\renewcommand{\@fakulty}{#1}}
-\title{Physikalisches Praktikum\\f"ur Bachelor}
-\newcommand{\@experiment}{}
-\newcommand{\experiment}[1]{\renewcommand{\@experiment}{#1}}
-\date{\today}
-\newcommand{\@group}{}
-\newcommand{\group}[1]{\renewcommand{\@group}{#1}}
-\newcommand{\@supervisor}{}
-\newcommand{\supervisor}[1]{\renewcommand{\@supervisor}{#1}}
-
-\newcommand{\makeanfpratitle}{
-	\begin{titlepage}
-	\thispagestyle{empty}
-	
-	\begin{center}
-		\Large{\@fakulty}\\
-	\end{center}
-	
-	\vskip 1cm
-
-	%Eintrag des Wintersemesters
-	\begin{center}
-		\textbf{\LARGE \@semester}
-	\end{center}
-
-	\vskip 1cm
-	
-	\begin{center}
-		\textbf{\LARGE{\@title}}
-	\end{center}
-
-	\vskip 2cm
-
-	\begin{center}
-		\textbf{\LARGE{PROTOKOLL}}
-	\end{center}
-	
-	\vskip 2cm			
-
-	\begin{flushleft}
-		\textbf{\Large{Experiment (Nr., Titel):}}\\
-		%Experiment Nr. und Titel statt den Punkten eintragen
-		\LARGE{\@experiment}	
-	\end{flushleft}
-
-	\vskip 0.5cm
-
-	%Eintragen des Abgabedatums, oder des Erstelldatums des Protokolls	
-	\begin{flushleft}
-		\textbf{\Large{Datum:}} \Large{\@date}
-	\end{flushleft}
-			
-	\vskip 0.5cm
-
-	%Namen der Protokollschreiber
-	\begin{flushleft}
-		\textbf{\Large{Namen:}} \Large{\@author}
-	\end{flushleft}
-
-	\vskip 1cm
-	
-	%Kurstag und Gruppennummer, zb. Fr/5
-	\begin{flushleft}
-		\textbf{\Large{Kurstag/Gruppe:}} \Large{\@group}
-	\end{flushleft}
-
-	\vfill
-	
-	%Name des Betreuers, das Praktikum betreute.
-	\begin{flushleft}
-		\LARGE{\textbf{Betreuer:}}\\	\Large{\@supervisor}	
-	\end{flushleft}
-	\end{titlepage}
-}
-
 
 % Math environment commands
 \newcommand{\E}[1]{\ensuremath{ \times 10^{#1}}}
@@ -135,24 +30,7 @@
 % Protokoll Helpers
 \newcommand{\syserr}{Systematische Fehler wurden mit Gausscher Fehlerfortpflanzung ermittelt.}
 \newcommand{\mverr}{Als Fehler für Mittelwerte wurde die Standardabweichung verwendet.}
+\newcommand{\skalaerr}{Als Fehler für die ablesegenauigkeit von Messskalen wurde die kleinste Skaleneinteilung verwendet.}
 \newcommand{\fiterr}{Der Fehler der Fitfunktionen wurde von QTIPlot ermittelt.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TeXCalc \val{x} and \val[1]{y}
-\newcommand{\val}[2][2]{
-	\ensuremath{
-			\immediate\write18{texcalc.py -job '\jobname' #2 #1 > \jobname.calc.res}
-			\immediate\input\jobname.calc.res
-	} 
-} % do nothing  
-
-\newcounter{@CalcCounter}
-\immediate\write18{rm \jobname.calc.*.py}
-
-% TeXCalc Environment
-\newenvironment{calc}{
-\stepcounter{@CalcCounter}
-\VerbatimOut{\jobname.calc.\the@CalcCounter.py}}  
-{\endVerbatimOut}
 
 
