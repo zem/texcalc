@@ -231,10 +231,11 @@ def calculate_texfile(filename, texmode='none'):
 	return
 
 def usage():
-	print '	usage: '+sys.argv[0]+' [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename]'
+	print '	usage: '+sys.argv[0]+' [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename] [-job jobname variable digits]'
 	print '		-tex	configures the latex command to produce pdf files default ist pdflatex'
 	print '		-C	-y	exchanges the \\val{xyz} Tags in the .tex file with the calculated values'
 	print '		-c		calculates the the file and produces tex'
+	print '		-job jobname variable digits is for an automated call from within latex'
 	print '		-?'
 	print '		-h 	prints this help'
 	print '			'
