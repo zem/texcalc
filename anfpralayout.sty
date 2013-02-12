@@ -1,9 +1,8 @@
-\ProvidesPackage{phunivie}
+\ProvidesPackage{anfpralayout}
 \RequirePackage{german}
 \RequirePackage{geometry}
-\RequirePackage{comment} % for calc
-\RequirePackage{environ} % for calc 
-\RequirePackage{fancyvrb} % for calc
+\RequirePackage{texcalc}
+\RequirePackage{physictools}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Package Options
@@ -105,54 +104,5 @@
 	\end{flushleft}
 	\end{titlepage}
 }
-
-
-% Math environment commands
-\newcommand{\E}[1]{\ensuremath{ \times 10^{#1}}}
-
-% vom Motz
-\newcommand{\ddt}{\ensuremath{ \frac{\partial}{\partial t}}}
-\newcommand{\dnach}[1]{\ensuremath{ \frac{\partial}{\partial #1}}}
-\newcommand{\ddnach}[2]{\ensuremath{ \frac{\partial #1}{\partial #2}}}
-\newcommand{\dddnach}[3]{\ensuremath{ \frac{\partial^2 #1}{\partial #2 \partial #3}}}
-\newcommand{\dznach}[2]{\ensuremath{ \frac{\partial^2 #1}{\partial #2^2}}}
-\newcommand{\vnabla}{\ensuremath{ \vec{\nabla}}}
-\newcommand{\evec}[1]{\ensuremath{ \mathbf{\hat{#1}}}}
-\newcommand{\bra}[1]{\ensuremath{ \langle#1|}}
-\newcommand{\ket}[1]{\ensuremath{ |#1\rangle}}
-\newcommand{\bracket}[2]{\ensuremath{ \langle#1| #2\rangle}}
-\newcommand{\up}{\ensuremath{ \uparrow}}
-\newcommand{\down}{\ensuremath{ \downarrow}}
-\newcommand{\updown}{\ensuremath{ \uparrow \downarrow}}
-\newcommand{\downup}{\ensuremath{ \downarrow \uparrow}}
-\newcommand{\upup}{\ensuremath{ \uparrow \uparrow}}
-\newcommand{\downdown}{\ensuremath{ \downarrow \downarrow}}
-\newcommand{\sandwich}[2]{\ensuremath{ \bra{#1} #2 \ket{#1}}}
-\newcommand{\fsqrt}[2]{\ensuremath{ \sqrt{\frac{#1}{#2}}}}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Protokoll Helpers
-\newcommand{\syserr}{Systematische Fehler wurden mit Gausscher Fehlerfortpflanzung ermittelt.}
-\newcommand{\mverr}{Als Fehler für Mittelwerte wurde die Standardabweichung verwendet.}
-\newcommand{\fiterr}{Der Fehler der Fitfunktionen wurde von QTIPlot ermittelt.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TeXCalc \val{x} and \val[1]{y}
-\newcommand{\val}[2][2]{
-	\ensuremath{
-			\immediate\write18{texcalc.py -job '\jobname' #2 #1 > \jobname.calc.res}
-			\immediate\input\jobname.calc.res
-	} 
-} % do nothing  
-
-\newcounter{@CalcCounter}
-\immediate\write18{rm \jobname.calc.*.py}
-
-% TeXCalc Environment
-\newenvironment{calc}{
-\stepcounter{@CalcCounter}
-\VerbatimOut{\jobname.calc.\the@CalcCounter.py}}  
-{\endVerbatimOut}
 
 
