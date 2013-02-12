@@ -17,6 +17,7 @@ VALUE=ufloat((1.0, 0.1))
 texmode='none' # should a pdf be generated
 latex='pdflatex' # which latex command to use
 filename='' # set a filename to the tex file
+job=[] # sets the filename of a latex jobfile 
 
 def f(a, b='na'):
 	if (b!='na'):
@@ -255,6 +256,10 @@ while len(arguments)>=1:
 		sys.ps2="ready\n"
 	elif (arg=="-tex"):
 		latex=arguments.pop(0)
+	elif (arg=="-job"):
+		job.append(arguments.pop(0))
+		while len(arguments)>=1:
+			job.append(arguments.pop(0))
 	elif (arg=="-c"):
 		texmode='generate'
 	elif (arg=="-C"):
@@ -269,6 +274,17 @@ while len(arguments)>=1:
 		# it is obviously a filename
 		filename=arg
 
+if (len(job)>0):
+	num=1
+	jobfile=job.pop(0)
+	currjob=jobfile+".calc."+str(num)+".py"
+	while (os.path.isfile(currjob)):
+		execfile(currjob, evaluate_kontext)
+		num=num+1
+		currjob=jobfile+".calc."+str(num)+".py"
+	exec("print unum2TEXstring(uround("+job[0]+","+job[1]+"),"+job[1]+")") in evaluate_kontext
+	os._exit(0)
+	
 #look for file
 if (filename != ''): 
 	calculate_texfile(filename, texmode); 
