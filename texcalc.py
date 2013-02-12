@@ -189,15 +189,12 @@ def calculate_texfile(filename, texmode='none'):
 		# the classic calc c C lines 
 		elif (commentchr=="%") and (line=="\\begin{calc}"):
 			noval_file.write(line+"\n")
-			val_file.write(line+"\n")
 			commentchr="#"
 		elif (commentchr=="#") and (line=="\\end{calc}"):
 			noval_file.write(line+"\n")
-			val_file.write(line+"\n")
 			commentchr="%"
 		elif (commentchr=="#") and (line!="\\end{calc}"):
 			noval_file.write(line+"\n")
-			val_file.write(line+"\n")
 			result=evaluate_line(line)
 		elif re.match('\%(calc|c|C)\s', line) or re.match('\%(calc)', line):
 			noval_file.write(line+"\n")
@@ -210,7 +207,8 @@ def calculate_texfile(filename, texmode='none'):
 			val_file.write(insert_values(line)+"\n")
 		if ( result != '' ): 
 			noval_file.write(commentchr+"r "+str(result)+"\n")
-			val_file.write(commentchr+"r "+str(result)+"\n")
+			if commentchr=="%":
+				val_file.write(commentchr+"r "+str(result)+"\n")
 			result=''
 	val_file.close()
 	noval_file.close()
@@ -220,8 +218,10 @@ def calculate_texfile(filename, texmode='none'):
 		os.link(valname, filename)
 		latexcmd=re.split('\s+', latex)
 		latexcmd.append(filename)
-		if subprocess.call(latexcmd) != 0: os._exit(1)
-		if subprocess.call(latexcmd) != 0: os._exit(1)
+		#if subprocess.call(latexcmd) != 0: os._exit(1)
+		#if subprocess.call(latexcmd) != 0: os._exit(1)
+		subprocess.call(latexcmd)
+		subprocess.call(latexcmd) 
 		if (texmode!='replace'):
 			os.unlink(filename)
 	if (texmode!='replace'):
