@@ -1,0 +1,83 @@
+
+                 ++++++++++++++++++++++++
+                 +  Welcome to TeXcalc! +
+                 ++++++++++++++++++++++++
+
+TeXcalc is a full proof command line calculator written in python, which can 
+calculate everythig, you think about especially if you think about
+  _uncertainties_!
+
+for example, try: 
+              sin(f(23.005 , 0.023)+f(42.005 , 0.23))*23.0
+
+since this is a python prompt, it can do everything python can do. 
+you can also parse calculations in a latex file enclosed by a calc environment
+and you can automatically insert the results with \val{x} tags into your pdf
+look at the help, (texcalc.py -h) for more information about the usage. good luck!
+
+>>>
+
+
+#######################################################################
+    USAGE
+#######################################################################
+
+	usage: ./texcalc.py [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename] [-job jobname variable digits]
+		-tex	configures the latex command to produce pdf files default ist pdflatex
+		-C	-y	exchanges the \val{xyz} Tags in the .tex file with the calculated values
+		-c		calculates the the file and produces tex
+		-job jobname variable digits is for an automated call from within latex
+		-?
+		-h 	prints this help
+			
+	when calles without parameters calc.py will act as a command line calculator 
+
+
+#######################################################################
+    MISC Notes sorry for the german will be changed soon
+#######################################################################
+
+
+Fensterbenutzer können sich folgendes installieren:
+
+        http://www.python.org/ftp/python/3.3.0/python-3.3.0.msi
+        http://pypi.python.org/packages/source/u/uncertainties/uncertainties-1.9.tar.gz
+
+Linux benutzer habens da besser
+
+$ apt-get install python-uncertainties
+
+eingeben und fertig.
+
+
+Jetzt noch für alle  https://github.com/zem/texcalc/archive/master.zip
+laden und entpacken.
+
+der Taschenrechner sollte schon direkt mit einem doppelklick auf
+texcalc.py funktionieren, ich bin auf fehlerberichte gespannt.
+
+texcalc.py -c texfile.tex
+
+verarbeitet alle Rechnungen im texfile und erzeugt ein .pdf draus
+(miktex oder texlive muss natürlich da sein)
+
+
+im tex file könnt ihr rechnen mit:
+
+\begin{calc}
+x=f(23.3,0.2) # das ist eine Zahl 23,3 +/- 0,2
+d=x**3
+\end{calc}
+
+und das ergebnis in die Druckformeln einfügen mit:
+
+$$d=\val{d}$$
+
+oder mit
+
+$$d_{5 significant} = \val[5]{d}$$
+
+alles andere was früher mal ging sollte auch noch gehen.  Macht
+sicherungskopien. Und gebt das Tool weiter...
+
+
