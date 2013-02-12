@@ -80,4 +80,20 @@ $$d_{5 significant} = \val[5]{d}$$
 alles andere was früher mal ging sollte auch noch gehen.  Macht
 sicherungskopien. Und gebt das Tool weiter...
 
+#######################################################################
+    Things which are not fancy, aka TODO List
+#######################################################################
 
+- I dont like basti and motz options in phunivie package anymore but 
+	I still don't know how to deal with that. 
+	In fact, there are some useful macros for physics protocols at our 
+	university, which are only usefull at our university, like the title 
+	page for  the beginners praktikum.  Maybe splitting up styles is a 
+	solution but you have to load more documents. 
+
+- sometimes texcalc.py messes up with the tex file leaving it empty, this 
+	is due to a lack of some error  handling 
+
+- explain how the calc latex environment is working 
+
+- document much 
