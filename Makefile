@@ -10,7 +10,13 @@ SHARE=${PREFIX}/share
 TARGET=${PREFIX}/bin
 TEXMF=${SHARE}/texmf/tex/latex/texcalc
 
-install: $(TEXMF)/anfpralayout.sty $(TEXMF)/physictools.sty $(TEXMF)/texcalc.sty $(TARGET)/texcalc.py
+install: $(TEXMF)/texcalc.sty $(TARGET)/texcalc.py
+install-contrib: $(TEXMF)/anfpralayout.sty $(TEXMF)/physictools.sty 
+
+$(TEXMF)/%.sty: contrib/%.sty
+	mkdir -p $(TEXMF)
+	cp $< $@
+	mktexlsr
 
 $(TEXMF)/%.sty: %.sty
 	mkdir -p $(TEXMF)
