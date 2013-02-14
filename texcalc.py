@@ -42,9 +42,17 @@ def uround(a, digits=2):
 	else:
 		return round(a, digits)
 
-# creates meanval and stderr of an array or a list and returns it as ufloat number
+# creates meanval and stderr of an array or a list of ufloat or float and returns 
+# it as ufloat number
+# THIS FUNCTION needs to be reconsidered, because the input uncertainties are ignored
 def meanval(a):
-	a=array(a)
+	nominal=[]
+	for num in a:
+		if isinstance(num, UFloat):
+			nominal.append(nominal_value(num))
+		else: 
+			nominal.append(num)
+	a=array(nominal)
 	mw=a.mean()
 	sa=sqrt(((a-mw)**2).mean())
 	return f((mw, sa))
