@@ -5,22 +5,98 @@
 \usepackage{physictools}
 \usepackage{texcalc}
 \usepackage{amsmath}
+\usepackage{hyperref}
 
 \setlength{\parindent}{0cm}
 
+\newcommand{\texcalc}{{\TeX}calc}
 \begin{document}
 \title{Anleitung zu den {\TeX}calc \LaTeXe-Packeten}
 \author{Hans Freitag (und einige andere)}
 \maketitle 
 
+\texcalc Besteht aus drei Komponenten. 
 
-Der Packetname {\bf phunivie} steht für Fakultät für Physik der Uni Wien. 
-Das Packet ist eine Sammlung von \LaTeXe-Makros von Studierenden der Fakultät, 
-die sich im Laufe des Studiums als Hilfreich erwiesen haben. 
+\begin{enumerate}
+\item texcalc.py ist ein in python geschriebener Taschenrechner der das Pythonmodul 
+		uncertainties benutzt.
+\item texcalc.sty ist ein \LaTeXe-Packet mit dem Berechnungen mit Messunsicherheiten 
+		direkt aus dem \LaTeXe Dokument heraus möglich sind. 
+\item Zusatz styles die zwar nicht direkt etwas mit \texcalc zu tun haben, aber für 
+		das Schreiben von Physikprotokollen Nützlich sein können. Die beiden zusatzpackete 
+		gliedern sich in:
+	\begin{itemize}
+	\item physictools.sty eine allgemeine toolsammlung die das Leben leichter machen soll
+	\item anfpralayout.sty Layoutparameter Deckbletter etc, die wahrscheinlich nie einmal 
+		irgendwo anders als an der Uniwien in der Physik verwendet werden. 
+	\end{itemize}
+	Die Contrib Packete sind eine Sammlung von \LaTeXe-Makros von Studierenden der Fakultät, 
+	die sich im Laufe des Studiums als Hilfreich erwiesen haben. 
+\end{enumerate}
+
 
 \tableofcontents
 
 \section{Features}
+
+
+\section{Download}
+
+\subsection{Abhängigkeiten}
+
+\begin{itemize}
+\item Eine LaTeX Distribution wie MikTeX oder TeXlive
+\item Python 
+\item Python-numpy
+\item Python-uncertainties
+\end{itemize}
+
+\subsection{Dieses Packet}
+
+\begin{itemize}
+	\item Download der aktuellen Version von GitHUB \url{https://github.com/zem/texcalc/archive/master.zip}
+\end{itemize}
+
+\subsection{Software für Windows}
+
+\begin{itemize}
+	\item MikTeX \url{http://mirrors.ctan.org/systems/win32/miktex/setup/basic-miktex-2.9.4757.exe}
+	\item TeXnicenter \url{http://www.texniccenter.org/resources/downloads/29-downloads/12-texniccenter-installeir}
+	\item Python \url{http://www.python.org/ftp/python/3.3.0/python-3.3.0.msi}
+	\item Python Numpy \url{http://sourceforge.net/projects/numpy/files/latest/download?source=files}
+	\item Python Uncertainties \url{http://pypi.python.org/packages/source/u/uncertainties/uncertainties-1.9.tar.gz}
+\end{itemize}
+
+\subsection{Software für Linux(Debian)}
+
+\begin{verbatim}
+	apt-get install texlive latexila python python-numpy python-uncertainties
+\end{verbatim}
+
+(Wer will kann und soll natürlich auch vim verwenden, oder meinetwegen auch Emacs.)
+
+\subsection{Mitentwickeln}
+
+Mitentwickeln kann jeder. Dafür brauchst du das Versionskontrollsystem GIT
+\footnote{GIT ist übrigens auch Prima dafür geeignet um LaTeX dokumente zu verwalten, 
+sowohl für einen Persönlich als auch wenn mehrere Personen ein Dokument bearbeiten. } 
+einfach das Repository klonen, entweder von nawi.at: 
+
+\begin{verbatim}
+	git clone http://www.nawi.at/git/texcalc
+\end{verbatim}
+
+Oder über github.com Was sich so tut kannst du im gitweb nachlesen: 
+\url{http://www.nawi.at/gitweb/?p=texcalc;a=summary} oder halt auf github.com\\
+
+Wenn du einen Patch machen willst kannst du 
+
+\begin{verbatim}
+	git format-patch origin/master
+\end{verbatim}
+
+verwenden, und den Patch an zem@nawi.at mailen oder auf github einen fork 
+anlegen und patchen. 
 
 
 \section{Installation}
@@ -29,13 +105,20 @@ Das Packet ist in der Datei {\bf phunivie.sty} implementiert, um das Packet zu
 verwenden muss es entweder in dem Verzeichnis liegen wo das \TeX-Dokument 
 übersetzt wird, oder in eines der Suchpfade für Packete kopiert werden.\\
 
+
+
 \subsection{Linux}
 
-Unter Linux kann man das Packet unter  {\bf
-\$HOME/texmf/tex/latex/phunivie/phunivie.sty} ablegen, dann wird es von allen 
-Dokumenten gefunden. \\
+Installation auf Linux geht mit: 
+
+\begin{verbatim}
+	make install install-contrib
+\end{verbatim}
 
 \subsection{Windows}
+
+Hoffentlich gibts bald ein install.bat script oder sowas. 
+
 \begin{enumerate}
 	\item Erstellen eines Ordners mit dem Namen der \textbf{\textbf{*.sty}} 
 		Datei (hier phunivie) unter dem Installationsordner:\\
@@ -54,6 +137,11 @@ Dokumenten gefunden. \\
 
 
 \section{Benutzung}
+
+\subsection{Erste Schritte mit \texcalc}
+
+
+
 
 In der Preambel:
 
