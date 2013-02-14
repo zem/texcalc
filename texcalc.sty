@@ -17,7 +17,7 @@
 	\immediate\write18{texcalc.py -job '\jobname' #2 #1 > \jobname.calc.res}
 }\else{ 
 	% DO LUA CODE
-	\directlue{
+	\directlua{
 		os.execute("texcalc.py -job '\jobname' #2 #1 > \jobname.calc.res")
 	}
 }\fi
