@@ -8,14 +8,14 @@ PREFIX=/usr/local
 SHARE=${PREFIX}/share
 
 TARGET=${PREFIX}/bin
-TEXMF=${SHARE}/texmf/tex/latex/phunivie
+TEXMF=${SHARE}/texmf/tex/latex/texcalc
 
-install: $(TARGET)/texcalc.py
+install: $(TEXMF)/anfpralayout.sty $(TEXMF)/physictools.sty $(TEXMF)/texcalc.sty $(TARGET)/texcalc.py
 
-$(TEXMF)/phunivie.sty: phunivie.sty
+$(TEXMF)/%.sty: %.sty
 	mkdir -p $(TEXMF)
 	cp $< $@
 	mktexlsr
 
-$(TARGET)/texcalc.py: texcalc.py
+$(TARGET)/%.py: %.py
 	cp $< $@
