@@ -4,6 +4,8 @@
 \RequirePackage{fancyvrb} % for calc
 
 
+\newcommand{\val}[2][2]{
+\ensuremath{
 \ifx\directlua\pgf@gd@undefined@donotuse{ 
 	\ifnum\pdfshellescape=1{
 		\relax
@@ -12,23 +14,16 @@
 		\GenericWarning{}{TEXCALC is doing work without pdflatex or luatex, I dont know if this is working!}
 		% No, disabled
 	}\fi
-	\newcommand{\val}[2][2]{
-		\ensuremath{
-			\immediate\write18{texcalc.py -job '\jobname' #2 #1 > \jobname.calc.res}
-			\immediate\input\jobname.calc.res
-		} 
-	} % do nothing  
+	\immediate\write18{texcalc.py -job '\jobname' #2 #1 > \jobname.calc.res}
 }\else{ 
 	% DO LUA CODE
-	\newcommand{\val}[2][2]{
-		\ensuremath{
-			\directlue{
-				os.execute("texcalc.py -job '\jobname' #2 #1 > \jobname.calc.res")
-			}
-			\immediate\input\jobname.calc.res
-		} 
-	} % do nothing  
+	\directlue{
+		os.execute("texcalc.py -job '\jobname' #2 #1 > \jobname.calc.res")
+	}
 }\fi
+\immediate\input\jobname.calc.res
+} 
+}   
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

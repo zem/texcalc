@@ -4,6 +4,7 @@
 
 \begin{calc}
 x=f(23.55,0.02)
+#r 23.55+/-0.02
 def foo(x):
 	y=x**2
 	return y
@@ -12,11 +13,18 @@ z=33
 #r 33
 foo(z)
 #r 1089
+y=f(222.0,22)
+#r 222.0+/-22.0
+
+a=f(24423.0,220)
+#r 222.0+/-22.0
 \end{calc}
 
 $$x=\val[5]{x}$$
 $$\val{x} = x$$
 $$\val{foo(x)} = x^2$$
 $$\val{z} = z$$
+$$y=\val{y}$$
+$$a=\val{a}$$
 
 \end{document}

@@ -10,7 +10,7 @@ SHARE=${PREFIX}/share
 TARGET=${PREFIX}/bin
 TEXMF=${SHARE}/texmf/tex/latex/phunivie
 
-install: $(TEXMF)/phunivie.sty $(TARGET)/texcalc.py
+install: $(TARGET)/texcalc.py
 
 $(TEXMF)/phunivie.sty: phunivie.sty
 	mkdir -p $(TEXMF)
