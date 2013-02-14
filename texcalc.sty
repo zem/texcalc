@@ -4,23 +4,36 @@
 \RequirePackage{fancyvrb} % for calc
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TeXCalc \val{x} and \val[1]{y}
-\newcommand{\val}[2][2]{
-	\ensuremath{
+\ifx\directlua\pgf@gd@undefined@donotuse{ 
+	\ifnum\pdfshellescape=1{
+		\relax
+		% Yes, write18,  enabled
+	}\else{
+		\GenericWarning{}{TEXCALC is doing work without pdflatex or luatex, I dont know if this is working!}
+		% No, disabled
+	}\fi
+	\newcommand{\val}[2][2]{
+		\ensuremath{
 			\immediate\write18{texcalc.py -job '\jobname' #2 #1 > \jobname.calc.res}
 			\immediate\input\jobname.calc.res
-	} 
-} % do nothing  
+		} 
+	} % do nothing  
+}\else{ 
+	% DO LUA CODE
+	\newcommand{\val}[2][2]{
+		\ensuremath{
+			\directlue{
+				os.execute("texcalc.py -job '\jobname' #2 #1 > \jobname.calc.res")
+			}
+			\immediate\input\jobname.calc.res
+		} 
+	} % do nothing  
+}\fi
 
-%\ifnum\pdfshellescape=1
-%% Yes, write18,  enabled
-%\else
-%% No, disabled
-%\fi
 
-% \ifx\directlua\pgf@gd@undefined@donotuse{ DO CLASSIC }\else{ DO LUA }\fi
-% \directlue{os.execute("echo hallo")}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TeXCalc \val{x} and \val[1]{y}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Write all the begin calcs down to a file 
