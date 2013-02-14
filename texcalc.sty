@@ -33,7 +33,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Write all the begin calcs down to a file 
 \newcounter{@CalcCounter}
-\immediate\write18{rm \jobname.calc.*.py}
+\ifx\directlua\pgf@gd@undefined@donotuse{ 
+	\ifnum\pdfshellescape=1{
+		\relax
+		% Yes, write18,  enabled
+	}\else{
+		\GenericWarning{}{TEXCALC is doing work without pdflatex or luatex, I dont know if this is working!}
+		% No, disabled
+	}\fi
+	\immediate\write18{rm -f \jobname.calc.*.py}
+}\else{ 
+	% DO LUA CODE
+	\directlua{
+		os.execute("rm -f \jobname.calc.*.py")
+	}
+}\fi
 
 % TeXCalc Environment
 \newenvironment{calc}{
