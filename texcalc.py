@@ -18,6 +18,7 @@ texmode='none' # should a pdf be generated
 latex='pdflatex' # which latex command to use
 filename='' # set a filename to the tex file
 job=[] # sets the filename of a latex jobfile 
+texcalcsty='no' # whether the process has texcalc.sty 
 
 def f(a, b='na'):
 	if (b!='na'):
@@ -49,9 +50,37 @@ def meanval(a):
 	return f((mw, sa))
 	#return [mw, sa]
 
-# rounds up all the stringified 
-# values to eliminate the exponent
-def KillExp(num):
+
+# ok, this part splits up a float number to a stringified list, 
+# makes the exponent numerical and eliminates it. 
+# the reulting list should look like 
+# ['', '003', 0, '-']
+# ['299', '3', 0, ''] # <-- this is a positive value
+# ['299', '', 0, '-']
+def FloatToList(fl):
+	num=re.split('e', str(fl))
+	exp=0
+	if (len(num)==2): 
+		exp=int(num[1])
+	num=re.split('\\.', num[0])
+	if (len(num)<2): 
+		num.append('')
+	num.append(exp)
+	# check for negative number 
+	if re.match('-', num[0]):
+		num.append(num[0][0])
+		if (len(num[0]) > 1):
+			num[0]=num[0][1:]
+		else:
+			num[0]=''
+	else: 
+		num.append('')
+	# makes the third element (exponent) of the list 
+	# numerical integer
+	if num[0]=='0': num[0]=''
+	if num[1]=='0': num[1]=''
+	#print "DEBUG ", num
+	# now eliminate the exponent 
 	while num[2] != 0: 
 		if num[2] > 0: 
 			num[2]=num[2]-1
@@ -66,24 +95,18 @@ def KillExp(num):
 		else:  # num[2] < 0 
 			num[2]=num[2]+1
 			if len(num[0]) > 0:
-				num[1]=num[0][-1]+num[1]
+				if (num[1]!='') or (num[0][-1]!='0'):
+					num[1]=num[0][-1]+num[1]
 				if len(num[0]) > 1: 
 					num[0]=num[0][:-1]
 				else:
 					num[0]=''
 			else:
-				num[1]='0'+num[1]
+				if (num[1]!=''):
+					num[1]='0'+num[1]
+		#print "DEBUGWHILE: ", num
 	return num
 	
-
-# makes the third element (exponent) of the list 
-# numerical integer 
-def ExpToNum(num):
-	if (len(num)<3): 
-		num.append(0)
-	else:
-		num[2]=int(num[2])
-	return num
 
 # this funktion converts a number (num) to an iso stringified list
 def unum2TEXstring(num, digits=2):
@@ -92,10 +115,9 @@ def unum2TEXstring(num, digits=2):
 		# ok we want to round to all the the 
 		# significant digits
 		#
-		# ok, this part splits up the numbers to a stringified list, 
-		# makes the exponent numerical and eliminates it 
-		val=KillExp(ExpToNum(re.split('\\.|e', str(nominal_value(num)))))
-		unc=KillExp(ExpToNum(re.split('\\.|e', str(std_dev(num)))))
+		# getting stringified lists from the value and the uncertaintie
+		val=FloatToList(nominal_value(num))
+		unc=FloatToList(std_dev(num))
 		#
 		# Ok, we can now count the significant digits 
 		while ( len(re.sub('^0+', '', unc[0]+unc[1])) < digits ):
@@ -104,7 +126,11 @@ def unum2TEXstring(num, digits=2):
 			val[1]=val[1]+'0'
 		if unc[0]=='': unc[0]='0'
 		if val[0]=='': val[0]='0'
-		return '('+val[0]+','+val[1]+' \\pm '+unc[0]+','+unc[1]+')'
+		uncsep=','
+		valsep=','
+		if unc[1]=='': uncsep=''
+		if val[1]=='': valsep=''
+		return '('+val[3]+val[0]+valsep+val[1]+' \\pm '+unc[0]+uncsep+unc[1]+')'
 	else: 
 		return str(num)
 
@@ -123,6 +149,9 @@ def evaluate_line(line):
 	if re.match('def\s.*:$', line) or ((evaluate_line_collect!='') and (line!='')):
 		print "funktionsdefinition starting collect "+ line
 		evaluate_line_collect=evaluate_line_collect+line+"\n"
+		return ''
+	elif ((line=='') and (evaluate_line_collect=='')):
+		# do nothing because there is nothing to do
 		return ''
 	elif ((line=='') and (evaluate_line_collect!='')):
 		print "evaluating block:"
@@ -187,14 +216,24 @@ def calculate_texfile(filename, texmode='none'):
 			pass
 			# write this line nowhere 
 		# the classic calc c C lines 
+		elif (line=="\\usepackage{texcalc}"):
+			texcalcsty='yes'
+			noval_file.write(line+"\n")
+			val_file.write(line+"\n")
 		elif (commentchr=="%") and (line=="\\begin{calc}"):
 			noval_file.write(line+"\n")
+			if (texcalcsty=='yes'):
+				val_file.write(line+"\n")
 			commentchr="#"
 		elif (commentchr=="#") and (line=="\\end{calc}"):
 			noval_file.write(line+"\n")
+			if (texcalcsty=='yes'):
+				val_file.write(line+"\n")
 			commentchr="%"
 		elif (commentchr=="#") and (line!="\\end{calc}"):
 			noval_file.write(line+"\n")
+			if (texcalcsty=='yes'):
+				val_file.write(line+"\n")
 			result=evaluate_line(line)
 		elif re.match('\%(calc|c|C)\s', line) or re.match('\%(calc)', line):
 			noval_file.write(line+"\n")
@@ -207,7 +246,7 @@ def calculate_texfile(filename, texmode='none'):
 			val_file.write(insert_values(line)+"\n")
 		if ( result != '' ): 
 			noval_file.write(commentchr+"r "+str(result)+"\n")
-			if commentchr=="%":
+			if (commentchr=="%") or (texcalcsty=='yes'):
 				val_file.write(commentchr+"r "+str(result)+"\n")
 			result=''
 	val_file.close()
