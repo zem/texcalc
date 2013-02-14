@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{texcalc}
+\begin{document}
+
+\begin{calc}
+x=f(23.55,0.02)
+def foo(x):
+	y=x**2
+	return y
+
+z=33
+#r 33
+foo(z)
+#r 1089
+\end{calc}
+
+$$x=\val[5]{x}$$
+$$\val{x} = x$$
+$$\val{foo(x)} = x^2$$
+$$\val{z} = z$$
+
+\end{document}
