@@ -16,6 +16,13 @@
 \author{Hans Freitag (und einige andere)}
 \maketitle 
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{texcalc.png}
+\caption{Ein Screenshot des texcalc.py Taschenrechners}
+\label{fig:texcalc.py}
+\end{figure}
+
 \texcalc Besteht aus drei Komponenten. 
 
 \begin{enumerate}
@@ -35,19 +42,13 @@
 	die sich im Laufe des Studiums als Hilfreich erwiesen haben. 
 \end{enumerate}
 
-
 \tableofcontents
 
-\section{Features}
+\section{Features/Benutzung}
 
-\subsection{texcalc.py}
+\subsection{Taschenrechner}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{texcalc.png}
-\caption{Ein Screenshot des texcalc.py Taschenrechners}
-\label{fig:texcalc.py}
-\end{figure}
+Der Taschenrechner wird mit dem Komando texcalc.py gestartet\footnote{Doppelklick geht auf Windows auch}.
 
 Abbildung \ref{fig:texcalc.py} zeigt einen Screenshot des Taschenrechners an. Zahlen mit Unsicherheiten können 
 durch $f(number, uncertainty)$ notiert werden. In dem Prompt kann alles berechnet werden was in Python berechnet 
@@ -169,7 +170,7 @@ $$a=\val{a}$$
 
 (Wer will kann und soll natürlich auch vim verwenden, oder meinetwegen auch Emacs.)
 
-\subsection{Mitentwickeln}
+\subsection{Entwicklung und Fehlerbehebung}
 
 Mitentwickeln kann jeder. Dafür brauchst du das Versionskontrollsystem GIT
 \footnote{GIT ist übrigens auch Prima dafür geeignet um LaTeX dokumente zu verwalten, 
@@ -195,12 +196,6 @@ anlegen und patchen.
 
 \section{Installation}
 
-Das Packet ist in der Datei {\bf phunivie.sty} implementiert, um das Packet zu 
-verwenden muss es entweder in dem Verzeichnis liegen wo das \TeX-Dokument 
-übersetzt wird, oder in eines der Suchpfade für Packete kopiert werden.\\
-
-
-
 \subsection{Linux}
 
 Installation auf Linux geht mit: 
@@ -211,42 +206,222 @@ Installation auf Linux geht mit:
 
 \subsection{Windows}
 
-Hoffentlich gibts bald ein install.bat script oder sowas. 
+Hoffentlich gibts bald ein install.bat script oder sowas. \\
 
-\begin{enumerate}
-	\item Erstellen eines Ordners mit dem Namen der \textbf{\textbf{*.sty}} 
-		Datei (hier phunivie) unter dem Installationsordner:\\
+Grundsätzlich müssen alle .sty in miktex eingebunden werden, wie das 
+geht ist in der MikTex Doku beschrieben:\\
 
-		\textbf{\emph{MiKTeX\textbackslash tex\textbackslash latex}}\\
-		Normalerweise unter: \textbf{\emph{C:\textbackslash Program 
-		Files (x86)\textbackslash MiKTeX 2.9\textbackslash 
-		tex\textbackslash latex}}
+\url{http://docs.miktex.org/manual/localadditions.html}\\
+\url{http://docs.miktex.org/manual/texfeatures.html#includedirectory}\\
 
-	\item Einbinden in Miktex:\\
-			Gehe auf $\boldsymbol{Start \rightarrow MiKTeX \rightarrow 
-			Maintenance \rightarrow Settings \rightarrow Refresh~FNDB}$
+%\begin{enumerate}
+%	\item Erstellen eines Ordners mit dem Namen der \textbf{\textbf{*.sty}} 
+%		Datei (hier phunivie) unter dem Installationsordner:\\
+%
+%		\textbf{\emph{MiKTeX\textbackslash tex\textbackslash latex}}\\
+%		Normalerweise unter: \textbf{\emph{C:\textbackslash Program 
+%		Files (x86)\textbackslash MiKTeX 2.9\textbackslash 
+%		tex\textbackslash latex}}
+%	\item Einbinden in Miktex:\\
+%			Gehe auf $\boldsymbol{Start \rightarrow MiKTeX \rightarrow 
+%			Maintenance \rightarrow Settings \rightarrow Refresh~FNDB}$
+%
+%	\item Fertig!
+%\end{enumerate}
 
-	\item Fertig!
-\end{enumerate}
+Dann muss texcalc.py noch irgendwo hingelegt werden wo es im Pfad liegt, bzw 
+der Pfad muss angepasst werden. miktex/bin kann funktionieren, da wo das pdflatex.exe 
+liegt, das ist aber keine schöne lösung.\\ 
 
-
-\section{Benutzung}
-
-\subsection{Erste Schritte mit \texcalc}
+\section{Contrib}
 
 
 
+\subsection{physictools Packet}
 
 In der Preambel:
 
 \begin{verbatim}
-	\usepackage{phunivie}
+	\usepackage{physictools}
+\end{verbatim}
+
+\subsubsection{Ergebnis Einleitung}
+
+In der Ergebnisse Section kommen einige sätze immer wieder vor. Hier die Templates: 
+
+\begin{verbatim}
+	\skalaerr
+	\mverr
+	\fiterr\usedqti
+	\stopwatcherr
+	\multimetererr
+	\syserr\usedtexcalc
+	\\
+\end{verbatim}
+
+
+Und das wird zu: \\
+
+\skalaerr
+\mverr
+\fiterr\usedqti
+\stopwatcherr
+\multimetererr
+\syserr\usedtexcalc
+\\
+
+
+\subsubsection{$23\E{10}$}
+
+\begin{verbatim}
+$$23\E{10}$$
+\end{verbatim}
+
+\subsubsection{\ddt}
+
+\begin{verbatim}
+$$
+	\ddt
+$$
+\end{verbatim}
+
+\subsubsection{$\dnach{x}$}
+
+\begin{verbatim}
+$$
+	\dnach{x}
+$$
+\end{verbatim}
+
+\subsubsection{$\ddnach{x}{y}$}
+
+\begin{verbatim}
+$$
+	\ddnach{x}{y}
+$$
+\end{verbatim}
+
+
+\subsubsection{$\dddnach{x}{y}{z}$}
+
+\begin{verbatim}
+$$
+	\dddnach{x}{y}{z}
+$$
+\end{verbatim}
+
+\subsubsection{$\dznach{x}{y}$}
+
+\begin{verbatim}
+$$
+	\dznach{x}{y}
+$$
+\end{verbatim}
+
+\subsubsection{$\vnabla$}
+
+\begin{verbatim}
+$$
+	\vnabla
+$$
+\end{verbatim}
+
+\subsubsection{$\evec{x}$}
+
+\begin{verbatim}
+$$
+	\evec{x}
+$$
+\end{verbatim}
+
+\subsubsection{$\bra{x}$}
+
+\begin{verbatim}
+$$
+	\bra{x}
+$$
+\end{verbatim}
+
+\subsubsection{$\ket{x}$}
+
+\begin{verbatim}
+$$
+	\ket{x}
+$$
+\end{verbatim}
+
+\subsubsection{$\bracket{x}{y}$}
+
+\begin{verbatim}
+$$
+	\bracket{x}{y}
+$$
+\end{verbatim}
+
+\subsubsection{$\up$}
+
+\begin{verbatim}
+$$
+	\up
+$$
+\end{verbatim}
+
+\subsubsection{$\down$}
+
+\begin{verbatim}
+$$
+	\down
+$$
+\end{verbatim}
+
+\subsubsection{$\upup$}
+
+\begin{verbatim}
+$$
+	\upup
+$$
+\end{verbatim}
+
+\subsubsection{$\downdown$}
+
+\begin{verbatim}
+$$
+	\downdown
+$$
+\end{verbatim}
+
+\subsubsection{$\sandwich{x}{y}$}
+
+\begin{verbatim}
+$$
+	\sandwich{x}{y}
+$$
+\end{verbatim}
+
+\subsubsection{$\fsqrt{x}{y}$}
+
+\begin{verbatim}
+$$
+	\fsqrt{x}{y}
+$$
+\end{verbatim}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{anfpralayout}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In der Preambel:
+
+\begin{verbatim}
+	\usepackage{anfpralayout}
 \end{verbatim}
 
 oder
 
 \begin{verbatim}
-	\usepackage[option]{phunivie}
+	\usepackage[option]{anfpralayout}
 \end{verbatim}
 
 Optionen können sein: 
@@ -257,7 +432,7 @@ Optionen können sein:
 \end{description}
 	
 
-\section{Titelseite}
+\subsubsection{Titelseite}
 
 Für das Anfängerpraktikum ist eine Besondere Titelseite nötig, die 
 kann natürlich ganz einfach gesetzt werden:
@@ -290,144 +465,4 @@ Anfang eines Dokumentes steht}:
 \makeanfpratitle
 
 
-\section{physictools Packet}
-
-
-\subsection{$23\E{10}$}
-
-\begin{verbatim}
-$$23\E{10}$$
-\end{verbatim}
-
-\subsection{\ddt}
-
-\begin{verbatim}
-$$
-	\ddt
-$$
-\end{verbatim}
-
-\subsection{$\dnach{x}$}
-
-\begin{verbatim}
-$$
-	\dnach{x}
-$$
-\end{verbatim}
-
-\subsection{$\ddnach{x}{y}$}
-
-\begin{verbatim}
-$$
-	\ddnach{x}{y}
-$$
-\end{verbatim}
-
-
-\subsection{$\dddnach{x}{y}{z}$}
-
-\begin{verbatim}
-$$
-	\dddnach{x}{y}{z}
-$$
-\end{verbatim}
-
-\subsection{$\dznach{x}{y}$}
-
-\begin{verbatim}
-$$
-	\dznach{x}{y}
-$$
-\end{verbatim}
-
-\subsection{$\vnabla$}
-
-\begin{verbatim}
-$$
-	\vnabla
-$$
-\end{verbatim}
-
-\subsection{$\evec{x}$}
-
-\begin{verbatim}
-$$
-	\evec{x}
-$$
-\end{verbatim}
-
-\subsection{$\bra{x}$}
-
-\begin{verbatim}
-$$
-	\bra{x}
-$$
-\end{verbatim}
-
-\subsection{$\ket{x}$}
-
-\begin{verbatim}
-$$
-	\ket{x}
-$$
-\end{verbatim}
-
-\subsection{$\bracket{x}{y}$}
-
-\begin{verbatim}
-$$
-	\bracket{x}{y}
-$$
-\end{verbatim}
-
-\subsection{$\up$}
-
-\begin{verbatim}
-$$
-	\up
-$$
-\end{verbatim}
-
-\subsection{$\down$}
-
-\begin{verbatim}
-$$
-	\down
-$$
-\end{verbatim}
-
-\subsection{$\upup$}
-
-\begin{verbatim}
-$$
-	\upup
-$$
-\end{verbatim}
-
-\subsection{$\downdown$}
-
-\begin{verbatim}
-$$
-	\downdown
-$$
-\end{verbatim}
-
-\subsection{$\sandwich{x}{y}$}
-
-\begin{verbatim}
-$$
-	\sandwich{x}{y}
-$$
-\end{verbatim}
-
-\subsection{$\fsqrt{x}{y}$}
-
-\begin{verbatim}
-$$
-	\fsqrt{x}{y}
-$$
-\end{verbatim}
-
 \end{document}
-
-
