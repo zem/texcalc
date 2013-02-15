@@ -214,6 +214,7 @@ def insert_values(line):
 # inserts the \val{}
 def calculate_texfile(filename, texmode='none'):
 	#exec('from main import *') in evaluate_kontext
+	global verbatim
 	novalname=filename+".noval.tmp"
 	valname=filename+".val.tmp"
 	commentchr='%'
