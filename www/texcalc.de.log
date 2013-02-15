@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.1.18)  15 FEB 2013 13:56
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.1.18)  15 FEB 2013 15:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -993,33 +993,37 @@ LaTeX Info: Redefining \nameref on input line 14.
 --- file texcalc.de.css ---
 [1
 
-] [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 30.
+] [2] [3] [4
+
+]
+l.21 --- TeX4ht warning --- Cannot determine size of graphic in texcalc.png (no
+ BoundingBox) ---
+l. 21 --- needs --- texcalc.png ---
+[5
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 30.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+ (./texcalc.de.4ct
+l. 20 Writing texcalc.de.idv[1] (texcalc.de0x.png)
+l. 21 Writing texcalc.de.idv[2] (texcalc.de1x.png)
+l. 22 Writing texcalc.de.idv[3] (texcalc.de2x.png)
+l. 23 Writing texcalc.de.idv[4] (texcalc.de3x.png)
+l. 24 Writing texcalc.de.idv[5] (texcalc.de4x.png)
 
-(./texcalc.de.4ct [3]
-l. 21 Writing texcalc.de.idv[1] (texcalc.de0x.png)
-l. 22 Writing texcalc.de.idv[2] (texcalc.de1x.png)
-l. 23 Writing texcalc.de.idv[3] (texcalc.de2x.png)
-l. 24 Writing texcalc.de.idv[4] (texcalc.de3x.png)
-l. 25 Writing texcalc.de.idv[5] (texcalc.de4x.png)
-l. 36 Writing texcalc.de.idv[6] (texcalc.de5x.png)
-) [4] [5
-
-]
-l.47 --- TeX4ht warning --- Cannot determine size of graphic in texcalc.png (no
- BoundingBox) ---
-l. 47 --- needs --- texcalc.png ---
 [6
 
 ]
+l. 35 Writing texcalc.de.idv[6] (texcalc.de5x.png)
+)
 --- file texcalc.de2.html ---
+--- file texcalc.de3.html ---
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 60.
  [7
 
 
@@ -1027,58 +1031,55 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 \openout4 = `texcalc.de.calc.1.py'.
 
  [8]
-l. 117 Writing texcalc.de.idv[7] (texcalc.de6x.png)
-l. 118 Writing texcalc.de.idv[8] (texcalc.de7x.png)
-l. 119 Writing texcalc.de.idv[9] (texcalc.de8x.png)
-l. 120 Writing texcalc.de.idv[10] (texcalc.de9x.png)
+l. 118 Writing texcalc.de.idv[7] (texcalc.de6x.png)
+l. 119 Writing texcalc.de.idv[8] (texcalc.de7x.png)
+l. 120 Writing texcalc.de.idv[9] (texcalc.de8x.png)
+l. 121 Writing texcalc.de.idv[10] (texcalc.de9x.png)
  [9]
-l. 121 Writing texcalc.de.idv[11] (texcalc.de10x.png)
-l. 122 Writing texcalc.de.idv[12] (texcalc.de11x.png)
+l. 122 Writing texcalc.de.idv[11] (texcalc.de10x.png)
+l. 123 Writing texcalc.de.idv[12] (texcalc.de11x.png)
  [10] [11] [12]
---- file texcalc.de3.html ---
+--- file texcalc.de4.html ---
  [13
 
-] [14] [15]
-LaTeX Font Info:    Font shape `OMS/cmr/bx/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 220.
- [16] [17] [18]
---- file texcalc.de4.html ---
- [19
+] [14] [15] [16] [17] [18]
+l. 280 Writing texcalc.de.idv[13] (texcalc.de12x.png)
+ [19]
+l. 288 Writing texcalc.de.idv[14] (texcalc.de13x.png)
+ [20]
+l. 296 Writing texcalc.de.idv[15] (texcalc.de14x.png)
+
+[21]
+l. 305 Writing texcalc.de.idv[16] (texcalc.de15x.png)
+ [22]
+l. 313 Writing texcalc.de.idv[17] (texcalc.de16x.png)
+ [23]
+l. 321 Writing texcalc.de.idv[18] (texcalc.de17x.png)
+ [24]
+l. 329 Writing texcalc.de.idv[19] (texcalc.de18x.png)
+ [25] [26] [27] [28] [29] [30] [31] [32] [33]
+l. 401 Writing texcalc.de.idv[20] (texcalc.de19x.png)
+ [34] [35]
+[36] [37]
+--- file texcalc.de5.html ---
+ [38
 
 ] [1] [2]
-[1]
-l. 302 Writing texcalc.de.idv[13] (texcalc.de12x.png)
- [2]
-l. 310 Writing texcalc.de.idv[14] (texcalc.de13x.png)
- [3]
-l. 318 Writing texcalc.de.idv[15] (texcalc.de14x.png)
- [4]
-l. 327 Writing texcalc.de.idv[16] (texcalc.de15x.png)
- [5]
-l. 335 Writing texcalc.de.idv[17] (texcalc.de16x.png)
- [6]
-l. 343 Writing texcalc.de.idv[18] (texcalc.de17x.png)
- [7]
-l. 351 Writing texcalc.de.idv[19] (texcalc.de18x.png)
- [8] [9] [10] [11] [12] [13] [14] [15] [16]
-l. 423 Writing texcalc.de.idv[20] (texcalc.de19x.png)
- [17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 431.
-
-[18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 431.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 468.
+ [1]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 468.
  (./texcalc.de.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 431.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 431.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 431.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 468.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 468.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 468.
  ) 
 Here is how much of TeX's memory you used:
- 10631 strings out of 493486
- 139977 string characters out of 3143549
- 359246 words of memory out of 3000000
- 13685 multiletter control sequences out of 15000+200000
- 14065 words of font info for 50 fonts, out of 3000000 for 9000
+ 10636 strings out of 493486
+ 140147 string characters out of 3143549
+ 359650 words of memory out of 3000000
+ 13697 multiletter control sequences out of 15000+200000
+ 11876 words of font info for 43 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  37i,6n,38p,1230b,532s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on texcalc.de.dvi (39 pages, 66752 bytes).
+Output written on texcalc.de.dvi (41 pages, 71628 bytes).
