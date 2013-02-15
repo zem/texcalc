@@ -19,6 +19,7 @@ latex='pdflatex' # which latex command to use
 filename='' # set a filename to the tex file
 job=[] # sets the filename of a latex jobfile 
 texcalcsty='no' # whether the process has texcalc.sty 
+verbatim='no' # detect if we are in a verbatim environment or not 
 
 def f(a, b='na'):
 	if (b!='na'):
@@ -228,6 +229,14 @@ def calculate_texfile(filename, texmode='none'):
 			pass
 			# write this line nowhere 
 		# the classic calc c C lines 
+		elif (line=="\\end{verbatim}"):
+			verbatim='no'
+			noval_file.write(line+"\n")
+			val_file.write(line+"\n")
+		elif (line=="\\begin{verbatim}"):
+			verbatim='yes'
+			noval_file.write(line+"\n")
+			val_file.write(line+"\n")
 		elif (line=="\\usepackage{texcalc}"):
 			texcalcsty='yes'
 			noval_file.write(line+"\n")
@@ -255,7 +264,10 @@ def calculate_texfile(filename, texmode='none'):
 			result=evaluate_line(line)
 		else:
 			noval_file.write(line+"\n")
-			val_file.write(insert_values(line)+"\n")
+			if verbatim=='no':
+				val_file.write(insert_values(line)+"\n")
+			else:
+				val_file.write(line+"\n")
 		if ( result != '' ): 
 			noval_file.write(commentchr+"r "+str(result)+"\n")
 			if (commentchr=="%") or (texcalcsty=='yes'):
