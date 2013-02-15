@@ -1,0 +1,37 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
+\doTocEntry\toclikesection{}{\csname a:TocLink\endcsname{1}{x1-1000}{QQ2-1-1}{Inhaltsverzeichnis}}{3}\relax 
+\doTocEntry\tocsection{1}{\csname a:TocLink\endcsname{1}{x1-20001}{QQ2-1-2}{Features}}{4}\relax 
+\doTocEntry\tocsubsection{1.1}{\csname a:TocLink\endcsname{1}{x1-30001.1}{QQ2-1-3}{texcalc.py}}{4}\relax 
+\doTocEntry\toclof{1}{\csname a:TocLink\endcsname{1}{x1-30011}{}{\ignorespaces Ein Screenshot des texcalc.py Taschenrechners}}{figure}\relax 
+\doTocEntry\tocsubsection{1.2}{\csname a:TocLink\endcsname{1}{x1-40001.2}{QQ2-1-5}{Berechnungen direkt im \LaTeX  File}}{7}\relax 
+\doTocEntry\tocsection{2}{\csname a:TocLink\endcsname{1}{x1-50002}{QQ2-1-6}{Download}}{11}\relax 
+\doTocEntry\tocsubsection{2.1}{\csname a:TocLink\endcsname{1}{x1-60002.1}{QQ2-1-7}{Abh\IeC {\"a}ngigkeiten}}{11}\relax 
+\doTocEntry\tocsubsection{2.2}{\csname a:TocLink\endcsname{1}{x1-70002.2}{QQ2-1-8}{Dieses Packet}}{11}\relax 
+\doTocEntry\tocsubsection{2.3}{\csname a:TocLink\endcsname{1}{x1-80002.3}{QQ2-1-9}{Software f\IeC {\"u}r Windows}}{12}\relax 
+\doTocEntry\tocsubsection{2.4}{\csname a:TocLink\endcsname{1}{x1-90002.4}{QQ2-1-10}{Software f\IeC {\"u}r Linux(Debian)}}{12}\relax 
+\doTocEntry\tocsubsection{2.5}{\csname a:TocLink\endcsname{1}{x1-100002.5}{QQ2-1-11}{Mitentwickeln}}{13}\relax 
+\doTocEntry\tocsection{3}{\csname a:TocLink\endcsname{1}{x1-110003}{QQ2-1-12}{Installation}}{15}\relax 
+\doTocEntry\tocsubsection{3.1}{\csname a:TocLink\endcsname{1}{x1-120003.1}{QQ2-1-13}{Linux}}{15}\relax 
+\doTocEntry\tocsubsection{3.2}{\csname a:TocLink\endcsname{1}{x1-130003.2}{QQ2-1-14}{Windows}}{16}\relax 
+\doTocEntry\tocsection{4}{\csname a:TocLink\endcsname{1}{x1-140004}{QQ2-1-15}{Benutzung}}{16}\relax 
+\doTocEntry\tocsubsection{4.1}{\csname a:TocLink\endcsname{1}{x1-150004.1}{QQ2-1-16}{Erste Schritte mit {TEX}calc}}{16}\relax 
+\doTocEntry\tocsection{5}{\csname a:TocLink\endcsname{1}{x1-160005}{QQ2-1-17}{Titelseite}}{18}\relax 
+\doTocEntry\tocsection{6}{\csname a:TocLink\endcsname{1}{x1-170006}{QQ2-1-18}{physictools Packet}}{1}\relax 
+\doTocEntry\tocsubsection{6.1}{\csname a:TocLink\endcsname{1}{x1-180006.1}{QQ2-1-19}{$23\ensuremath  { \times 10^{10}}$}}{1}\relax 
+\doTocEntry\tocsubsection{6.2}{\csname a:TocLink\endcsname{1}{x1-190006.2}{QQ2-1-20}{\ensuremath  { \frac  {\partial }{\partial t}}}}{2}\relax 
+\doTocEntry\tocsubsection{6.3}{\csname a:TocLink\endcsname{1}{x1-200006.3}{QQ2-1-21}{$\ensuremath  { \frac  {\partial }{\partial x}}$}}{3}\relax 
+\doTocEntry\tocsubsection{6.4}{\csname a:TocLink\endcsname{1}{x1-210006.4}{QQ2-1-22}{$\ensuremath  { \frac  {\partial x}{\partial y}}$}}{4}\relax 
+\doTocEntry\tocsubsection{6.5}{\csname a:TocLink\endcsname{1}{x1-220006.5}{QQ2-1-23}{$\ensuremath  { \frac  {\partial ^2 x}{\partial y \partial z}}$}}{5}\relax 
+\doTocEntry\tocsubsection{6.6}{\csname a:TocLink\endcsname{1}{x1-230006.6}{QQ2-1-24}{$\ensuremath  { \frac  {\partial ^2 x}{\partial y^2}}$}}{6}\relax 
+\doTocEntry\tocsubsection{6.7}{\csname a:TocLink\endcsname{1}{x1-240006.7}{QQ2-1-25}{$\ensuremath  { \mathaccentV {vec}17E{\nabla }}$}}{7}\relax 
+\doTocEntry\tocsubsection{6.8}{\csname a:TocLink\endcsname{1}{x1-250006.8}{QQ2-1-26}{$\ensuremath  { \mathbf@@ {\mathaccentV {hat}05E{x}}}$}}{8}\relax 
+\doTocEntry\tocsubsection{6.9}{\csname a:TocLink\endcsname{1}{x1-260006.9}{QQ2-1-27}{$\ensuremath  { \delimiter "426830A x|}$}}{9}\relax 
+\doTocEntry\tocsubsection{6.10}{\csname a:TocLink\endcsname{1}{x1-270006.10}{QQ2-1-28}{$\ensuremath  { |x\delimiter "526930B }$}}{10}\relax 
+\doTocEntry\tocsubsection{6.11}{\csname a:TocLink\endcsname{1}{x1-280006.11}{QQ2-1-29}{$\ensuremath  { \delimiter "426830A x| y\delimiter "526930B }$}}{11}\relax 
+\doTocEntry\tocsubsection{6.12}{\csname a:TocLink\endcsname{1}{x1-290006.12}{QQ2-1-30}{$\ensuremath  { \delimiter "3222378 }$}}{12}\relax 
+\doTocEntry\tocsubsection{6.13}{\csname a:TocLink\endcsname{1}{x1-300006.13}{QQ2-1-31}{$\ensuremath  { \delimiter "3223379 }$}}{13}\relax 
+\doTocEntry\tocsubsection{6.14}{\csname a:TocLink\endcsname{1}{x1-310006.14}{QQ2-1-32}{$\ensuremath  { \delimiter "3222378 \delimiter "3222378 }$}}{14}\relax 
+\doTocEntry\tocsubsection{6.15}{\csname a:TocLink\endcsname{1}{x1-320006.15}{QQ2-1-33}{$\ensuremath  { \delimiter "3223379 \delimiter "3223379 }$}}{15}\relax 
+\doTocEntry\tocsubsection{6.16}{\csname a:TocLink\endcsname{1}{x1-330006.16}{QQ2-1-34}{$\ensuremath  { \ensuremath  { \delimiter "426830A x|} y \ensuremath  { |x\delimiter "526930B }}$}}{16}\relax 
+\doTocEntry\tocsubsection{6.17}{\csname a:TocLink\endcsname{1}{x1-340006.17}{QQ2-1-35}{$\ensuremath  { \sqrt  {\frac  {x}{y}}}$}}{17}\relax 
+\par 
