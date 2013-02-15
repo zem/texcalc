@@ -140,7 +140,11 @@ def unum2TEXstring(num, digits=2):
 		if val[1]=='': valsep=''
 		return '('+val[3]+val[0]+valsep+val[1]+' \\pm '+unc[0]+uncsep+unc[1]+')'
 	else: 
-		return str(num)
+		val=FloatToList(num)
+		valsep=','
+		if val[0]=='': val[0]='0'
+		if val[1]=='': valsep=''
+		return val[3]+val[0]+valsep+val[1]
 
 
 #################################################################################################
