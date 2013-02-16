@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.1.18)  15 FEB 2013 15:15
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.1.18)  16 FEB 2013 01:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -257,12 +257,11 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/share/texlive/texmf-dist/tex/generic/german/german.sty v2.5e 1998-07-08
-Package: german 1998/07/08 v2.5e Support for writing german texts (br)
+(/usr/share/texlive/texmf-dist/tex/generic/german/ngerman.sty v2.5e 1998-07-08
+Package: ngerman 1998/07/08 v2.5e Support for writing german texts (br)
 \grmnU@D=\dimen103
-german -- \language number for Austrian undefined, default 21 used.
-)
-(/usr/local/share/texmf/tex/latex/texcalc/anfpralayout.sty
+ngerman -- \language number for naustrian undefined, default 20 used.
+) (/usr/local/share/texmf/tex/latex/texcalc/anfpralayout.sty
 Package: anfpralayout 
 
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
@@ -768,7 +767,7 @@ version 2009-05-18-23:01
 (/usr/share/texmf/tex/generic/tex4ht/html4-math.4ht
 version 2009-05-18-23:01
 ))
-(/usr/share/texmf/tex/generic/tex4ht/german.4ht
+(/usr/share/texmf/tex/generic/tex4ht/ngerman.4ht
 version 2009-05-21-09:32
 
 (/usr/share/texmf/tex/generic/tex4ht/html4.4ht
@@ -996,18 +995,18 @@ LaTeX Info: Redefining \nameref on input line 14.
 ] [2] [3] [4
 
 ]
-l.21 --- TeX4ht warning --- Cannot determine size of graphic in texcalc.png (no
+l.23 --- TeX4ht warning --- Cannot determine size of graphic in texcalc.png (no
  BoundingBox) ---
-l. 21 --- needs --- texcalc.png ---
+l. 23 --- needs --- texcalc.png ---
 [5
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
  (./texcalc.de.4ct
 l. 20 Writing texcalc.de.idv[1] (texcalc.de0x.png)
 l. 21 Writing texcalc.de.idv[2] (texcalc.de1x.png)
@@ -1023,7 +1022,7 @@ l. 35 Writing texcalc.de.idv[6] (texcalc.de5x.png)
 --- file texcalc.de2.html ---
 --- file texcalc.de3.html ---
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 60.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 62.
  [7
 
 
@@ -1031,55 +1030,55 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 \openout4 = `texcalc.de.calc.1.py'.
 
  [8]
-l. 118 Writing texcalc.de.idv[7] (texcalc.de6x.png)
-l. 119 Writing texcalc.de.idv[8] (texcalc.de7x.png)
-l. 120 Writing texcalc.de.idv[9] (texcalc.de8x.png)
-l. 121 Writing texcalc.de.idv[10] (texcalc.de9x.png)
+l. 120 Writing texcalc.de.idv[7] (texcalc.de6x.png)
+l. 121 Writing texcalc.de.idv[8] (texcalc.de7x.png)
+l. 122 Writing texcalc.de.idv[9] (texcalc.de8x.png)
+l. 123 Writing texcalc.de.idv[10] (texcalc.de9x.png)
  [9]
-l. 122 Writing texcalc.de.idv[11] (texcalc.de10x.png)
-l. 123 Writing texcalc.de.idv[12] (texcalc.de11x.png)
+l. 124 Writing texcalc.de.idv[11] (texcalc.de10x.png)
+l. 125 Writing texcalc.de.idv[12] (texcalc.de11x.png)
  [10] [11] [12]
 --- file texcalc.de4.html ---
  [13
 
 ] [14] [15] [16] [17] [18]
-l. 280 Writing texcalc.de.idv[13] (texcalc.de12x.png)
+l. 301 Writing texcalc.de.idv[13] (texcalc.de12x.png)
  [19]
-l. 288 Writing texcalc.de.idv[14] (texcalc.de13x.png)
+l. 309 Writing texcalc.de.idv[14] (texcalc.de13x.png)
  [20]
-l. 296 Writing texcalc.de.idv[15] (texcalc.de14x.png)
+l. 317 Writing texcalc.de.idv[15] (texcalc.de14x.png)
 
 [21]
-l. 305 Writing texcalc.de.idv[16] (texcalc.de15x.png)
+l. 326 Writing texcalc.de.idv[16] (texcalc.de15x.png)
  [22]
-l. 313 Writing texcalc.de.idv[17] (texcalc.de16x.png)
+l. 334 Writing texcalc.de.idv[17] (texcalc.de16x.png)
  [23]
-l. 321 Writing texcalc.de.idv[18] (texcalc.de17x.png)
+l. 342 Writing texcalc.de.idv[18] (texcalc.de17x.png)
  [24]
-l. 329 Writing texcalc.de.idv[19] (texcalc.de18x.png)
+l. 350 Writing texcalc.de.idv[19] (texcalc.de18x.png)
  [25] [26] [27] [28] [29] [30] [31] [32] [33]
-l. 401 Writing texcalc.de.idv[20] (texcalc.de19x.png)
+l. 422 Writing texcalc.de.idv[20] (texcalc.de19x.png)
  [34] [35]
 [36] [37]
 --- file texcalc.de5.html ---
  [38
 
 ] [1] [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 468.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 489.
  [1]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 468.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 489.
  (./texcalc.de.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 468.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 468.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 468.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 489.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 489.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 489.
  ) 
 Here is how much of TeX's memory you used:
- 10636 strings out of 493486
- 140147 string characters out of 3143549
- 359650 words of memory out of 3000000
- 13697 multiletter control sequences out of 15000+200000
+ 10639 strings out of 493486
+ 140214 string characters out of 3143549
+ 360832 words of memory out of 3000000
+ 13700 multiletter control sequences out of 15000+200000
  11876 words of font info for 43 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  37i,6n,38p,1230b,532s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on texcalc.de.dvi (41 pages, 71628 bytes).
+Output written on texcalc.de.dvi (41 pages, 73704 bytes).

@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{german}
+\usepackage{ngerman}
 \usepackage{anfpralayout}
 \usepackage{physictools}
 \usepackage{texcalc}
@@ -15,6 +15,8 @@
 \title{Anleitung zu den {\TeX}calc \LaTeXe-Packeten}
 \author{Hans Freitag (und einige andere)}
 \maketitle
+
+Dieses Dokument gibts als PDF zum Downloaden auf \url{http://www.nawi.at/~zem/texcalc/texcalc.de.pdf}
 
 \begin{figure}[h]
 \centering
@@ -253,8 +255,10 @@ In der Ergebnisse Section kommen einige sätze immer wieder vor. Hier die Templa
 	\skalaerr
 	\mverr
 	\fiterr\usedqti
+	\usedgnuplot
 	\stopwatcherr
 	\multimetererr
+	\earthGerr
 	\syserr\usedtexcalc
 	\\
 \end{verbatim}
@@ -265,11 +269,28 @@ Und das wird zu: \\
 \skalaerr
 \mverr
 \fiterr\usedqti
+\usedgnuplot
 \stopwatcherr
 \multimetererr
+\earthGerr
 \syserr\usedtexcalc
 \\
 
+Das geht natürlich auch auf Englisch ohne ngerman packet: \\
+
+\selectlanguage{USenglish}
+
+\skalaerr
+\mverr
+\fiterr\usedqti
+\usedgnuplot
+\stopwatcherr
+\multimetererr
+\earthGerr
+\syserr\usedtexcalc
+\\
+
+\selectlanguage{ngerman}
 
 \subsubsection{$23\E{10}$}
 
