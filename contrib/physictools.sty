@@ -85,4 +85,25 @@
 	bigger difference of the literature values of gravitation at pole and equator to the mean value.}
 }
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Scheineckers function
+%
+% aka: 
+% \image{file}{caption}{label}
+% \image{file}{caption}
+\newcommand{\image}[2]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{#1}
+		\caption{#2}
+		\label{#1}
+	\end{figure}
+}
+\newcommand{\image}[3]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{#1}
+		\caption{#2}
+		\label{#3}
+	\end{figure}
+}
