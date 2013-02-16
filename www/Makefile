@@ -1,7 +1,7 @@
 
-all: index.html texcalc.de.pdf
+all: index.html 
 
-index.html: texcalc.de.html
+index.html: texcalc.de.html texcalc.de.pdf
 	cp $< $@
 	git add * 
 	git commit -m "Webpage Generated" *
