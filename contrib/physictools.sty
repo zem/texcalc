@@ -1,5 +1,4 @@
 \ProvidesPackage{physictools}
-\RequirePackage{german}
 \RequirePackage{geometry}
 
 % Math environment commands
@@ -28,18 +27,62 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Protokoll Helpers
-% TODO: NLS Support 
-% TODO: Rechtscheibfehler 
-\newcommand{\syserr}{Systematische Fehler wurden mit Gausscher Fehlerfortpflanzung ermittelt.\ }
-\newcommand{\usedtexcalc}{Die Gaussche Fehlerfortpflanzung wurde mit der Software \texcalc\ durchgeführt.\ }
-\newcommand{\mverr}{Als Fehler für Mittelwerte wurde die Standardabweichung verwendet.\ }
-\newcommand{\skalaerr}{Als Fehler für die Ablesegenauigkeit von Messskalen wurde die kleinste Skaleneinteilung verwendet.\ }
-\newcommand{\fiterr}{Der Fehler der Fitfunktionen wurde von der Plot Software ermittelt.\ }
-\newcommand{\usedqti}{Als Plot Software wurde QTIplot verwendet.\ }
-\newcommand{\stopwatcherr}{Als Fehler für Zeitmessungen mit der Stoppuhr wurde die letzte Ziffer der Digitalanzeige $\pm 1$ verwendet.\ }
-\newcommand{\multimetererr}{Als Fehler für Messungen mit dem Multimeter wurde die letzte Ziffer der Digitalanzeige $\pm 1$ verwendet.\ }
-\newcommand{\earthGerr}{Als Wert für die Gravitationsbeschleunigung auf der Erde wurde $g=(9,81 \pm 0,03) verwendet. 
-								Der Messfehler ergibt sich aus der größeren Differenz der Literaturwerte für die Gravitation an Pol und Äquator 
-								zum Mittelwert.\ }
+% TODO: NLS Support \languagename
+% TODO: Rechtscheibfehler
+\newcommand{\de}[2]{
+	\iflanguage{ngerman}{#1}
+	{\iflanguage{german}{#1}
+	{#2}}
+}
+
+\newcommand{\syserr}{
+	\de{Systematische Fehler wurden mit Gausscher Fehlerfortpflanzung ermittelt.}
+	{Systematic errors where calculated with gaussian error propagation.}
+}
+\newcommand{\usedtexcalc}{
+	\de{Die Gaussche Fehlerfortpflanzung wurde mit der Software  {\TeX}calc\ durchgeführt.}
+	{The gaussian error propagation was done by the software {\TeX}calc.}
+}
+\newcommand{\mverr}{
+	\de{Als Fehler für Mittelwerte wurde die Standardabweichung verwendet.}
+	{As uncertainty for meanvalues the standard deviation was used. }
+}
+\newcommand{\skalaerr}{
+	\de{Als Fehler für die Ablesegenauigkeit von Messskalen wurde die kleinste Skaleneinteilung verwendet.}
+	{As uncertainty for measuring scales the smallest scale gaduation was used.}
+}
+
+\newcommand{\fiterr}{
+	\de{Der Fehler der Fitfunktionen wurde von der Plot Software ermittelt.}
+	{The uncertaintys for fit funktions where collected from the plot software.}
+}
+
+\newcommand{\usedqti}{
+	\de{Als Plot Software wurde QTIplot verwendet.}
+	{As plot software QTIplot was used.}
+}
+
+\newcommand{\usedgnuplot}{
+	\de{Als Plot Software wurde GNUplot verwendet.}
+	{As plot software GNUplot was used.}
+}
+
+\newcommand{\stopwatcherr}{
+	\de{Als Fehler für Zeitmessungen mit der Stoppuhr wurde die letzte Ziffer der Digitalanzeige $\pm 1$ verwendet.}
+	{As uncertainty for time measurements with the stopwatch the last digit of the display $\pm 1$ was used.}
+}
+
+\newcommand{\multimetererr}{
+	\de{Als Fehler für Messungen mit dem Multimeter wurde die letzte Ziffer der Digitalanzeige $\pm 1$ verwendet.}
+	{As uncertainty for measurements with the multimeter the last digit of the display $\pm 1$ was used.}
+}
+
+\newcommand{\earthGerr}{
+	\de{Als Wert für die Gravitationsbeschleunigung auf der Erde wurde $g=(9,81 \pm 0,03)$ verwendet. 
+		Der Messfehler ergibt sich aus der größeren Differenz der Literaturwerte für die Gravitation an Pol und Äquator 
+		zum Mittelwert.}
+	{As value for the acceleration of gravity on earth $g=(9,81\pm 0,03)$ was used. The uncertainty results from the 
+	bigger difference of the literature values of gravitation at pole and equator to the mean value.}
+}
 
 

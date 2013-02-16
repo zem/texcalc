@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{german}
+\usepackage{ngerman}
 \usepackage{anfpralayout}
 \usepackage{physictools}
 \usepackage{texcalc}
@@ -14,7 +14,7 @@
 \begin{document}
 \title{Anleitung zu den {\TeX}calc \LaTeXe-Packeten}
 \author{Hans Freitag (und einige andere)}
-\maketitle 
+\maketitle
 
 Dieses Dokument gibts als PDF zum Downloaden auf \url{http://www.nawi.at/~zem/texcalc/texcalc.de.pdf}
 
@@ -25,23 +25,23 @@ Dieses Dokument gibts als PDF zum Downloaden auf \url{http://www.nawi.at/~zem/te
 \label{fig:texcalc.py}
 \end{figure}
 
-\texcalc Besteht aus drei Komponenten. 
+\texcalc Besteht aus drei Komponenten.
 
 \begin{enumerate}
-\item texcalc.py ist ein in python geschriebener Taschenrechner der das Pythonmodul 
+\item texcalc.py ist ein in python geschriebener Taschenrechner der das Pythonmodul
 		uncertainties benutzt.
-\item texcalc.sty ist ein \LaTeXe-Packet mit dem Berechnungen mit Messunsicherheiten 
-		direkt aus dem \LaTeXe Dokument heraus möglich sind. 
-\item Zusatz styles die zwar nicht direkt etwas mit \texcalc zu tun haben, aber für 
-		das Schreiben von Physikprotokollen Nützlich sein können. Die beiden zusatzpackete 
+\item texcalc.sty ist ein \LaTeXe-Packet mit dem Berechnungen mit Messunsicherheiten
+		direkt aus dem \LaTeXe Dokument heraus möglich sind.
+\item Zusatz styles die zwar nicht direkt etwas mit \texcalc zu tun haben, aber für
+		das Schreiben von Physikprotokollen Nützlich sein können. Die beiden zusatzpackete
 		gliedern sich in:
 	\begin{itemize}
 	\item physictools.sty eine allgemeine toolsammlung die das Leben leichter machen soll
-	\item anfpralayout.sty Layoutparameter Deckbletter etc, die wahrscheinlich nie einmal 
-		irgendwo anders als an der Uniwien in der Physik verwendet werden. 
+	\item anfpralayout.sty Layoutparameter Deckbletter etc, die wahrscheinlich nie einmal
+		irgendwo anders als an der Uniwien in der Physik verwendet werden.
 	\end{itemize}
-	Die Contrib Packete sind eine Sammlung von \LaTeXe-Makros von Studierenden der Fakultät, 
-	die sich im Laufe des Studiums als Hilfreich erwiesen haben. 
+	Die Contrib Packete sind eine Sammlung von \LaTeXe-Makros von Studierenden der Fakultät,
+	die sich im Laufe des Studiums als Hilfreich erwiesen haben.
 \end{enumerate}
 
 \tableofcontents
@@ -52,14 +52,14 @@ Dieses Dokument gibts als PDF zum Downloaden auf \url{http://www.nawi.at/~zem/te
 
 Der Taschenrechner wird mit dem Komando texcalc.py gestartet\footnote{Doppelklick geht auf Windows auch}.
 
-Abbildung \ref{fig:texcalc.py} zeigt einen Screenshot des Taschenrechners an. Zahlen mit Unsicherheiten können 
-durch $f(number, uncertainty)$ notiert werden. In dem Prompt kann alles berechnet werden was in Python berechnet 
+Abbildung \ref{fig:texcalc.py} zeigt einen Screenshot des Taschenrechners an. Zahlen mit Unsicherheiten können
+durch $f(number, uncertainty)$ notiert werden. In dem Prompt kann alles berechnet werden was in Python berechnet
 werden kann. \\
 
 \subsection{Berechnungen direkt im \LaTeX File}
 
-Die Rechnungen können auch direkt im LaTeX File durchgeführt werden, indem sie innerhalb des calc environments 
-notiert werden\footnote{\textbackslash usepackage\{texcalc\} nicht vergessen.} 
+Die Rechnungen können auch direkt im LaTeX File durchgeführt werden, indem sie innerhalb des calc environments
+notiert werden\footnote{\textbackslash usepackage\{texcalc\} nicht vergessen.}
 
 \begin{verbatim}
 	\begin{calc}
@@ -68,19 +68,19 @@ notiert werden\footnote{\textbackslash usepackage\{texcalc\} nicht vergessen.}
 	def foo(x):
 		y=x**2
 		return y
-	
+
 	z=33
 	#r 33
 	foo(z)
 	#r 1089
 	y=f(222.0,22)
 	#r 222.0+/-22.0
-	
+
 	a=f(24423.0,220)
 	#r 222.0+/-22.0
 	\end{calc}
 \end{verbatim}
-	
+
 \begin{calc}
 x=f(23.55,0.02)
 #r 23.55+/-0.02
@@ -96,14 +96,14 @@ y=f(222.0,22)
 #r 222.0+/-22.0
 
 a=f(24423.0,220)
-#r 222.0+/-22.0
+#r 24423.0+/-220.0
 \end{calc}
 
-Die \#r kommentarzeilen werden von texcalc.py automatisch eingefügt um die Fehlersuche und die Übersicht zu erleichtern. 
+Die \#r kommentarzeilen werden von texcalc.py automatisch eingefügt um die Fehlersuche und die Übersicht zu erleichtern.
 Sie enthalten das Ergebnis der letzten Variablenzuweisung bzw des letzten Statements. \\
 
-Die errechneten Werte können jetzt mit dem val komando im Dokument verwendet werden. Der Parameter $[2]$ gibt dabei bei 
-einer normalen Zahl die zu rundenden Nachkommastellen an. Bei einer Zahl mit Unsicherheit gibt er die Anzahl der 
+Die errechneten Werte können jetzt mit dem val komando im Dokument verwendet werden. Der Parameter $[2]$ gibt dabei bei
+einer normalen Zahl die zu rundenden Nachkommastellen an. Bei einer Zahl mit Unsicherheit gibt er die Anzahl der
 Signifikanten Stellen an, die dann automatisch gerundet und eingefügt werden. Default ist 2. Beispiel: \\
 
 \begin{verbatim}
@@ -115,7 +115,7 @@ Signifikanten Stellen an, die dann automatisch gerundet und eingefügt werden. D
 	$$a=\val{a}$$
 \end{verbatim}
 
-Wird zu: 
+Wird zu:
 
 $$x_{5sigDigits}=\val[5]{x}$$
 $$x_{2sigDigits}=\val{x}$$
@@ -129,12 +129,12 @@ $$a=\val{a}$$
 \begin{verbatim}
 	texcalc.py Datei.tex                 --> Fügt die #r kommentarzeilen ein
 	texcalc.py -c Datei.tex              --> erzeugt ein pdf texcalc ruft pdflatex auf
-	pdflatex --shell-escape Datei.tex    --> Erzeigt ein pdf pdflatex ruft texcalc auf 
+	pdflatex --shell-escape Datei.tex    --> Erzeigt ein pdf pdflatex ruft texcalc auf
 	lualatex --shell-escape Datei.tex    --> Das gleiche wie pdflatex
-	texcalc.py -C -y Datei.tex           --> Wie -c nur werden alle \val{} fest durch die 
+	texcalc.py -C -y Datei.tex           --> Wie -c nur werden alle \val{} fest durch die
 	                                         werte ersetzt, der prozess ist nicht reversibel,
-	                                         aber nützlich um schnell noch manuelle aenderungen 
-	                                         vorzunehmen. 
+	                                         aber nützlich um schnell noch manuelle aenderungen
+	                                         vorzunehmen.
 \end{verbatim}
 
 \section{Download}
@@ -143,7 +143,7 @@ $$a=\val{a}$$
 
 \begin{itemize}
 \item Eine LaTeX Distribution wie MikTeX oder TeXlive
-\item Python 
+\item Python
 \item Python-numpy
 \item Python-uncertainties
 \end{itemize}
@@ -175,32 +175,32 @@ $$a=\val{a}$$
 \subsection{Entwicklung und Fehlerbehebung}
 
 Mitentwickeln kann jeder. Dafür brauchst du das Versionskontrollsystem GIT
-\footnote{GIT ist übrigens auch Prima dafür geeignet um LaTeX dokumente zu verwalten, 
-sowohl für einen Persönlich als auch wenn mehrere Personen ein Dokument bearbeiten. } 
-einfach das Repository klonen, entweder von nawi.at: 
+\footnote{GIT ist übrigens auch Prima dafür geeignet um LaTeX dokumente zu verwalten,
+sowohl für einen Persönlich als auch wenn mehrere Personen ein Dokument bearbeiten. }
+einfach das Repository klonen, entweder von nawi.at:
 
 \begin{verbatim}
 	git clone http://www.nawi.at/git/texcalc
 \end{verbatim}
 
-Oder über github.com Was sich so tut kannst du im gitweb nachlesen: 
+Oder über github.com Was sich so tut kannst du im gitweb nachlesen:
 \url{http://www.nawi.at/gitweb/?p=texcalc;a=summary} oder halt auf github.com\\
 
-Wenn du einen Patch machen willst kannst du 
+Wenn du einen Patch machen willst kannst du
 
 \begin{verbatim}
 	git format-patch origin/master
 \end{verbatim}
 
-verwenden, und den Patch an zem@nawi.at mailen oder auf github einen fork 
-anlegen und patchen. 
+verwenden, und den Patch an zem@nawi.at mailen oder auf github einen fork
+anlegen und patchen.
 
 
 \section{Installation}
 
 \subsection{Linux}
 
-Installation auf Linux geht mit: 
+Installation auf Linux geht mit:
 
 \begin{verbatim}
 	make install install-contrib
@@ -210,30 +210,30 @@ Installation auf Linux geht mit:
 
 Hoffentlich gibts bald ein install.bat script oder sowas. \\
 
-Grundsätzlich müssen alle .sty in miktex eingebunden werden, wie das 
+Grundsätzlich müssen alle .sty in miktex eingebunden werden, wie das
 geht ist in der MikTex Doku beschrieben:\\
 
 \url{http://docs.miktex.org/manual/localadditions.html}\\
 \url{http://docs.miktex.org/manual/texfeatures.html#includedirectory}\\
 
 %\begin{enumerate}
-%	\item Erstellen eines Ordners mit dem Namen der \textbf{\textbf{*.sty}} 
+%	\item Erstellen eines Ordners mit dem Namen der \textbf{\textbf{*.sty}}
 %		Datei (hier phunivie) unter dem Installationsordner:\\
 %
 %		\textbf{\emph{MiKTeX\textbackslash tex\textbackslash latex}}\\
-%		Normalerweise unter: \textbf{\emph{C:\textbackslash Program 
-%		Files (x86)\textbackslash MiKTeX 2.9\textbackslash 
+%		Normalerweise unter: \textbf{\emph{C:\textbackslash Program
+%		Files (x86)\textbackslash MiKTeX 2.9\textbackslash
 %		tex\textbackslash latex}}
 %	\item Einbinden in Miktex:\\
-%			Gehe auf $\boldsymbol{Start \rightarrow MiKTeX \rightarrow 
+%			Gehe auf $\boldsymbol{Start \rightarrow MiKTeX \rightarrow
 %			Maintenance \rightarrow Settings \rightarrow Refresh~FNDB}$
 %
 %	\item Fertig!
 %\end{enumerate}
 
-Dann muss texcalc.py noch irgendwo hingelegt werden wo es im Pfad liegt, bzw 
-der Pfad muss angepasst werden. miktex/bin kann funktionieren, da wo das pdflatex.exe 
-liegt, das ist aber keine schöne lösung.\\ 
+Dann muss texcalc.py noch irgendwo hingelegt werden wo es im Pfad liegt, bzw
+der Pfad muss angepasst werden. miktex/bin kann funktionieren, da wo das pdflatex.exe
+liegt, das ist aber keine schöne lösung.\\
 
 \section{Contrib}
 
@@ -249,12 +249,13 @@ In der Preambel:
 
 \subsubsection{Ergebnis Einleitung}
 
-In der Ergebnisse Section kommen einige sätze immer wieder vor. Hier die Templates: 
+In der Ergebnisse Section kommen einige sätze immer wieder vor. Hier die Templates:
 
 \begin{verbatim}
 	\skalaerr
 	\mverr
 	\fiterr\usedqti
+	\usedgnuplot
 	\stopwatcherr
 	\multimetererr
 	\earthGerr
@@ -268,12 +269,28 @@ Und das wird zu: \\
 \skalaerr
 \mverr
 \fiterr\usedqti
+\usedgnuplot
 \stopwatcherr
 \multimetererr
 \earthGerr
 \syserr\usedtexcalc
 \\
 
+Das geht natürlich auch auf Englisch ohne ngerman packet: \\
+
+\selectlanguage{USenglish}
+
+\skalaerr
+\mverr
+\fiterr\usedqti
+\usedgnuplot
+\stopwatcherr
+\multimetererr
+\earthGerr
+\syserr\usedtexcalc
+\\
+
+\selectlanguage{ngerman}
 
 \subsubsection{$23\E{10}$}
 
@@ -428,17 +445,17 @@ oder
 	\usepackage[option]{anfpralayout}
 \end{verbatim}
 
-Optionen können sein: 
+Optionen können sein:
 
 \begin{description}
 	\item[basti] Sebastians Layout Parameter (margin$=$2.5cm)
 	\item[motz] Motz's Layout Parameter
 \end{description}
-	
+
 
 \subsubsection{Titelseite}
 
-Für das Anfängerpraktikum ist eine Besondere Titelseite nötig, die 
+Für das Anfängerpraktikum ist eine Besondere Titelseite nötig, die
 kann natürlich ganz einfach gesetzt werden:
 
 \begin{verbatim}
@@ -454,8 +471,8 @@ kann natürlich ganz einfach gesetzt werden:
 \makeanfpratitle
 \end{verbatim}
 
-Die auskommentierten Parameter sind optional. Und so siehts 
-aus\footnote{$\backslash$date und $\backslash$author gehen zur Zeit nur wenn der Block am 
+Die auskommentierten Parameter sind optional. Und so siehts
+aus\footnote{$\backslash$date und $\backslash$author gehen zur Zeit nur wenn der Block am
 Anfang eines Dokumentes steht}:
 
 \semester{SoSe 2011}
