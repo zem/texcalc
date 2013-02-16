@@ -18,12 +18,7 @@
 
 Dieses Dokument gibts als PDF zum Downloaden auf \url{http://www.nawi.at/~zem/texcalc/texcalc.de.pdf}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{texcalc.png}
-\caption{Ein Screenshot des texcalc.py Taschenrechners}
-\label{fig:texcalc.py}
-\end{figure}
+\image{texcalc.png}{Ein Screenshot des texcalc.py Taschenrechners}
 
 \texcalc Besteht aus drei Komponenten.
 
@@ -52,7 +47,7 @@ Dieses Dokument gibts als PDF zum Downloaden auf \url{http://www.nawi.at/~zem/te
 
 Der Taschenrechner wird mit dem Komando texcalc.py gestartet\footnote{Doppelklick geht auf Windows auch}.
 
-Abbildung \ref{fig:texcalc.py} zeigt einen Screenshot des Taschenrechners an. Zahlen mit Unsicherheiten können
+Abbildung \ref{texcalc.png} zeigt einen Screenshot des Taschenrechners an. Zahlen mit Unsicherheiten können
 durch $f(number, uncertainty)$ notiert werden. In dem Prompt kann alles berechnet werden was in Python berechnet
 werden kann. \\
 
@@ -291,6 +286,24 @@ Das geht natürlich auch auf Englisch ohne ngerman packet: \\
 \\
 
 \selectlanguage{ngerman}
+
+\subsubsection{image commands}
+
+\begin{verbatim}
+	\image{texcalc.png}{Ein Screenshot des texcalc.py Taschenrechners}
+\end{verbatim}
+
+is actually a shortcut for:
+
+\begin{verbatim}
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{texcalc.png}
+	\caption{Ein Screenshot des texcalc.py Taschenrechners}
+	\label{texcalc.png}
+	\end{figure}
+\end{verbatim}
+
 
 \subsubsection{$23\E{10}$}
 
