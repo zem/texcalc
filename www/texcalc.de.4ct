@@ -1,5 +1,5 @@
 \expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
-\doTocEntry\toclof{1}{\csname a:TocLink\endcsname{1}{x1-21}{}{\ignorespaces Ein Screenshot des texcalc.py Taschenrechners}}{figure}\relax 
+\doTocEntry\toclof{1}{\csname a:TocLink\endcsname{1}{x1-2r1}{}{\ignorespaces Ein Screenshot des texcalc.py Taschenrechners}}{figure}\relax 
 \doTocEntry\toclikesection{}{\csname a:TocLink\endcsname{1}{x1-1000}{QQ2-1-2}{Inhaltsverzeichnis}}{6}\relax 
 \doTocEntry\tocsection{1}{\csname a:TocLink\endcsname{1}{x1-20001}{QQ2-1-3}{Features/Benutzung}}{7}\relax 
 \doTocEntry\tocsubsection{1.1}{\csname a:TocLink\endcsname{1}{x1-30001.1}{QQ2-1-4}{Taschenrechner}}{7}\relax 
