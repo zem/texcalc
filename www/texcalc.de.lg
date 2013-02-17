@@ -145,8 +145,8 @@ Css: div.gather-star {text-align:center;}
 File: texcalc.png
 --- needs --- texcalc.de.idv[2] ==> texcalc.de0x.png ---
 --- needs --- texcalc.de.idv[3] ==> texcalc.de1x.png ---
---- needs --- texcalc.de.idv[4] ==> texcalc.de2x.png ---
---- needs --- texcalc.de.idv[5] ==> texcalc.de3x.png ---
+--- needs --- texcalc.de.idv[5] ==> texcalc.de2x.png ---
+--- needs --- texcalc.de.idv[6] ==> texcalc.de3x.png ---
 --- needs --- texcalc.de.idv[7] ==> texcalc.de4x.png ---
 --- needs --- texcalc.de.idv[8] ==> texcalc.de5x.png ---
 --- needs --- texcalc.de.idv[10] ==> texcalc.de6x.png ---
