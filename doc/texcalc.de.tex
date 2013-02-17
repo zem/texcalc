@@ -227,12 +227,29 @@ geht ist in der MikTex Doku beschrieben:\\
 %\end{enumerate}
 
 Dann muss texcalc.py noch irgendwo hingelegt werden wo es im Pfad liegt, bzw
-der Pfad muss angepasst werden. miktex/bin kann funktionieren, da wo das pdflatex.exe
-liegt, das ist aber keine schöne lösung.\\
+der Pfad muss angepasst werden. miktex/bin kann funktionieren. ;-)\\
+
+
+\subsection{Bekannte \texcalc Probleme und deren Lösungen}
+
+\subsubsection{Interger vs float}
+\label{integer}
+
+Da \texcalc in python rechnet muss auch den dortigen Datentypen rechnung getragen werden.
+Eine Zahl die ohne Kommastelle angegeben wird, wird als Integer (ganze Zahl) interpretiert,
+und auch so dividiert. Beispiel:\\
+
+\begin{verbatim}
+	>>> 23/4
+	5
+	>>> 23.0/4.0
+	5.75
+	>>>
+\end{verbatim}
+
+Also am besten immer zahl.0 schreiben.
 
 \section{Contrib}
-
-
 
 \subsection{physictools Packet}
 
