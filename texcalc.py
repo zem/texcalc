@@ -88,7 +88,7 @@ def FloatToList(fl):
 	# numerical integer
 	if num[0]=='0': num[0]=''
 	if num[1]=='0': num[1]=''
-	#print "DEBUG ", num
+	#print("DEBUG ", num)
 	# now eliminate the exponent 
 	while num[2] != 0: 
 		if num[2] > 0: 
@@ -113,7 +113,7 @@ def FloatToList(fl):
 			else:
 				if (num[1]!=''):
 					num[1]='0'+num[1]
-		#print "DEBUGWHILE: ", num
+		#print("DEBUGWHILE: ", num)
 	return num
 	
 
@@ -160,24 +160,24 @@ def evaluate_line(line):
 	global evaluate_line_collect
 	line=re.sub('\(((\d|\.)+)\|((\d|\.)+)\)', 'f((\\1,\\3))', line)
 	if re.match('def\s.*:$', line) or ((evaluate_line_collect!='') and (line!='')):
-		print "funktionsdefinition starting collect "+ line
+		print("funktionsdefinition starting collect "+line)
 		evaluate_line_collect=evaluate_line_collect+line+"\n"
 		return ''
 	elif ((line=='') and (evaluate_line_collect=='')):
 		# do nothing because there is nothing to do
 		return ''
 	elif ((line=='') and (evaluate_line_collect!='')):
-		print "evaluating block:"
-		print evaluate_line_collect
+		print("evaluating block:")
+		print(evaluate_line_collect)
 		exec(evaluate_line_collect+"\n") in evaluate_kontext
 		evaluate_line_collect=''
 		return ''
 	else:
-		print "evaluating line: "+line
+		print("evaluating line: "+line)
 		exec(line) in evaluate_kontext
 		expr_list=re.split('=', line)
 		ret=eval(expr_list[0], evaluate_kontext)
-		print "return value: ", ret
+		print("return value: ", ret)
 		return ret
 
 
@@ -194,7 +194,7 @@ def insert_values_valtaglen(matchobj):
 # @foo@ tag 
 def insert_values_attag(matchobj):
 	tag=re.split(',', matchobj.group(1))
-	print "processing tag: ", tag
+	print("processing tag: ", tag)
 	if len(tag)<2:
 		TEXstring=unum2TEXstring(evaluate_line(tag[0]))
 	else: 
@@ -226,7 +226,7 @@ def calculate_texfile(filename, texmode='none'):
 	for line in i_file:
 		line=line.rstrip()
 		if re.match(commentchr+'(r)\s', line) :
-			#print "ignore %r line" + line
+			#print("ignore %r line" + line)
 			pass
 			# write this line nowhere 
 		# the classic calc c C lines 
@@ -295,15 +295,15 @@ def calculate_texfile(filename, texmode='none'):
 	return
 
 def usage():
-	print '	usage: '+sys.argv[0]+' [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename] [-job jobname variable digits]'
-	print '		-tex	configures the latex command to produce pdf files default ist pdflatex'
-	print '		-C	-y	exchanges the \\val{xyz} Tags in the .tex file with the calculated values'
-	print '		-c		calculates the the file and produces tex'
-	print '		-job jobname variable digits is for an automated call from within latex'
-	print '		-?'
-	print '		-h 	prints this help'
-	print '			'
-	print '	when calles without parameters calc.py will act as a command line calculator '
+	print('	usage: '+sys.argv[0]+' [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename] [-job jobname variable digits]')
+	print('		-tex	configures the latex command to produce pdf files default ist pdflatex')
+	print('		-C	-y	exchanges the \\val{xyz} Tags in the .tex file with the calculated values')
+	print('		-c		calculates the the file and produces tex')
+	print('		-job jobname variable digits is for an automated call from within latex')
+	print('		-?')
+	print('		-h 	prints this help')
+	print('			')
+	print('	when calles without parameters calc.py will act as a command line calculator ')
 
 
 ################################################################################################
@@ -329,7 +329,7 @@ while len(arguments)>=1:
 		texmode='generate'
 	elif (arg=="-C"):
 		if arguments.pop(0) != '-y': 
-			print '-C must be followed by -y'
+			print('-C must be followed by -y')
 			os._exit(1)
 		texmode='replace'
 	elif (arg=="-?") or (arg=="-h"):
@@ -347,7 +347,7 @@ if (len(job)>0):
 		execfile(currjob, evaluate_kontext)
 		num=num+1
 		currjob=jobfile+".calc."+str(num)+".py"
-	exec("print unum2TEXstring(uround("+job[0]+","+job[1]+"),"+job[1]+")") in evaluate_kontext
+	exec("print(unum2TEXstring(uround("+job[0]+","+job[1]+"),"+job[1]+"))") in evaluate_kontext
 	os._exit(0)
 	
 #look for file
@@ -355,19 +355,19 @@ if (filename != ''):
 	calculate_texfile(filename, texmode); 
 	os._exit(0)
 
-print "                 ++++++++++++++++++++++++"
-print "                 +  Welcome to TeXcalc! +"
-print "                 ++++++++++++++++++++++++"
-print 
-print "TeXcalc is a full proof command line calculator written in python, which can "
-print "calculate everythig, you think about especially if you think about"
-print "  _uncertainties_!"
-print 
-print "for example, try: "
-print "              sin(f(23.005 , 0.023)+f(42.005 , 0.23))*23.0"
-print 
-print "since this is a python prompt, it can do everything python can do. "
-print "you can also parse calculations in a latex file enclosed by a calc environment"
-print "and you can automatically insert the results with \\val{x} tags into your pdf"
-print "look at the help, (texcalc.py -h) for more information about the usage. good luck!"
-print 
+print("                 ++++++++++++++++++++++++")
+print("                 +  Welcome to TeXcalc! +")
+print("                 ++++++++++++++++++++++++")
+print()
+print("TeXcalc is a full proof command line calculator written in python, which can ")
+print("calculate everythig, you think about especially if you think about")
+print("  _uncertainties_!")
+print()
+print("for example, try: ")
+print("              sin(f(23.005 , 0.023)+f(42.005 , 0.23))*23.0")
+print()
+print("since this is a python prompt, it can do everything python can do. ")
+print("you can also parse calculations in a latex file enclosed by a calc environment")
+print("and you can automatically insert the results with \\val{x} tags into your pdf")
+print("look at the help, (texcalc.py -h) for more information about the usage. good luck!")
+print()
