@@ -151,6 +151,46 @@ $$a=\val{a}$$
 
 \subsection{Software für Windows}
 
+
+MikTeX Das LaTeX Packet für Windows
+- http://mirrors.ctan.org/systems/win32/miktex/setup/basic-miktex-2.9.4813.exe
+
+Texnicenter eine Schreibumgebung für LaTeX Dokumente
+(optional, aber empfohlen) die 2.0 Beta läuft besser als die letzte Stabile version.
+- http://sourceforge.net/projects/texniccenter/files/TeXnicCenter/2%20Beta%201/TXCSetup_2Beta1_Win32.exe/download
+
+Putty und Puttykeygen
+Brauchst du auch für Fortran übungen. Das ist ein ssh client
+für Windows. GIT braucht den für die Datenübertragung.
+- http://the.earth.li/~sgtatham/putty/latest/x86/putty-0.62-installer.exe
+
+
+git für Windows
+- http://msysgit.googlecode.com/files/Git-1.8.1.2-preview20130201.exe
+
+tortoise git
+Auch hier wieder ein Frontend um die Arbeit leichter zu machen
+- http://tortoisegit.googlecode.com/files/TortoiseGit-1.8.1.0-32bit.msi
+
+
+Dann noch Python und ein paar Zubehörpackete für Numerik
+Das braucht es für den Taschenrechner der mit messunsicherheiten kann
+und so.
+- http://www.python.org/ftp/python/3.3.0/python-3.3.0.msi
+Die tar.gz Archive müssen ausgepackt werden und "setup.py install" über
+die Komandozeile ausgeführt werden.
+- http://sourceforge.net/projects/numpy/files/latest/download?source=files
+- http://pypi.python.org/packages/source/u/uncertainties/uncertainties-1.9.tar.gz
+
+Und letztendlich texcalc:
+- https://github.com/zem/texcalc/archive/master.zip
+Die alle anfpralayout.sty physictools.sty und texcalc.sty nach
+C:\Program Files\MiKTeX 2.9/tex/latex/texcalc/ kopieren (Ordner anlegen)
+texcalc.py nach C:\Program Files\MiKTeX 2.9/bin kopieren
+C:\Program Files\MiKTeX 2.9/bin/mktexmf.exe ausfühen
+Link von texcalc.py an eine Stelle legen wo du ihn wiederfindest.
+
+
 \begin{itemize}
 	\item MikTeX \url{http://mirrors.ctan.org/systems/win32/miktex/setup/basic-miktex-2.9.4757.exe}
 	\item TeXnicenter \url{http://www.texniccenter.org/resources/downloads/29-downloads/12-texniccenter-installeir}
