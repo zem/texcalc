@@ -215,6 +215,7 @@ def insert_values(line):
 def calculate_texfile(filename, texmode='none'):
 	#exec('from main import *') in evaluate_kontext
 	global verbatim
+	global texcalcsty
 	novalname=filename+".noval.tmp"
 	valname=filename+".val.tmp"
 	commentchr='%'
