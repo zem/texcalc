@@ -160,7 +160,7 @@ def evaluate_line(line):
 	global evaluate_line_collect
 	line=re.sub('\(((\d|\.)+)\|((\d|\.)+)\)', 'f((\\1,\\3))', line)
 	if re.match('def\s.*:$', line) or ((evaluate_line_collect!='') and (line!='')):
-		print("funktionsdefinition starting collect "+line)
+		print(("funktionsdefinition starting collect "+line))
 		evaluate_line_collect=evaluate_line_collect+line+"\n"
 		return ''
 	elif ((line=='') and (evaluate_line_collect=='')):
@@ -169,15 +169,15 @@ def evaluate_line(line):
 	elif ((line=='') and (evaluate_line_collect!='')):
 		print("evaluating block:")
 		print(evaluate_line_collect)
-		exec(evaluate_line_collect+"\n") in evaluate_kontext
+		exec((evaluate_line_collect+"\n"), evaluate_kontext)
 		evaluate_line_collect=''
 		return ''
 	else:
-		print("evaluating line: "+line)
-		exec(line) in evaluate_kontext
+		print(("evaluating line: "+line))
+		exec((line), evaluate_kontext)
 		expr_list=re.split('=', line)
 		ret=eval(expr_list[0], evaluate_kontext)
-		print("return value: ", ret)
+		print(("return value: ", ret))
 		return ret
 
 
@@ -194,7 +194,7 @@ def insert_values_valtaglen(matchobj):
 # @foo@ tag 
 def insert_values_attag(matchobj):
 	tag=re.split(',', matchobj.group(1))
-	print("processing tag: ", tag)
+	print(("processing tag: ", tag))
 	if len(tag)<2:
 		TEXstring=unum2TEXstring(evaluate_line(tag[0]))
 	else: 
@@ -296,7 +296,7 @@ def calculate_texfile(filename, texmode='none'):
 	return
 
 def usage():
-	print('	usage: '+sys.argv[0]+' [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename] [-job jobname variable digits]')
+	print(('	usage: '+sys.argv[0]+' [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename] [-job jobname variable digits]'))
 	print('		-tex	configures the latex command to produce pdf files default ist pdflatex')
 	print('		-C	-y	exchanges the \\val{xyz} Tags in the .tex file with the calculated values')
 	print('		-c		calculates the the file and produces tex')
@@ -347,11 +347,11 @@ if (len(job)>0):
 	while (os.path.isfile(currjob)):
 		with open(currjob) as f:
 			code = compile(f.read(), currjob, 'exec')
-			exec(code) in evaluate_context
+			exec((code), evaluate_context)
 		#execfile(currjob, evaluate_kontext)
 		num=num+1
 		currjob=jobfile+".calc."+str(num)+".py"
-	exec("print(unum2TEXstring(uround("+job[0]+","+job[1]+"),"+job[1]+"))") in evaluate_kontext
+	exec(("print(unum2TEXstring(uround("+job[0]+","+job[1]+"),"+job[1]+"))"), evaluate_kontext)
 	os._exit(0)
 	
 #look for file
