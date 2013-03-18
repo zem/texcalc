@@ -344,7 +344,10 @@ if (len(job)>0):
 	jobfile=job.pop(0)
 	currjob=jobfile+".calc."+str(num)+".py"
 	while (os.path.isfile(currjob)):
-		execfile(currjob, evaluate_kontext)
+		with open(currjob) as f:
+			code = compile(f.read(), currjob, 'exec')
+			exec(code) in evaluate_context
+		#execfile(currjob, evaluate_kontext)
 		num=num+1
 		currjob=jobfile+".calc."+str(num)+".py"
 	exec("print(unum2TEXstring(uround("+job[0]+","+job[1]+"),"+job[1]+"))") in evaluate_kontext
