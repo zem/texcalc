@@ -5,33 +5,36 @@
 \contentsline {subsection}{\numberline {2.1}Abh\IeC {\"a}ngigkeiten}{4}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Dieses Packet}{4}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Software f\IeC {\"u}r Windows}{4}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Software f\IeC {\"u}r Linux(Debian)}{5}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Entwicklung und Fehlerbehebung}{5}{subsection.2.5}
-\contentsline {section}{\numberline {3}Installation}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Linux}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Windows}{5}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {2.3.1}\LaTeX }{4}{subsubsection.2.3.1}
+\contentsline {subsection}{\numberline {2.4}Python3}{5}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}{T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m }calc}{5}{subsubsection.2.4.1}
+\contentsline {subsection}{\numberline {2.5}Software f\IeC {\"u}r Linux(Debian)}{5}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Entwicklung und Fehlerbehebung}{6}{subsection.2.6}
+\contentsline {section}{\numberline {3}Installation}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Linux}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Windows}{6}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Bekannte {T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m }calcProbleme und deren L\IeC {\"o}sungen}{6}{subsection.3.3}
 \contentsline {subsubsection}{\numberline {3.3.1}Interger vs float}{6}{subsubsection.3.3.1}
-\contentsline {section}{\numberline {4}Contrib}{6}{section.4}
-\contentsline {subsection}{\numberline {4.1}physictools Packet}{6}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Ergebnis Einleitung}{6}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}image commands}{7}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}$23\ensuremath { \times 10^{10}}$}{7}{subsubsection.4.1.3}
-\contentsline {subsubsection}{\numberline {4.1.4}\ensuremath { \frac {\partial }{\partial t}}}{7}{subsubsection.4.1.4}
-\contentsline {subsubsection}{\numberline {4.1.5}$\ensuremath { \frac {\partial }{\partial x}}$}{7}{subsubsection.4.1.5}
-\contentsline {subsubsection}{\numberline {4.1.6}$\ensuremath { \frac {\partial x}{\partial y}}$}{7}{subsubsection.4.1.6}
+\contentsline {section}{\numberline {4}Contrib}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}physictools Packet}{7}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Ergebnis Einleitung}{7}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}image commands}{8}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}$23\ensuremath { \times 10^{10}}$}{8}{subsubsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.4}\ensuremath { \frac {\partial }{\partial t}}}{8}{subsubsection.4.1.4}
+\contentsline {subsubsection}{\numberline {4.1.5}$\ensuremath { \frac {\partial }{\partial x}}$}{8}{subsubsection.4.1.5}
+\contentsline {subsubsection}{\numberline {4.1.6}$\ensuremath { \frac {\partial x}{\partial y}}$}{8}{subsubsection.4.1.6}
 \contentsline {subsubsection}{\numberline {4.1.7}$\ensuremath { \frac {\partial ^2 x}{\partial y \partial z}}$}{8}{subsubsection.4.1.7}
 \contentsline {subsubsection}{\numberline {4.1.8}$\ensuremath { \frac {\partial ^2 x}{\partial y^2}}$}{8}{subsubsection.4.1.8}
-\contentsline {subsubsection}{\numberline {4.1.9}$\ensuremath { \mathaccentV {vec}17E{\nabla }}$}{8}{subsubsection.4.1.9}
-\contentsline {subsubsection}{\numberline {4.1.10}$\ensuremath { \mathbf {\mathaccentV {hat}05E{x}}}$}{8}{subsubsection.4.1.10}
-\contentsline {subsubsection}{\numberline {4.1.11}$\ensuremath { \delimiter "426830A x|}$}{8}{subsubsection.4.1.11}
-\contentsline {subsubsection}{\numberline {4.1.12}$\ensuremath { |x\delimiter "526930B }$}{8}{subsubsection.4.1.12}
-\contentsline {subsubsection}{\numberline {4.1.13}$\ensuremath { \delimiter "426830A x| y\delimiter "526930B }$}{8}{subsubsection.4.1.13}
-\contentsline {subsubsection}{\numberline {4.1.14}$\ensuremath { \delimiter "3222378 }$}{8}{subsubsection.4.1.14}
+\contentsline {subsubsection}{\numberline {4.1.9}$\ensuremath { \mathaccentV {vec}17E{\nabla }}$}{9}{subsubsection.4.1.9}
+\contentsline {subsubsection}{\numberline {4.1.10}$\ensuremath { \mathbf {\mathaccentV {hat}05E{x}}}$}{9}{subsubsection.4.1.10}
+\contentsline {subsubsection}{\numberline {4.1.11}$\ensuremath { \delimiter "426830A x|}$}{9}{subsubsection.4.1.11}
+\contentsline {subsubsection}{\numberline {4.1.12}$\ensuremath { |x\delimiter "526930B }$}{9}{subsubsection.4.1.12}
+\contentsline {subsubsection}{\numberline {4.1.13}$\ensuremath { \delimiter "426830A x| y\delimiter "526930B }$}{9}{subsubsection.4.1.13}
+\contentsline {subsubsection}{\numberline {4.1.14}$\ensuremath { \delimiter "3222378 }$}{9}{subsubsection.4.1.14}
 \contentsline {subsubsection}{\numberline {4.1.15}$\ensuremath { \delimiter "3223379 }$}{9}{subsubsection.4.1.15}
 \contentsline {subsubsection}{\numberline {4.1.16}$\ensuremath { \delimiter "3222378 \delimiter "3222378 }$}{9}{subsubsection.4.1.16}
-\contentsline {subsubsection}{\numberline {4.1.17}$\ensuremath { \delimiter "3223379 \delimiter "3223379 }$}{9}{subsubsection.4.1.17}
-\contentsline {subsubsection}{\numberline {4.1.18}$\ensuremath { \ensuremath { \delimiter "426830A x|} y \ensuremath { |x\delimiter "526930B }}$}{9}{subsubsection.4.1.18}
-\contentsline {subsubsection}{\numberline {4.1.19}$\ensuremath { \sqrt {\frac {x}{y}}}$}{9}{subsubsection.4.1.19}
-\contentsline {subsection}{\numberline {4.2}anfpralayout}{9}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.1.17}$\ensuremath { \delimiter "3223379 \delimiter "3223379 }$}{10}{subsubsection.4.1.17}
+\contentsline {subsubsection}{\numberline {4.1.18}$\ensuremath { \ensuremath { \delimiter "426830A x|} y \ensuremath { |x\delimiter "526930B }}$}{10}{subsubsection.4.1.18}
+\contentsline {subsubsection}{\numberline {4.1.19}$\ensuremath { \sqrt {\frac {x}{y}}}$}{10}{subsubsection.4.1.19}
+\contentsline {subsection}{\numberline {4.2}anfpralayout}{10}{subsection.4.2}
 \contentsline {subsubsection}{\numberline {4.2.1}Titelseite}{10}{subsubsection.4.2.1}

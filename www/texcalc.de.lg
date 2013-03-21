@@ -1,5 +1,6 @@
 htfcss: cmbx  font-weight: bold;
 htfcss: cmbxsl  font-weight: bold; font-style: oblique;
+htfcss: cmti  font-style: italic;
 htfcss: cmbx  font-weight: bold;
 htfcss: cmbxsl  font-weight: bold; font-style: oblique;
 htfcss: cmbx  font-weight: bold;
@@ -14,6 +15,7 @@ File: texcalc.de2.html
 File: texcalc.de3.html
 File: texcalc.de4.html
 File: texcalc.de5.html
+File: texcalc.de6.html
 Css: p.noindent { text-indent: 0em }
 Css: td p.noindent { text-indent: 0em; margin-top:0em; }
 Css: p.nopar { text-indent: 0em; }
@@ -145,24 +147,24 @@ Css: div.gather-star {text-align:center;}
 File: texcalc.png
 --- needs --- texcalc.de.idv[2] ==> texcalc.de0x.png ---
 --- needs --- texcalc.de.idv[3] ==> texcalc.de1x.png ---
---- needs --- texcalc.de.idv[5] ==> texcalc.de2x.png ---
---- needs --- texcalc.de.idv[6] ==> texcalc.de3x.png ---
---- needs --- texcalc.de.idv[7] ==> texcalc.de4x.png ---
---- needs --- texcalc.de.idv[8] ==> texcalc.de5x.png ---
---- needs --- texcalc.de.idv[10] ==> texcalc.de6x.png ---
---- needs --- texcalc.de.idv[11] ==> texcalc.de7x.png ---
---- needs --- texcalc.de.idv[12] ==> texcalc.de8x.png ---
---- needs --- texcalc.de.idv[14] ==> texcalc.de9x.png ---
---- needs --- texcalc.de.idv[15] ==> texcalc.de10x.png ---
---- needs --- texcalc.de.idv[16] ==> texcalc.de11x.png ---
---- needs --- texcalc.de.idv[18] ==> texcalc.de12x.png ---
---- needs --- texcalc.de.idv[20] ==> texcalc.de13x.png ---
---- needs --- texcalc.de.idv[22] ==> texcalc.de14x.png ---
---- needs --- texcalc.de.idv[24] ==> texcalc.de15x.png ---
---- needs --- texcalc.de.idv[26] ==> texcalc.de16x.png ---
---- needs --- texcalc.de.idv[28] ==> texcalc.de17x.png ---
---- needs --- texcalc.de.idv[30] ==> texcalc.de18x.png ---
---- needs --- texcalc.de.idv[32] ==> texcalc.de19x.png ---
+--- needs --- texcalc.de.idv[4] ==> texcalc.de2x.png ---
+--- needs --- texcalc.de.idv[5] ==> texcalc.de3x.png ---
+--- needs --- texcalc.de.idv[6] ==> texcalc.de4x.png ---
+--- needs --- texcalc.de.idv[7] ==> texcalc.de5x.png ---
+--- needs --- texcalc.de.idv[9] ==> texcalc.de6x.png ---
+--- needs --- texcalc.de.idv[10] ==> texcalc.de7x.png ---
+--- needs --- texcalc.de.idv[11] ==> texcalc.de8x.png ---
+--- needs --- texcalc.de.idv[13] ==> texcalc.de9x.png ---
+--- needs --- texcalc.de.idv[14] ==> texcalc.de10x.png ---
+--- needs --- texcalc.de.idv[15] ==> texcalc.de11x.png ---
+--- needs --- texcalc.de.idv[17] ==> texcalc.de12x.png ---
+--- needs --- texcalc.de.idv[19] ==> texcalc.de13x.png ---
+--- needs --- texcalc.de.idv[21] ==> texcalc.de14x.png ---
+--- needs --- texcalc.de.idv[23] ==> texcalc.de15x.png ---
+--- needs --- texcalc.de.idv[25] ==> texcalc.de16x.png ---
+--- needs --- texcalc.de.idv[27] ==> texcalc.de17x.png ---
+--- needs --- texcalc.de.idv[29] ==> texcalc.de18x.png ---
+--- needs --- texcalc.de.idv[31] ==> texcalc.de19x.png ---
 --- characters ---
 Font("cmex","10","10","100")
 Font("cmr","5","5","100")
@@ -181,4 +183,5 @@ Font("cmr","12","12","120")
 Font("cmbx","12","12","120")
 Font("cmbx","10","10","100")
 Font("cmr","9","9","100")
+Font("cmti","10","10","100")
 Font("cmbx","12","12","144")
