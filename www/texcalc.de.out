@@ -5,33 +5,36 @@
 \BOOKMARK [2][-]{subsection.2.1}{Abh\344ngigkeiten}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.2}{Dieses Packet}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.3}{Software f\374r Windows}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.4}{Software f\374r Linux\(Debian\)}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.5}{Entwicklung und Fehlerbehebung}{section.2}% 9
-\BOOKMARK [1][-]{section.3}{Installation}{}% 10
-\BOOKMARK [2][-]{subsection.3.1}{Linux}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.2}{Windows}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.3}{Bekannte TeXcalcProbleme und deren L\366sungen}{section.3}% 13
-\BOOKMARK [3][-]{subsubsection.3.3.1}{Interger vs float}{subsection.3.3}% 14
-\BOOKMARK [1][-]{section.4}{Contrib}{}% 15
-\BOOKMARK [2][-]{subsection.4.1}{physictools Packet}{section.4}% 16
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Ergebnis Einleitung}{subsection.4.1}% 17
-\BOOKMARK [3][-]{subsubsection.4.1.2}{image commands}{subsection.4.1}% 18
-\BOOKMARK [3][-]{subsubsection.4.1.3}{23 1010}{subsection.4.1}% 19
-\BOOKMARK [3][-]{subsubsection.4.1.4}{ t}{subsection.4.1}% 20
-\BOOKMARK [3][-]{subsubsection.4.1.5}{ x}{subsection.4.1}% 21
-\BOOKMARK [3][-]{subsubsection.4.1.6}{ xy}{subsection.4.1}% 22
-\BOOKMARK [3][-]{subsubsection.4.1.7}{ 2 xy z}{subsection.4.1}% 23
-\BOOKMARK [3][-]{subsubsection.4.1.8}{ 2 xy2}{subsection.4.1}% 24
-\BOOKMARK [3][-]{subsubsection.4.1.9}{ }{subsection.4.1}% 25
-\BOOKMARK [3][-]{subsubsection.4.1.10}{ }{subsection.4.1}% 26
-\BOOKMARK [3][-]{subsubsection.4.1.11}{ "426830A x|}{subsection.4.1}% 27
-\BOOKMARK [3][-]{subsubsection.4.1.12}{ |x"526930B }{subsection.4.1}% 28
-\BOOKMARK [3][-]{subsubsection.4.1.13}{ "426830A x| y"526930B }{subsection.4.1}% 29
-\BOOKMARK [3][-]{subsubsection.4.1.14}{ "3222378 }{subsection.4.1}% 30
-\BOOKMARK [3][-]{subsubsection.4.1.15}{ "3223379 }{subsection.4.1}% 31
-\BOOKMARK [3][-]{subsubsection.4.1.16}{ "3222378 "3222378 }{subsection.4.1}% 32
-\BOOKMARK [3][-]{subsubsection.4.1.17}{ "3223379 "3223379 }{subsection.4.1}% 33
-\BOOKMARK [3][-]{subsubsection.4.1.18}{ \040"426830A x| y \040|x"526930B }{subsection.4.1}% 34
-\BOOKMARK [3][-]{subsubsection.4.1.19}{ xy}{subsection.4.1}% 35
-\BOOKMARK [2][-]{subsection.4.2}{anfpralayout}{section.4}% 36
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Titelseite}{subsection.4.2}% 37
+\BOOKMARK [3][-]{subsubsection.2.3.1}{LaTeX}{subsection.2.3}% 8
+\BOOKMARK [2][-]{subsection.2.4}{Python3}{section.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.4.1}{TeXcalc}{subsection.2.4}% 10
+\BOOKMARK [2][-]{subsection.2.5}{Software f\374r Linux\(Debian\)}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.6}{Entwicklung und Fehlerbehebung}{section.2}% 12
+\BOOKMARK [1][-]{section.3}{Installation}{}% 13
+\BOOKMARK [2][-]{subsection.3.1}{Linux}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.2}{Windows}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.3}{Bekannte TeXcalcProbleme und deren L\366sungen}{section.3}% 16
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Interger vs float}{subsection.3.3}% 17
+\BOOKMARK [1][-]{section.4}{Contrib}{}% 18
+\BOOKMARK [2][-]{subsection.4.1}{physictools Packet}{section.4}% 19
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Ergebnis Einleitung}{subsection.4.1}% 20
+\BOOKMARK [3][-]{subsubsection.4.1.2}{image commands}{subsection.4.1}% 21
+\BOOKMARK [3][-]{subsubsection.4.1.3}{23 1010}{subsection.4.1}% 22
+\BOOKMARK [3][-]{subsubsection.4.1.4}{ t}{subsection.4.1}% 23
+\BOOKMARK [3][-]{subsubsection.4.1.5}{ x}{subsection.4.1}% 24
+\BOOKMARK [3][-]{subsubsection.4.1.6}{ xy}{subsection.4.1}% 25
+\BOOKMARK [3][-]{subsubsection.4.1.7}{ 2 xy z}{subsection.4.1}% 26
+\BOOKMARK [3][-]{subsubsection.4.1.8}{ 2 xy2}{subsection.4.1}% 27
+\BOOKMARK [3][-]{subsubsection.4.1.9}{ }{subsection.4.1}% 28
+\BOOKMARK [3][-]{subsubsection.4.1.10}{ }{subsection.4.1}% 29
+\BOOKMARK [3][-]{subsubsection.4.1.11}{ "426830A x|}{subsection.4.1}% 30
+\BOOKMARK [3][-]{subsubsection.4.1.12}{ |x"526930B }{subsection.4.1}% 31
+\BOOKMARK [3][-]{subsubsection.4.1.13}{ "426830A x| y"526930B }{subsection.4.1}% 32
+\BOOKMARK [3][-]{subsubsection.4.1.14}{ "3222378 }{subsection.4.1}% 33
+\BOOKMARK [3][-]{subsubsection.4.1.15}{ "3223379 }{subsection.4.1}% 34
+\BOOKMARK [3][-]{subsubsection.4.1.16}{ "3222378 "3222378 }{subsection.4.1}% 35
+\BOOKMARK [3][-]{subsubsection.4.1.17}{ "3223379 "3223379 }{subsection.4.1}% 36
+\BOOKMARK [3][-]{subsubsection.4.1.18}{ \040"426830A x| y \040|x"526930B }{subsection.4.1}% 37
+\BOOKMARK [3][-]{subsubsection.4.1.19}{ xy}{subsection.4.1}% 38
+\BOOKMARK [2][-]{subsection.4.2}{anfpralayout}{section.4}% 39
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Titelseite}{subsection.4.2}% 40
