@@ -151,13 +151,79 @@ $$a=\val{a}$$
 
 \subsection{Software für Windows}
 
+\subsubsection{\LaTeX}
+
+Da \texcalc auf \LaTeX aufsetzt, ist eine \LaTeX Umgebung erforderlich, außer du beschränkst
+dich auf die Funktion als Taschenrechner. MikTex ist eine gute wahl, dazu optional Texnicenter
+als Arbeitsumgebung, in der Version 2.0 Beta.
+
 \begin{itemize}
-	\item MikTeX \url{http://mirrors.ctan.org/systems/win32/miktex/setup/basic-miktex-2.9.4757.exe}
-	\item TeXnicenter \url{http://www.texniccenter.org/resources/downloads/29-downloads/12-texniccenter-installeir}
-	\item Python \url{http://www.python.org/ftp/python/3.3.0/python-3.3.0.msi}
-	\item Python Numpy \url{http://sourceforge.net/projects/numpy/files/latest/download?source=files}
-	\item Python Uncertainties \url{http://pypi.python.org/packages/source/u/uncertainties/uncertainties-1.9.tar.gz}
+\item \url{http://mirrors.ctan.org/systems/win32/miktex/setup/basic-miktex-2.9.4813.exe}
+\item \url{http://sourceforge.net/projects/texniccenter/files/TeXnicCenter/2%20Beta%201/TXCSetup_2Beta1_Win32.exe/download}
 \end{itemize}
+
+An dieser Stelle wird auch empfohlen ein Versionskontrollsystem wie GIT zu installieren.
+
+%\subsubsection{Putty und GIT}
+%Putty und Puttykeygen
+%Brauchst du auch für Fortran übungen. Das ist ein ssh client
+%für Windows. GIT braucht den für die Datenübertragung.
+%- http://the.earth.li/~sgtatham/putty/latest/x86/putty-0.62-installer.exe
+%
+%
+%git für Windows
+%- http://msysgit.googlecode.com/files/Git-1.8.1.2-preview20130201.exe
+%	ohne Additional Icons 
+%	ohne IE integration 
+%  dann einen dialog später: use tortoise Plink
+%
+%tortoise git
+%Auch hier wieder ein Frontend um die Arbeit leichter zu machen
+%- http://tortoisegit.googlecode.com/files/TortoiseGit-1.8.1.0-32bit.msi
+
+\subsection{Python3}
+
+Da TexCalc auf python basiert, brauchst du auch Python, sowie die Module
+Numpy und Uncertainties.
+
+\begin{itemize}
+\item \url{http://www.python.org/ftp/python/3.3.0/python-3.3.0.msi}
+\item \url{http://sourceforge.net/projects/numpy/files/NumPy/1.7.0/numpy-1.7.0-win32-superpack-python3.3.exe/download}
+\item \url{http://pypi.python.org/packages/source/u/uncertainties/uncertainties-1.9.tar.gz}
+\end{itemize}
+
+Uncertainties kommt als tar archiv ohne grafischen installer daher, damit du das installiert bekommst entpackst du es
+ersteinmal in ein verzeichnis, dann führst du cmd.exe aus, und wechselst in das eben angelegte
+Verzeichnis\footnote{cd ist das Komando dafür}. Dann führst du "setup.py install" aus.
+
+\subsubsection{\texcalc}
+
+\begin{itemize}
+\item \url{https://github.com/zem/texcalc/archive/master.zip}
+\end{itemize}
+
+Die Dateien
+\begin{itemize}
+\item contrib/anfpralayout.sty
+\item contrib/physictools.sty
+\item texcalc.sty
+\end{itemize}
+kopierst du nach: \url{C:\backslash Program Files\backslash MiKTeX 2.9\backslash tex\backslash latex\backslash texcalc\backslash}. Den Ordner musst du anlegen.
+Die Datei texcalc.py kopierst du nach \url{C:\backslash Program Files\backslash MiKTeX 2.9\backslash miktex\backslash bin\backslash }. \\
+
+Damit die .sty Dateien vom miktex auch gefunden werden, musst du Miktex Optionen als Administrator
+ausführen und Rebuild FNTDB machen.\\
+
+Im Texnicenter kannst du unter {\textit ausgabe/ausgabeprofile definieren} das Profil {\textit LatexPDF} kopieren nach {\textit Latex PDF TeXcalc}
+als pfad des LaTeX compilers verwendest du:
+
+\begin{verbatim}
+	C:\Python33\python.exe "C:\Program Files (x86)\MiKTeX 2.9\miktex\bin\texcalc.py" -c
+\end{verbatim}
+
+Zum Schluss legst du noch eine Verknüpfung von \url{C:\backslash Program Files\backslash MiKTeX 2.9\backslash miktex\backslash bin\backslash texcalc.py}
+auf den Desktop oder wo du es sonst hinhaben willst.
+
 
 \subsection{Software für Linux(Debian)}
 

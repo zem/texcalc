@@ -1,0 +1,92 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+\usepackage{anfpralayout}
+\usepackage{physictools}
+\usepackage{texcalc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0cm}
+
+\newcommand{\texcalc}{{\TeX}calc}
+\begin{document}
+\title{Anleitung zu den {\TeX}calc \LaTeXe-Packeten}
+\author{Hans Freitag (und einige andere)}
+\maketitle
+
+Dieses Dokument gibts als PDF zum Downloaden auf \url{http://www.nawi.at/~zem/texcalc/texcalc.de.pdf}
+
+\image{texcalc.png}{Ein Screenshot des texcalc.py Taschenrechners}
+
+\texcalc Besteht aus drei Komponenten.
+
+\begin{enumerate}
+\item texcalc.py ist ein in python geschriebener Taschenrechner der das Pythonmodul
+		uncertainties benutzt.
+\item texcalc.sty ist ein \LaTeXe-Packet mit dem Berechnungen mit Messunsicherheiten
+		direkt aus dem \LaTeXe Dokument heraus möglich sind.
+\item Zusatz styles die zwar nicht direkt etwas mit \texcalc zu tun haben, aber für
+		das Schreiben von Physikprotokollen Nützlich sein können. Die beiden zusatzpackete
+		gliedern sich in:
+	\begin{itemize}
+	\item physictools.sty eine allgemeine toolsammlung die das Leben leichter machen soll
+	\item anfpralayout.sty Layoutparameter Deckbletter etc, die wahrscheinlich nie einmal
+		irgendwo anders als an der Uniwien in der Physik verwendet werden.
+	\end{itemize}
+	Die Contrib Packete sind eine Sammlung von \LaTeXe-Makros von Studierenden der Fakultät,
+	die sich im Laufe des Studiums als Hilfreich erwiesen haben.
+\end{enumerate}
+
+\tableofcontents
+
+\section{Features/Benutzung}
+
+\subsection{Taschenrechner}
+
+Der Taschenrechner wird mit dem Komando texcalc.py gestartet\footnote{Doppelklick geht auf Windows auch}.
+
+Abbildung \ref{texcalc.png} zeigt einen Screenshot des Taschenrechners an. Zahlen mit Unsicherheiten können
+durch $f(number, uncertainty)$ notiert werden. In dem Prompt kann alles berechnet werden was in Python berechnet
+werden kann. \\
+
+\subsection{Berechnungen direkt im \LaTeX File}
+
+Die Rechnungen können auch direkt im LaTeX File durchgeführt werden, indem sie innerhalb des calc environments
+notiert werden\footnote{\textbackslash usepackage\{texcalc\} nicht vergessen.}
+
+\begin{verbatim}
+	\begin{calc}
+	x=f(23.55,0.02)
+	#r 23.55+/-0.02
+	def foo(x):
+		y=x**2
+		return y
+
+	z=33
+	#r 33
+	foo(z)
+	#r 1089
+	y=f(222.0,22)
+	#r 222.0+/-22.0
+
+	a=f(24423.0,220)
+	#r 222.0+/-22.0
+	\end{calc}
+\end{verbatim}
+
+\begin{calc}
+x=f(23.55,0.02)
+#r 23.55+/-0.02
+def foo(x):
+	y=x**2
+	return y
+
+z=33
+#r 33
+foo(z)
+#r 1089
+y=f(222.0,22)
+#r 222.0+/-22.0
+
