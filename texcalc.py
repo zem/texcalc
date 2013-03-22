@@ -256,6 +256,7 @@ def calculate_texfile(filename, texmode='none'):
 				val_file.write(line+"\n")
 			commentchr="%"
 		elif (commentchr=="#") and (line!="\\end{calc}"):
+			line=re.sub("^(>|\\.) ", "", line) # this strips command prompts in case you copied code from the commandline to a latex file
 			noval_file.write(line+"\n")
 			if (texcalcsty=='yes'):
 				val_file.write(line+"\n")
@@ -297,6 +298,12 @@ def calculate_texfile(filename, texmode='none'):
 	os.unlink(novalname)
 	return
 
+# this function adds up #r comments to make it easier to copy and paste 
+# multiple lines to a latex file
+def mydisplayhook(data):
+	sys.stdout.write("#r ")
+	print data
+
 def usage():
 	print(('	usage: '+sys.argv[0]+' [-tex latexcommand] [-C -y] [-c] [-?|-h] [filename] [-job jobname variable digits]'))
 	print('		-tex	configures the latex command to produce pdf files default ist pdflatex')
@@ -312,6 +319,10 @@ def usage():
 ################################################################################################
 # Main Program
 
+sys.ps1="> "
+sys.ps2=". "
+sys.displayhook=mydisplayhook
+
 #parse arguments 
 arguments=sys.argv[1:]
 while len(arguments)>=1:
@@ -319,9 +330,11 @@ while len(arguments)>=1:
 	if (arg=="-q"):
 		sys.ps1=""
 		sys.ps2=""
+		sys.displayhook=sys.__displayhook__
 	elif (arg=="-t"):
 		sys.ps1="ready\n"
 		sys.ps2="ready\n"
+		sys.displayhook=sys.__displayhook__
 	elif (arg=="-tex"):
 		latex=arguments.pop(0)
 	elif (arg=="-job"):
