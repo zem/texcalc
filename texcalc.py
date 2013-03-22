@@ -25,6 +25,8 @@ def f(a, b='na'):
 	if (b!='na'):
 		return ufloat((a, b))
 	else:
+		if isinstance(a, str):
+			a=re.sub(',', '.', a)
 		return ufloat(a)
 
 def uround(a, digits=2):
