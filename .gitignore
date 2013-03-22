@@ -1,0 +1,33 @@
+# Dateien die vom Git ignoriert werden sollen
+*~
+*.out
+*.aux
+*.log
+*.bbl
+*.blg
+*.toc
+*.synctex
+*.swp
+*.fdb_latexmk
+tags
+.comments
+*.calc.*.py
+*.pdf
+*.tmp
+
+#	doc/texcalc.de.aux
+#	doc/texcalc.de.calc.1.py
+#	doc/texcalc.de.log
+#	doc/texcalc.de.out
+#	doc/texcalc.de.pdf
+#	doc/texcalc.de.pdf.noval.tmp
+#	doc/texcalc.de.pdf.val.tmp
+#	doc/texcalc.de.toc
+#	test.tex.noval.tmp
+#	test.tex.val.tmp
+#	testdata/newtest.aux
+#	testdata/newtest.calc.1.py
+#	testdata/newtest.log
+#	testdata/newtest.pdf
+#	testdata/newtest.toc
+#	testdata/texcalc.png
