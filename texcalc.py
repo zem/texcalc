@@ -96,9 +96,9 @@ def FloatToList(fl):
 		if num[2] > 0: 
 			num[2]=num[2]-1
 			if len(num[1]) > 0:
-				num[0]=num[0]+num[1][1]
+				num[0]=num[0]+num[1][0]
 				if len(num[1]) > 1: 
-					num[1]=num[1][2:]
+					num[1]=num[1][1:]
 				else:
 					num[1]=''
 			else:
