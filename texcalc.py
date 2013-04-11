@@ -29,10 +29,15 @@ def f(a, b='na'):
 			a=re.sub(',', '.', a)
 		return ufloat(a)
 
+# rounds a ufloat number to the amount of significant digits 
+# a float number is rounded to n digits after the delemiter
 def uround(a, digits=2):
 	if isinstance(a, UFloat):
 		n=0
 		x=std_dev(a)
+		while x>=10**(digits):
+			n=n-1
+			x=std_dev(a)*10**n
 		while x<10**(digits-1):
 			n=n+1
 			x=std_dev(a)*10**n
