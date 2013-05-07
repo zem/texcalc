@@ -20,6 +20,7 @@ filename='' # set a filename to the tex file
 job=[] # sets the filename of a latex jobfile 
 texcalcsty='no' # whether the process has texcalc.sty 
 verbatim='no' # detect if we are in a verbatim environment or not 
+seperator=',' # defines how a number should be seperated 
 
 def f(a, b='na'):
 	if (b!='na'):
@@ -140,10 +141,12 @@ def unum2TEXstring(num, digits=2):
 			unc[1]=unc[1]+'0'
 		while ( len(val[1]) < len(unc[1]) ):
 			val[1]=val[1]+'0'
+		while ( len(unc[1]) < len(val[1]) ):
+			unc[1]=unc[1]+'0'
 		if unc[0]=='': unc[0]='0'
 		if val[0]=='': val[0]='0'
-		uncsep=','
-		valsep=','
+		uncsep=seperator
+		valsep=seperator
 		if unc[1]=='': uncsep=''
 		if val[1]=='': valsep=''
 		return '('+val[3]+val[0]+valsep+val[1]+' \\pm '+unc[0]+uncsep+unc[1]+')'
@@ -348,6 +351,8 @@ while len(arguments)>=1:
 			job.append(arguments.pop(0))
 	elif (arg=="-c"):
 		texmode='generate'
+	elif (arg=="-s"):
+		seperator=arguments.pop(0)
 	elif (arg=="-C"):
 		if arguments.pop(0) != '-y': 
 			print('-C must be followed by -y')
