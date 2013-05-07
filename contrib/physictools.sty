@@ -102,6 +102,17 @@
 	\end{figure}
 }
 
+\DeclareOption{wideimages}{
+	\renewcommand{\image}[2]{
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{#1}
+			\caption{#2}
+			\label{#1}
+		\end{figure}
+	}
+}
+
 %\newcommand{\rimage}[2]{
 %	\begin{floatingfigure}[r]{7cm}
 %	\includegraphics{#1}
