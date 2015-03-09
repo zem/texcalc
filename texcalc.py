@@ -11,7 +11,7 @@ from uncertainties import *
 from uncertainties.umath import *
 
 # this variable can be used in files when the value is still not known
-VALUE=ufloat((1.0, 0.1)) 
+VALUE=ufloat(1.0, 0.1) 
 
 #define some global variables
 texmode='none' # should a pdf be generated
@@ -24,7 +24,7 @@ seperator=',' # defines how a number should be seperated
 
 def f(a, b='na'):
 	if (b!='na'):
-		return ufloat((a, b))
+		return ufloat(a, b)
 	else:
 		if isinstance(a, str):
 			a=re.sub(',', '.', a)
